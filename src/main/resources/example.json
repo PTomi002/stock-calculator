@@ -1,0 +1,778 @@
+{
+  17
+  items
+  "financialsTemplate": {
+    ...
+  }
+  2
+  items
+  "cashflowStatementHistory": {
+    ...
+  }
+  2
+  items
+  "balanceSheetHistoryQuarterly": {
+    ...
+  }
+  2
+  items
+  "earnings": {
+    ...
+  }
+  4
+  items
+  "price": {
+    ...
+  }
+  45
+  items
+  "incomeStatementHistoryQuarterly": {
+    ...
+  }
+  2
+  items
+  "incomeStatementHistory": {
+    2
+    items
+    "incomeStatementHistory": [
+      4
+      items
+      0
+      :
+      {
+        24
+        items
+        "researchDevelopment": {
+          ...
+        }
+        3
+        items
+        "effectOfAccountingCharges": {}
+        0
+        items
+        "incomeBeforeTax": {
+          ...
+        }
+        3
+        items
+        "minorityInterest": {
+          ...
+        }
+        3
+        items
+        "netIncome": {
+          ...
+        }
+        3
+        items
+        "sellingGeneralAdministrative": {
+          ...
+        }
+        3
+        items
+        "grossProfit": {
+          ...
+        }
+        3
+        items
+        "ebit": {
+          ...
+        }
+        3
+        items
+        "endDate": {
+          ...
+        }
+        2
+        items
+        "operatingIncome": {
+          ...
+        }
+        3
+        items
+        "otherOperatingExpenses": {
+          ...
+        }
+        3
+        items
+        "interestExpense": {
+          ...
+        }
+        3
+        items
+        "extraordinaryItems": {}
+        0
+        items
+        "nonRecurring": {}
+        0
+        items
+        "otherItems": {}
+        0
+        items
+        "incomeTaxExpense": {
+          ...
+        }
+        3
+        items
+        "totalRevenue": {
+          ...
+        }
+        3
+        items
+        "totalOperatingExpenses": {
+          ...
+        }
+        3
+        items
+        "costOfRevenue": {
+          ...
+        }
+        3
+        items
+        "totalOtherIncomeExpenseNet": {
+          ...
+        }
+        3
+        items
+        "maxAge": 1
+        "discontinuedOperations": {}
+        0
+        items
+        "netIncomeFromContinuingOps": {
+          ...
+        }
+        3
+        items
+        "netIncomeApplicableToCommonShares": {
+          ...
+        }
+        3
+        items
+      }
+      1
+      :
+      {
+        ...
+      }
+      24
+      items
+      2
+      :
+      {
+        ...
+      }
+      24
+      items
+      3
+      :
+      {
+        ...
+      }
+      24
+      items
+    ]
+    "maxAge": 86400
+  }
+  "balanceSheetHistory": {
+    2
+    items
+    "balanceSheetStatements": [
+      4
+      items
+      0
+      :
+      {
+        ...
+      }
+      28
+      items
+      1
+      :
+      {
+        ...
+      }
+      28
+      items
+      2
+      :
+      {
+        ...
+      }
+      28
+      items
+      3
+      :
+      {
+        30
+        items
+        "intangibleAssets": {
+          ...
+        }
+        3
+        items
+        "capitalSurplus": {
+          ...
+        }
+        3
+        items
+        "totalLiab": {
+          3
+          items
+          "raw": 51870000000
+          "fmt": "51.87B"
+          "longFmt": "51,870,000,000"
+        }
+        "totalStockholderEquity": {
+          ...
+        }
+        3
+        items
+        "minorityInterest": {
+          ...
+        }
+        3
+        items
+        "otherCurrentLiab": {
+          ...
+        }
+        3
+        items
+        "totalAssets": {
+          3
+          items
+          "raw": 70615000000
+          "fmt": "70.61B"
+          "longFmt": "70,615,000,000"
+        }
+        "endDate": {
+          ...
+        }
+        2
+        items
+        "commonStock": {
+          ...
+        }
+        3
+        items
+        "otherCurrentAssets": {
+          ...
+        }
+        3
+        items
+        "retainedEarnings": {
+          ...
+        }
+        3
+        items
+        "otherLiab": {
+          ...
+        }
+        3
+        items
+        "goodWill": {
+          ...
+        }
+        3
+        items
+        "treasuryStock": {
+          ...
+        }
+        3
+        items
+        "otherAssets": {
+          ...
+        }
+        3
+        items
+        "cash": {
+          ...
+        }
+        3
+        items
+        "totalCurrentLiabilities": {
+          ...
+        }
+        3
+        items
+        "deferredLongTermAssetCharges": {
+          ...
+        }
+        3
+        items
+        "shortLongTermDebt": {
+          ...
+        }
+        3
+        items
+        "otherStockholderEquity": {
+          ...
+        }
+        3
+        items
+        "propertyPlantEquipment": {
+          ...
+        }
+        3
+        items
+        "totalCurrentAssets": {
+          ...
+        }
+        3
+        items
+        "longTermInvestments": {
+          ...
+        }
+        3
+        items
+        "netTangibleAssets": {
+          ...
+        }
+        3
+        items
+        "shortTermInvestments": {
+          ...
+        }
+        3
+        items
+        "netReceivables": {
+          ...
+        }
+        3
+        items
+        "maxAge": 1
+        "longTermDebt": {
+          ...
+        }
+        3
+        items
+        "inventory": {
+          ...
+        }
+        3
+        items
+        "accountsPayable": {
+          ...
+        }
+        3
+        items
+      }
+    ]
+    "maxAge": 86400
+  }
+  "cashflowStatementHistoryQuarterly": {
+    2
+    items
+    "cashflowStatements": [
+      ...
+    ]
+    4
+    items
+    "maxAge": 86400
+  }
+  "quoteType": {
+    11
+    items
+    "exchange": "NYQ"
+    "shortName": "Teva Pharmaceutical Industries "
+    "longName": "Teva Pharmaceutical Industries Limited"
+    "exchangeTimezoneName": "America/New_York"
+    "exchangeTimezoneShortName": "EDT"
+    "isEsgPopulated": false
+    "gmtOffSetMilliseconds": "-14400000"
+    "quoteType": "EQUITY"
+    "symbol": "TEVA"
+    "messageBoardId": "finmb_308047"
+    "market": "us_market"
+  }
+  "summaryDetail": {
+    52
+    items
+    "previousClose": {
+      ...
+    }
+    2
+    items
+    "regularMarketOpen": {
+      ...
+    }
+    2
+    items
+    "twoHundredDayAverage": {
+      ...
+    }
+    2
+    items
+    "trailingAnnualDividendYield": {
+      ...
+    }
+    2
+    items
+    "payoutRatio": {
+      ...
+    }
+    2
+    items
+    "volume24Hr": {}
+    0
+    items
+    "regularMarketDayHigh": {
+      ...
+    }
+    2
+    items
+    "navPrice": {}
+    0
+    items
+    "averageDailyVolume10Day": {
+      ...
+    }
+    3
+    items
+    "totalAssets": {}
+    0
+    items
+    "regularMarketPreviousClose": {
+      ...
+    }
+    2
+    items
+    "fiftyDayAverage": {
+      ...
+    }
+    2
+    items
+    "trailingAnnualDividendRate": {
+      ...
+    }
+    2
+    items
+    "open": {
+      ...
+    }
+    2
+    items
+    "toCurrency": NULL
+    "averageVolume10days": {
+      ...
+    }
+    3
+    items
+    "expireDate": {}
+    0
+    items
+    "yield": {}
+    0
+    items
+    "algorithm": NULL
+    "dividendRate": {}
+    0
+    items
+    "exDividendDate": {
+      ...
+    }
+    2
+    items
+    "beta": {
+      ...
+    }
+    2
+    items
+    "circulatingSupply": {}
+    0
+    items
+    "startDate": {}
+    0
+    items
+    "regularMarketDayLow": {
+      ...
+    }
+    2
+    items
+    "priceHint": {
+      ...
+    }
+    3
+    items
+    "currency": "USD"
+    "regularMarketVolume": {
+      ...
+    }
+    3
+    items
+    "lastMarket": NULL
+    "maxSupply": {}
+    0
+    items
+    "openInterest": {}
+    0
+    items
+    "marketCap": {
+      ...
+    }
+    3
+    items
+    "volumeAllCurrencies": {}
+    0
+    items
+    "strikePrice": {}
+    0
+    items
+    "averageVolume": {
+      ...
+    }
+    3
+    items
+    "priceToSalesTrailing12Months": {
+      ...
+    }
+    2
+    items
+    "dayLow": {
+      ...
+    }
+    2
+    items
+    "ask": {
+      ...
+    }
+    2
+    items
+    "ytdReturn": {}
+    0
+    items
+    "askSize": {
+      ...
+    }
+    3
+    items
+    "volume": {
+      ...
+    }
+    3
+    items
+    "fiftyTwoWeekHigh": {
+      ...
+    }
+    2
+    items
+    "forwardPE": {
+      ...
+    }
+    2
+    items
+    "maxAge": 1
+    "fromCurrency": NULL
+    "fiveYearAvgDividendYield": {}
+    0
+    items
+    "fiftyTwoWeekLow": {
+      ...
+    }
+    2
+    items
+    "bid": {
+      ...
+    }
+    2
+    items
+    "tradeable": false
+    "dividendYield": {}
+    0
+    items
+    "bidSize": {
+      ...
+    }
+    3
+    items
+    "dayHigh": {
+      ...
+    }
+    2
+    items
+  }
+  "symbol": "TEVA"
+  "pageViews": {
+    4
+    items
+    "shortTermTrend": "DOWN"
+    "midTermTrend": "UP"
+    "longTermTrend": "UP"
+    "maxAge": 1
+  }
+  "timeSeries": {
+    34
+    items
+    "annualGainsLossesNotAffectingRetainedEarnings": [
+      ...
+    ]
+    4
+    items
+    "annualCurrentLiabilities": [
+      ...
+    ]
+    4
+    items
+    "annualTotalNonCurrentAssets": [
+      ...
+    ]
+    4
+    items
+    "annualOtherNonCurrentAssets": [
+      ...
+    ]
+    4
+    items
+    "annualNetPPE": [
+      ...
+    ]
+    4
+    items
+    "annualOtherCurrentLiabilities": [
+      ...
+    ]
+    4
+    items
+    "annualOtherShortTermInvestments": []
+    0
+    items
+    "annualOtherIntangibleAssets": [
+      ...
+    ]
+    4
+    items
+    "annualCashCashEquivalentsAndShortTermInvestments": [
+      ...
+    ]
+    4
+    items
+    "annualInventory": [
+      ...
+    ]
+    4
+    items
+    "annualOtherCurrentAssets": [
+      ...
+    ]
+    4
+    items
+    "annualAccumulatedDepreciation": [
+      ...
+    ]
+    4
+    items
+    "annualRetainedEarnings": [
+      ...
+    ]
+    4
+    items
+    "annualGrossPPE": [
+      ...
+    ]
+    4
+    items
+    "annualAccountsPayable": [
+      ...
+    ]
+    4
+    items
+    "annualTotalNonCurrentLiabilitiesNetMinorityInterest": [
+      ...
+    ]
+    4
+    items
+    "annualCashAndCashEquivalents": [
+      ...
+    ]
+    4
+    items
+    "annualCurrentAccruedExpenses": [
+      ...
+    ]
+    4
+    items
+    "annualLongTermDebt": [
+      ...
+    ]
+    4
+    items
+    "annualCurrentAssets": [
+      ...
+    ]
+    4
+    items
+    "annualAccountsReceivable": [
+      ...
+    ]
+    4
+    items
+    "annualTotalLiabilitiesNetMinorityInterest": [
+      ...
+    ]
+    4
+    items
+    "annualTotalAssets": [
+      ...
+    ]
+    4
+    items
+    "annualGoodwill": [
+      ...
+    ]
+    4
+    items
+    "annualCapitalStock": [
+      ...
+    ]
+    4
+    items
+    "annualInvestmentsAndAdvances": []
+    0
+    items
+    "annualOtherNonCurrentLiabilities": [
+      ...
+    ]
+    4
+    items
+    "annualNonCurrentDeferredTaxesLiabilities": [
+      ...
+    ]
+    4
+    items
+    "annualStockholdersEquity": [
+      ...
+    ]
+    4
+    items
+    "annualCurrentDebt": [
+      ...
+    ]
+    4
+    items
+    "annualCurrentDeferredRevenue": []
+    0
+    items
+    "annualIncomeTaxPayable": []
+    0
+    items
+    "annualNonCurrentDeferredRevenue": []
+    0
+    items
+    "timestamp": [
+      ...
+    ]
+    4
+    items
+  }
+  "meta": {
+    4
+    items
+    "symbol": "TEVA"
+    "start": 493590046
+    "end": 1622201276
+    "timeUnit": "annual"
+  }
+  "loading": false
+  "errorList": []
+  0
+  items
+}
