@@ -30,12 +30,10 @@ interface FinanceGateway {
     fun balanceSheet(ticker: String, exchange: String): BalanceSheet
 }
 
-@Suppress("UnstableApiUsage")
 abstract class FinanceGatewayBase(
     protected val limiter: RateLimiter
 ) : FinanceGateway
 
-@Suppress("UnstableApiUsage")
 class YahooFinanceAPI(
     limiter: RateLimiter
 ) : FinanceGatewayBase(limiter) {

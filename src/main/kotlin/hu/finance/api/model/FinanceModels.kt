@@ -4,8 +4,27 @@ import java.math.BigDecimal
 import java.time.Instant
 
 data class BalanceSheet(
+    val share: Share,
+    val company: Company,
     val balanceSheetHistory: BalanceSheetHistory,
     val incomeStatementHistory: IncomeStatementHistory
+)
+
+/**
+ * Részvény összefoglaló.
+ */
+data class Share(
+    val currency: String,
+    val open: BigDecimal,
+    val previousClose: BigDecimal
+)
+
+/**
+ * Vállalati összefoglaló.
+ */
+data class Company(
+    val name: String,
+    val exchange: String
 )
 
 /**

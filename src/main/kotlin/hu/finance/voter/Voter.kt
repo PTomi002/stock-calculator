@@ -1,39 +1,51 @@
 package hu.finance.voter
 
 import hu.finance.api.model.BalanceSheet
+import hu.finance.formatter.MessageFormatter
 import hu.finance.util.Maths
 import java.math.BigDecimal
-import java.util.logging.Logger
+import java.time.Instant
+import java.time.ZoneId
+import java.time.ZonedDateTime
 
 interface Voter<T> {
     fun vote(question: T): Decision
 }
 
-data class Decision(
-    val vote: Boolean,
-    val reason: String? = null
+abstract class Decision(
+    val result: Boolean,
+    val hint: List<String>
 )
 
-class ReturnOnEquityVoter : Voter<BalanceSheet> {
-
-    private val logger = Logger.getLogger(javaClass.canonicalName)
+class ReturnOnEquityVoter(
+    private val formatter: MessageFormatter<ROEDecision>
+) : Voter<BalanceSheet> {
 
     override fun vote(question: BalanceSheet): Decision {
-        val tmp = BigDecimal.ZERO
-        question.balanceSheetHistory.balanceSheetStatements
+        val roes = question.balanceSheetHistory.balanceSheetStatements
             .map { bs -> bs to question.incomeStatementHistory.incomeStatements.find { it.date == bs.date }!! }
             .map {
-                val roe = Maths.roe(
+                it.first.date to Maths.roe(
                     netIncome = it.second.netIncome,
                     shareholderEquity = Maths.equity(
                         totalAsset = it.first.totalAssets,
                         totalLiability = it.first.totalLiabilities
                     )
                 )
-                val yearsToDoubleEquity = Maths.seventyTwoRule(roe.toDouble())
-                Triple(it.first.date, roe, yearsToDoubleEquity)
             }
-            .onEach { logger.info { "Year: ${it.first} - ROE: ${it.second} % - Years to double equity: ${it.third} year" } }
-        return Decision(true)
+        val negativeYears = roes.filter { it.second <= 0.toBigDecimal() }
+            .takeIf { it.isNotEmpty() }
+            ?.let {
+                it.joinToString(prefix = "Veszteséges évek: ") {
+                    "${ZonedDateTime.ofInstant(it.first, ZoneId.of("UTC")).year}"
+                }
+            }
+        return ROEDecision(true, listOfNotNull(negativeYears), roes).also { formatter.print(it) }
     }
+
+    inner class ROEDecision(
+        result: Boolean,
+        hints: List<String>,
+        val roe: List<Pair<Instant, BigDecimal>>,
+    ) : Decision(result, hints)
 }

@@ -4,8 +4,21 @@ import hu.finance.api.model.*
 import java.time.Instant
 
 data class BalanceSheetDto(
+    var summaryDetail: SummaryDetailsDto,
+    var quoteType: QuoteTypeDto,
     var balanceSheetHistory: BalanceSheetHistoryDto,
     var incomeStatementHistory: IncomeStatementHistoryDto
+)
+
+data class SummaryDetailsDto(
+    var previousClose: DataDto,
+    var open: DataDto,
+    var currency: String
+)
+
+data class QuoteTypeDto(
+    var exchange: String,
+    var longName: String
 )
 
 data class BalanceSheetHistoryDto(
@@ -32,6 +45,15 @@ data class DataDto(
 )
 
 fun BalanceSheetDto.toBalanceSheet() = BalanceSheet(
+    share = Share(
+        open = summaryDetail.open.raw.toBigDecimal(),
+        previousClose = summaryDetail.previousClose.raw.toBigDecimal(),
+        currency = summaryDetail.currency
+    ),
+    company = Company(
+        name = quoteType.longName,
+        exchange = quoteType.exchange
+    ),
     balanceSheetHistory = BalanceSheetHistory(
         balanceSheetStatements = balanceSheetHistory.balanceSheetStatements.map {
             BalanceSheetStatement(
