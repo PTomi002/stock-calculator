@@ -10,26 +10,17 @@ data class BalanceSheet(
     val incomeStatementHistory: IncomeStatementHistory
 )
 
-/**
- * Részvény összefoglaló.
- */
 data class Share(
     val currency: String,
     val open: BigDecimal,
     val previousClose: BigDecimal
 )
 
-/**
- * Vállalati összefoglaló.
- */
 data class Company(
     val name: String,
     val exchange: String
 )
 
-/**
- * Aktuális snapshot a vállalat eszközeiről, sajáttőkéjéről és forrásairól.
- */
 data class BalanceSheetHistory(
     val balanceSheetStatements: List<BalanceSheetStatement>
 )
@@ -40,9 +31,6 @@ data class BalanceSheetStatement(
     val totalLiabilities: BigDecimal
 )
 
-/**
- * Mennyi pénzt termel egy vállalkozás az adott időszak alatt.
- */
 data class IncomeStatementHistory(
     val incomeStatements: List<IncomeStatement>
 )
