@@ -3,6 +3,21 @@ package hu.finance.api.model
 import java.math.BigDecimal
 import java.time.Instant
 
+data class TimeSeries(
+    val timeSeriesData: List<TimeSeriesData>
+)
+
+data class TimeSeriesData(
+    val annualShareIssued: List<TimeSeriesDataContainer> = emptyList(),
+    val annualLongTermDebt: List<TimeSeriesDataContainer> = emptyList(),
+    val annualStockholdersEquity: List<TimeSeriesDataContainer> = emptyList()
+)
+
+data class TimeSeriesDataContainer(
+    val date: Instant,
+    val value: BigDecimal
+)
+
 data class BalanceSheet(
     val share: Share,
     val company: Company,

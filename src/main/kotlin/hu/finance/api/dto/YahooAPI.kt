@@ -1,6 +1,34 @@
 package hu.finance.api.dto
 
 import hu.finance.api.model.*
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneOffset
+
+data class TimeSeriesDto(
+    val timeseries: TimeSeriesResultDto
+)
+
+data class TimeSeriesResultDto(
+    val result: List<TimeSeriesDataDto>
+)
+
+data class TimeSeriesDataDto(
+    val meta: MetadataDto,
+    val annualShareIssued: List<TimeSeriesDataContainerDto>? = null,
+    val annualLongTermDebt: List<TimeSeriesDataContainerDto>? = null,
+    val annualStockholdersEquity: List<TimeSeriesDataContainerDto>? = null
+)
+
+data class TimeSeriesDataContainerDto(
+    val asOfDate: String,
+    val reportedValue: DataDto
+)
+
+data class MetadataDto(
+    val symbol: List<String>,
+    val type: List<String>
+)
 
 data class StockDto(
     val quoteSummary: QuoteSummaryDto
@@ -51,6 +79,30 @@ data class DataDto(
     var raw: String
 )
 
+fun TimeSeriesDto.toTimeSeries() = timeseries.result.run {
+    TimeSeries(
+        timeSeriesData = listOf(
+            TimeSeriesData(
+                annualShareIssued = flatMap { tsData ->
+                    tsData.annualShareIssued?.map { it.toTimeSeriesDataContainer() } ?: emptyList()
+                },
+                annualLongTermDebt = flatMap { tsData ->
+                    tsData.annualLongTermDebt?.map { it.toTimeSeriesDataContainer() } ?: emptyList()
+                },
+                annualStockholdersEquity = flatMap { tsData ->
+                    tsData.annualStockholdersEquity?.map { it.toTimeSeriesDataContainer() } ?: emptyList()
+                }
+            )
+        )
+    )
+}
+
+fun TimeSeriesDataContainerDto.toTimeSeriesDataContainer() =
+    TimeSeriesDataContainer(
+        date = LocalDate.parse(asOfDate).atStartOfDay().toInstant(ZoneOffset.UTC),
+        value = reportedValue.raw.toBigDecimal()
+    )
+
 fun StockDto.toStock() = quoteSummary.result.first().run {
     BalanceSheet(
         share = Share(
@@ -65,7 +117,7 @@ fun StockDto.toStock() = quoteSummary.result.first().run {
         balanceSheetHistory = BalanceSheetHistory(
             balanceSheetStatements = balanceSheetHistory.balanceSheetStatements.map {
                 BalanceSheetStatement(
-                    date = java.time.Instant.ofEpochSecond(it.endDate.raw.toLong()),
+                    date = Instant.ofEpochSecond(it.endDate.raw.toLong()),
                     totalAssets = it.totalAssets.raw.toBigDecimal(),
                     totalLiabilities = it.totalLiab.raw.toBigDecimal()
                 )
@@ -74,7 +126,7 @@ fun StockDto.toStock() = quoteSummary.result.first().run {
         incomeStatementHistory = IncomeStatementHistory(
             incomeStatements = incomeStatementHistory.incomeStatementHistory.map {
                 IncomeStatement(
-                    date = java.time.Instant.ofEpochSecond(it.endDate.raw.toLong()),
+                    date = Instant.ofEpochSecond(it.endDate.raw.toLong()),
                     netIncome = it.netIncome.raw.toBigDecimal()
                 )
             }

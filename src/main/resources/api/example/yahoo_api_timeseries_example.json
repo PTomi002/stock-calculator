@@ -1,0 +1,5359 @@
+{
+  "timeseries": {
+    "result": [
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherEquityInterest"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherNonCurrentAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherNonCurrentAssets": [
+          {
+            "dataId": 23339,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.52812E11,
+              "fmt": "652.81B"
+            }
+          },
+          {
+            "dataId": 23339,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.49001E11,
+              "fmt": "749.00B"
+            }
+          },
+          {
+            "dataId": 23339,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.67341E11,
+              "fmt": "767.34B"
+            }
+          },
+          {
+            "dataId": 23339,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.21229E11,
+              "fmt": "821.23B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPreferredSecuritiesOutsideStockEquity"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualPreferredSecuritiesOutsideStockEquity": [
+          {
+            "dataId": 23172,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.21E9,
+              "fmt": "9.21B"
+            }
+          },
+          {
+            "dataId": 23172,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.801E9,
+              "fmt": "8.80B"
+            }
+          },
+          {
+            "dataId": 23172,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.767E9,
+              "fmt": "7.77B"
+            }
+          },
+          {
+            "dataId": 23172,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.179E9,
+              "fmt": "8.18B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualIncomeTaxPayable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualReceivables"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualReceivables": [
+          {
+            "dataId": 23189,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.203485E12,
+              "fmt": "1.20T"
+            }
+          },
+          {
+            "dataId": 23189,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.289422E12,
+              "fmt": "1.29T"
+            }
+          },
+          {
+            "dataId": 23189,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.191026E12,
+              "fmt": "1.19T"
+            }
+          },
+          {
+            "dataId": 23189,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.353393E12,
+              "fmt": "1.35T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLandAndImprovements"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualLandAndImprovements": [
+          {
+            "dataId": 23312,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.4358E10,
+              "fmt": "84.36B"
+            }
+          },
+          {
+            "dataId": 23312,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.3992E10,
+              "fmt": "83.99B"
+            }
+          },
+          {
+            "dataId": 23312,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.1482E10,
+              "fmt": "81.48B"
+            }
+          },
+          {
+            "dataId": 23312,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.9557E10,
+              "fmt": "79.56B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualRawMaterials"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualRawMaterials": [
+          {
+            "dataId": 23355,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.17219E11,
+              "fmt": "117.22B"
+            }
+          },
+          {
+            "dataId": 23355,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.1805E10,
+              "fmt": "91.81B"
+            }
+          },
+          {
+            "dataId": 23355,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.4769E10,
+              "fmt": "94.77B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalTaxPayable"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalTaxPayable": [
+          {
+            "dataId": 23217,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.45905E11,
+              "fmt": "145.91B"
+            }
+          },
+          {
+            "dataId": 23217,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.35226E11,
+              "fmt": "135.23B"
+            }
+          },
+          {
+            "dataId": 23217,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.45996E11,
+              "fmt": "146.00B"
+            }
+          },
+          {
+            "dataId": 23217,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.65406E11,
+              "fmt": "165.41B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAccumulatedDepreciation"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualAccumulatedDepreciation": [
+          {
+            "dataId": 23008,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -1.837339E12,
+              "fmt": "-1.84T"
+            }
+          },
+          {
+            "dataId": 23008,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -1.595686E12,
+              "fmt": "-1.60T"
+            }
+          },
+          {
+            "dataId": 23008,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -1.634505E12,
+              "fmt": "-1.63T"
+            }
+          },
+          {
+            "dataId": 23008,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -1.627061E12,
+              "fmt": "-1.63T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualForeignCurrencyTranslationAdjustments"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualForeignCurrencyTranslationAdjustments": [
+          {
+            "dataId": 23304,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -4.45251E11,
+              "fmt": "-445.25B"
+            }
+          },
+          {
+            "dataId": 23304,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -4.35229E11,
+              "fmt": "-435.23B"
+            }
+          },
+          {
+            "dataId": 23304,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -5.09872E11,
+              "fmt": "-509.87B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTangibleBookValue"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTangibleBookValue": [
+          {
+            "dataId": 23383,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.909706E12,
+              "fmt": "1.91T"
+            }
+          },
+          {
+            "dataId": 23383,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.059859E12,
+              "fmt": "2.06T"
+            }
+          },
+          {
+            "dataId": 23383,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.435108E12,
+              "fmt": "2.44T"
+            }
+          },
+          {
+            "dataId": 23383,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.752385E12,
+              "fmt": "3.75T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCurrentAssets": [
+          {
+            "dataId": 23044,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.176096E12,
+              "fmt": "5.18T"
+            }
+          },
+          {
+            "dataId": 23044,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.246612E12,
+              "fmt": "5.25T"
+            }
+          },
+          {
+            "dataId": 23044,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.735145E12,
+              "fmt": "5.74T"
+            }
+          },
+          {
+            "dataId": 23044,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.218744E12,
+              "fmt": "7.22T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNotesReceivable"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNotesReceivable": [
+          {
+            "dataId": 23144,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.012779E12,
+              "fmt": "1.01T"
+            }
+          },
+          {
+            "dataId": 23144,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.065802E12,
+              "fmt": "1.07T"
+            }
+          },
+          {
+            "dataId": 23144,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.00292E12,
+              "fmt": "1.00T"
+            }
+          },
+          {
+            "dataId": 23144,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.069894E12,
+              "fmt": "1.07T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualStockholdersEquity"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualStockholdersEquity": [
+          {
+            "dataId": 23215,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.967366E12,
+              "fmt": "2.97T"
+            }
+          },
+          {
+            "dataId": 23215,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.746377E12,
+              "fmt": "3.75T"
+            }
+          },
+          {
+            "dataId": 23215,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.125306E12,
+              "fmt": "4.13T"
+            }
+          },
+          {
+            "dataId": 23215,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.575839E12,
+              "fmt": "5.58T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentDeferredTaxesLiabilities"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNonCurrentDeferredTaxesLiabilities": [
+          {
+            "dataId": 23067,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.49863E11,
+              "fmt": "449.86B"
+            }
+          },
+          {
+            "dataId": 23067,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.31421E11,
+              "fmt": "531.42B"
+            }
+          },
+          {
+            "dataId": 23067,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.49538E11,
+              "fmt": "549.54B"
+            }
+          },
+          {
+            "dataId": 23067,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.66761E11,
+              "fmt": "366.76B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNetDebt"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNetDebt": [
+          null,
+          null,
+          null,
+          {
+            "dataId": 23531,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.05879E11,
+              "fmt": "305.88B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentDeferredLiabilities"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNonCurrentDeferredLiabilities": [
+          {
+            "dataId": 23057,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.49863E11,
+              "fmt": "449.86B"
+            }
+          },
+          {
+            "dataId": 23057,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.31421E11,
+              "fmt": "531.42B"
+            }
+          },
+          {
+            "dataId": 23057,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.49538E11,
+              "fmt": "549.54B"
+            }
+          },
+          {
+            "dataId": 23057,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.66761E11,
+              "fmt": "366.76B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLongTermDebt"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualLongTermDebt": [
+          {
+            "dataId": 23123,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.23451E11,
+              "fmt": "623.45B"
+            }
+          },
+          {
+            "dataId": 23123,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.68372E11,
+              "fmt": "568.37B"
+            }
+          },
+          {
+            "dataId": 23123,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.34966E11,
+              "fmt": "634.97B"
+            }
+          },
+          {
+            "dataId": 23123,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.73294E11,
+              "fmt": "773.29B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentAccruedExpenses"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAdditionalPaidInCapital"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualAdditionalPaidInCapital": [
+          {
+            "dataId": 23012,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.282577E12,
+              "fmt": "1.28T"
+            }
+          },
+          {
+            "dataId": 23012,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.266874E12,
+              "fmt": "1.27T"
+            }
+          },
+          {
+            "dataId": 23012,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.289719E12,
+              "fmt": "1.29T"
+            }
+          },
+          {
+            "dataId": 23012,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.486721E12,
+              "fmt": "1.49T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualProperties"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualProperties": [
+          {
+            "dataId": 23351,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 0.0,
+              "fmt": "0.00"
+            }
+          },
+          {
+            "dataId": 23351,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 0.0,
+              "fmt": "0.00"
+            }
+          },
+          {
+            "dataId": 23351,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 0.0,
+              "fmt": "0.00"
+            }
+          },
+          {
+            "dataId": 23351,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 0.0,
+              "fmt": "0.00"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualRetainedEarnings"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualRetainedEarnings": [
+          {
+            "dataId": 23204,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.440387E12,
+              "fmt": "1.44T"
+            }
+          },
+          {
+            "dataId": 23204,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.320586E12,
+              "fmt": "2.32T"
+            }
+          },
+          {
+            "dataId": 23204,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.768856E12,
+              "fmt": "2.77T"
+            }
+          },
+          {
+            "dataId": 23204,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.857152E12,
+              "fmt": "3.86T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentLiabilities"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCurrentLiabilities": [
+          {
+            "dataId": 23047,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.620541E12,
+              "fmt": "5.62T"
+            }
+          },
+          {
+            "dataId": 23047,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.079815E12,
+              "fmt": "6.08T"
+            }
+          },
+          {
+            "dataId": 23047,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.240443E12,
+              "fmt": "6.24T"
+            }
+          },
+          {
+            "dataId": 23047,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.815424E12,
+              "fmt": "7.82T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualWorkingCapital"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualWorkingCapital": [
+          {
+            "dataId": 23385,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -4.44445E11,
+              "fmt": "-444.44B"
+            }
+          },
+          {
+            "dataId": 23385,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -8.33203E11,
+              "fmt": "-833.20B"
+            }
+          },
+          {
+            "dataId": 23385,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -5.05298E11,
+              "fmt": "-505.30B"
+            }
+          },
+          {
+            "dataId": 23385,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -5.9668E11,
+              "fmt": "-596.68B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOrdinarySharesNumber"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOrdinarySharesNumber": [
+          {
+            "dataId": 23393,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.265425048E9,
+              "fmt": "1.27B"
+            }
+          },
+          {
+            "dataId": 23393,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.250746867E9,
+              "fmt": "1.25B"
+            }
+          },
+          {
+            "dataId": 23393,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.22015994E9,
+              "fmt": "1.22B"
+            }
+          },
+          {
+            "dataId": 23393,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.239227575E9,
+              "fmt": "1.24B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualGoodwill"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualGoodwill": [
+          {
+            "dataId": 23097,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.30492E11,
+              "fmt": "530.49B"
+            }
+          },
+          {
+            "dataId": 23097,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.68552E11,
+              "fmt": "768.55B"
+            }
+          },
+          {
+            "dataId": 23097,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.83888E11,
+              "fmt": "783.89B"
+            }
+          },
+          {
+            "dataId": 23097,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.27149E11,
+              "fmt": "827.15B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalAssets": [
+          {
+            "dataId": 23220,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.9065538E13,
+              "fmt": "19.07T"
+            }
+          },
+          {
+            "dataId": 23220,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.0981586E13,
+              "fmt": "20.98T"
+            }
+          },
+          {
+            "dataId": 23220,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.3039343E13,
+              "fmt": "23.04T"
+            }
+          },
+          {
+            "dataId": 23220,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.635484E13,
+              "fmt": "26.35T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherEquityAdjustments"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherEquityAdjustments": [
+          {
+            "dataId": 23335,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -1.242E9,
+              "fmt": "-1.24B"
+            }
+          },
+          {
+            "dataId": 23335,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -1.9E7,
+              "fmt": "-19.00M"
+            }
+          },
+          {
+            "dataId": 23335,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.221E9,
+              "fmt": "3.22B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualWorkInProcess"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualWorkInProcess": [
+          {
+            "dataId": 23378,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.53257E11,
+              "fmt": "153.26B"
+            }
+          },
+          {
+            "dataId": 23378,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.54178E11,
+              "fmt": "154.18B"
+            }
+          },
+          {
+            "dataId": 23378,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.49969E11,
+              "fmt": "149.97B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentNotesPayable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentDebtAndCapitalLeaseObligation"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCurrentDebtAndCapitalLeaseObligation": [
+          {
+            "dataId": 23046,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.21615E11,
+              "fmt": "721.62B"
+            }
+          },
+          {
+            "dataId": 23046,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.91079E11,
+              "fmt": "791.08B"
+            }
+          },
+          {
+            "dataId": 23046,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.08925E11,
+              "fmt": "908.92B"
+            }
+          },
+          {
+            "dataId": 23046,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.392929E12,
+              "fmt": "1.39T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestmentsinAssociatesatCost"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualInvestmentsinAssociatesatCost": [
+          {
+            "dataId": 23412,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.57389E11,
+              "fmt": "157.39B"
+            }
+          },
+          {
+            "dataId": 23412,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.63365E11,
+              "fmt": "163.37B"
+            }
+          },
+          {
+            "dataId": 23412,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.07922E11,
+              "fmt": "207.92B"
+            }
+          },
+          {
+            "dataId": 23412,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.26218E11,
+              "fmt": "226.22B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherCurrentLiabilities"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherCurrentLiabilities": [
+          {
+            "dataId": 23151,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.10792E11,
+              "fmt": "610.79B"
+            }
+          },
+          {
+            "dataId": 23151,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.66024E11,
+              "fmt": "666.02B"
+            }
+          },
+          {
+            "dataId": 23151,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.33732E11,
+              "fmt": "733.73B"
+            }
+          },
+          {
+            "dataId": 23151,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.126802E12,
+              "fmt": "1.13T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalDebt"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalDebt": [
+          {
+            "dataId": 23386,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.345066E12,
+              "fmt": "1.35T"
+            }
+          },
+          {
+            "dataId": 23386,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.359451E12,
+              "fmt": "1.36T"
+            }
+          },
+          {
+            "dataId": 23386,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.858727E12,
+              "fmt": "1.86T"
+            }
+          },
+          {
+            "dataId": 23386,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.456482E12,
+              "fmt": "2.46T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInventory"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualInventory": [
+          {
+            "dataId": 23108,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.92937E11,
+              "fmt": "692.94B"
+            }
+          },
+          {
+            "dataId": 23108,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.53278E11,
+              "fmt": "653.28B"
+            }
+          },
+          {
+            "dataId": 23108,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.89969E11,
+              "fmt": "589.97B"
+            }
+          },
+          {
+            "dataId": 23108,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.37391E11,
+              "fmt": "637.39B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCommonStock"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCommonStock": [
+          {
+            "dataId": 23038,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.65678E11,
+              "fmt": "865.68B"
+            }
+          },
+          {
+            "dataId": 23038,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.74291E11,
+              "fmt": "874.29B"
+            }
+          },
+          {
+            "dataId": 23038,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.80214E11,
+              "fmt": "880.21B"
+            }
+          },
+          {
+            "dataId": 23038,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.80214E11,
+              "fmt": "880.21B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualUnrealizedGainLoss"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualUnrealizedGainLoss": [
+          {
+            "dataId": 23377,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.26191E11,
+              "fmt": "126.19B"
+            }
+          },
+          {
+            "dataId": 23377,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.35035E11,
+              "fmt": "135.03B"
+            }
+          },
+          {
+            "dataId": 23377,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.61191E11,
+              "fmt": "161.19B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPayablesAndAccruedExpenses"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualPayablesAndAccruedExpenses": [
+          {
+            "dataId": 23166,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.128888E12,
+              "fmt": "2.13T"
+            }
+          },
+          {
+            "dataId": 23166,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.320398E12,
+              "fmt": "2.32T"
+            }
+          },
+          {
+            "dataId": 23166,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.157003E12,
+              "fmt": "2.16T"
+            }
+          },
+          {
+            "dataId": 23166,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.521808E12,
+              "fmt": "2.52T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherProperties"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherProperties": [
+          null,
+          null,
+          {
+            "dataId": 23340,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.9261E11,
+              "fmt": "392.61B"
+            }
+          },
+          {
+            "dataId": 23340,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.77094E11,
+              "fmt": "377.09B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherCurrentBorrowings"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherCurrentBorrowings": [
+          {
+            "dataId": 23332,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.21615E11,
+              "fmt": "721.62B"
+            }
+          },
+          {
+            "dataId": 23332,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.91079E11,
+              "fmt": "791.08B"
+            }
+          },
+          {
+            "dataId": 23332,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.39983E11,
+              "fmt": "839.98B"
+            }
+          },
+          {
+            "dataId": 23332,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.319567E12,
+              "fmt": "1.32T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualReceivablesAdjustmentsAllowances"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAccountsReceivable"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualAccountsReceivable": [
+          {
+            "dataId": 23001,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.012779E12,
+              "fmt": "1.01T"
+            }
+          },
+          {
+            "dataId": 23001,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.065802E12,
+              "fmt": "1.07T"
+            }
+          },
+          {
+            "dataId": 23001,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.00292E12,
+              "fmt": "1.00T"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherInvestments"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherInvestments": [
+          null,
+          null,
+          null,
+          {
+            "dataId": 23540,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -8.419E9,
+              "fmt": "-8.42B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentDeferredLiabilities"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCurrentDeferredLiabilities": [
+          {
+            "dataId": 23058,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.159246E12,
+              "fmt": "2.16T"
+            }
+          },
+          {
+            "dataId": 23058,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.302314E12,
+              "fmt": "2.30T"
+            }
+          },
+          {
+            "dataId": 23058,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.440783E12,
+              "fmt": "2.44T"
+            }
+          },
+          {
+            "dataId": 23058,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.773885E12,
+              "fmt": "2.77T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualConstructionInProgress"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualConstructionInProgress": [
+          {
+            "dataId": 23282,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.8295E10,
+              "fmt": "38.30B"
+            }
+          },
+          {
+            "dataId": 23282,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.9208E10,
+              "fmt": "39.21B"
+            }
+          },
+          {
+            "dataId": 23282,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.6391E10,
+              "fmt": "76.39B"
+            }
+          },
+          {
+            "dataId": 23282,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.00728E11,
+              "fmt": "100.73B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalCapitalization"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalCapitalization": [
+          {
+            "dataId": 23374,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.590817E12,
+              "fmt": "3.59T"
+            }
+          },
+          {
+            "dataId": 23374,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.314749E12,
+              "fmt": "4.31T"
+            }
+          },
+          {
+            "dataId": 23374,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.760272E12,
+              "fmt": "4.76T"
+            }
+          },
+          {
+            "dataId": 23374,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.349133E12,
+              "fmt": "6.35T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLongTermDebtAndCapitalLeaseObligation"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualLongTermDebtAndCapitalLeaseObligation": [
+          {
+            "dataId": 23124,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.23451E11,
+              "fmt": "623.45B"
+            }
+          },
+          {
+            "dataId": 23124,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.68372E11,
+              "fmt": "568.37B"
+            }
+          },
+          {
+            "dataId": 23124,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.49802E11,
+              "fmt": "949.80B"
+            }
+          },
+          {
+            "dataId": 23124,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.063553E12,
+              "fmt": "1.06T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLongTermCapitalLeaseObligation"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualLongTermCapitalLeaseObligation": [
+          null,
+          null,
+          {
+            "dataId": 23127,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.14836E11,
+              "fmt": "314.84B"
+            }
+          },
+          {
+            "dataId": 23127,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.90259E11,
+              "fmt": "290.26B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualMachineryFurnitureEquipment"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualMachineryFurnitureEquipment": [
+          {
+            "dataId": 23319,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.798722E12,
+              "fmt": "1.80T"
+            }
+          },
+          {
+            "dataId": 23319,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.585382E12,
+              "fmt": "1.59T"
+            }
+          },
+          {
+            "dataId": 23319,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.72572E12,
+              "fmt": "1.73T"
+            }
+          },
+          {
+            "dataId": 23319,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.748961E12,
+              "fmt": "1.75T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualMinorityInterest"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualMinorityInterest": [
+          {
+            "dataId": 23132,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.79791E11,
+              "fmt": "679.79B"
+            }
+          },
+          {
+            "dataId": 23132,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.90313E11,
+              "fmt": "690.31B"
+            }
+          },
+          {
+            "dataId": 23132,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.64229E11,
+              "fmt": "664.23B"
+            }
+          },
+          {
+            "dataId": 23132,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.5637E10,
+              "fmt": "45.64B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCapitalStock"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCapitalStock": [
+          {
+            "dataId": 23027,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.65678E11,
+              "fmt": "865.68B"
+            }
+          },
+          {
+            "dataId": 23027,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.74291E11,
+              "fmt": "874.29B"
+            }
+          },
+          {
+            "dataId": 23027,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.80214E11,
+              "fmt": "880.21B"
+            }
+          },
+          {
+            "dataId": 23027,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.80214E11,
+              "fmt": "880.21B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTreasuryStock"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTreasuryStock": [
+          {
+            "dataId": 23232,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.53E9,
+              "fmt": "4.53B"
+            }
+          },
+          {
+            "dataId": 23232,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.04704E11,
+              "fmt": "104.70B"
+            }
+          },
+          {
+            "dataId": 23232,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.32503E11,
+              "fmt": "232.50B"
+            }
+          },
+          {
+            "dataId": 23232,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.24228E11,
+              "fmt": "124.23B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualShareIssued"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualShareIssued": [
+          {
+            "dataId": 23532,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.266552149E9,
+              "fmt": "1.27B"
+            }
+          },
+          {
+            "dataId": 23532,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.271230341E9,
+              "fmt": "1.27B"
+            }
+          },
+          {
+            "dataId": 23532,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.261058781E9,
+              "fmt": "1.26B"
+            }
+          },
+          {
+            "dataId": 23532,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.261058781E9,
+              "fmt": "1.26B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAllowanceForDoubtfulAccountsReceivable"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualAllowanceForDoubtfulAccountsReceivable": [
+          {
+            "dataId": 23266,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -4.8663E10,
+              "fmt": "-48.66B"
+            }
+          },
+          {
+            "dataId": 23266,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -2.544E10,
+              "fmt": "-25.44B"
+            }
+          },
+          {
+            "dataId": 23266,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -2.5873E10,
+              "fmt": "-25.87B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentDeferredTaxesAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNonCurrentDeferredTaxesAssets": [
+          {
+            "dataId": 23066,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.6772E10,
+              "fmt": "96.77B"
+            }
+          },
+          {
+            "dataId": 23066,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.02486E11,
+              "fmt": "202.49B"
+            }
+          },
+          {
+            "dataId": 23066,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.10372E11,
+              "fmt": "210.37B"
+            }
+          },
+          {
+            "dataId": 23066,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.0747E11,
+              "fmt": "207.47B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherIntangibleAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherIntangibleAssets": [
+          {
+            "dataId": 23155,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.27168E11,
+              "fmt": "527.17B"
+            }
+          },
+          {
+            "dataId": 23155,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.17966E11,
+              "fmt": "917.97B"
+            }
+          },
+          {
+            "dataId": 23155,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.0631E11,
+              "fmt": "906.31B"
+            }
+          },
+          {
+            "dataId": 23155,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.96305E11,
+              "fmt": "996.30B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalNonCurrentAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalNonCurrentAssets": [
+          {
+            "dataId": 23226,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.3889442E13,
+              "fmt": "13.89T"
+            }
+          },
+          {
+            "dataId": 23226,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.5734974E13,
+              "fmt": "15.73T"
+            }
+          },
+          {
+            "dataId": 23226,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.7304198E13,
+              "fmt": "17.30T"
+            }
+          },
+          {
+            "dataId": 23226,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.9136096E13,
+              "fmt": "19.14T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCashCashEquivalentsAndShortTermInvestments"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCashCashEquivalentsAndShortTermInvestments": [
+          {
+            "dataId": 23033,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.76293E12,
+              "fmt": "2.76T"
+            }
+          },
+          {
+            "dataId": 23033,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.794611E12,
+              "fmt": "2.79T"
+            }
+          },
+          {
+            "dataId": 23033,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.360129E12,
+              "fmt": "3.36T"
+            }
+          },
+          {
+            "dataId": 23033,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.68942E12,
+              "fmt": "4.69T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherShortTermInvestments"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherShortTermInvestments": [
+          {
+            "dataId": 23163,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.176601E12,
+              "fmt": "1.18T"
+            }
+          },
+          {
+            "dataId": 23163,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.324538E12,
+              "fmt": "1.32T"
+            }
+          },
+          {
+            "dataId": 23163,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.847772E12,
+              "fmt": "1.85T"
+            }
+          },
+          {
+            "dataId": 23163,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.902438E12,
+              "fmt": "2.90T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCapitalLeaseObligations"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCapitalLeaseObligations": [
+          null,
+          null,
+          {
+            "dataId": 23380,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.83778E11,
+              "fmt": "383.78B"
+            }
+          },
+          {
+            "dataId": 23380,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.63621E11,
+              "fmt": "363.62B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNetPPE"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNetPPE": [
+          {
+            "dataId": 23139,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.3947E11,
+              "fmt": "739.47B"
+            }
+          },
+          {
+            "dataId": 23139,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.77053E11,
+              "fmt": "777.05B"
+            }
+          },
+          {
+            "dataId": 23139,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.301254E12,
+              "fmt": "1.30T"
+            }
+          },
+          {
+            "dataId": 23139,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.362528E12,
+              "fmt": "1.36T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualGainsLossesNotAffectingRetainedEarnings"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualGainsLossesNotAffectingRetainedEarnings": [
+          {
+            "dataId": 23009,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -6.16746E11,
+              "fmt": "-616.75B"
+            }
+          },
+          {
+            "dataId": 23009,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -6.1067E11,
+              "fmt": "-610.67B"
+            }
+          },
+          {
+            "dataId": 23009,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -5.8098E11,
+              "fmt": "-580.98B"
+            }
+          },
+          {
+            "dataId": 23009,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -5.2402E11,
+              "fmt": "-524.02B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualEmployeeBenefits"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualEmployeeBenefits": [
+          {
+            "dataId": 23293,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.94504E11,
+              "fmt": "394.50B"
+            }
+          },
+          {
+            "dataId": 23293,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.84232E11,
+              "fmt": "384.23B"
+            }
+          },
+          {
+            "dataId": 23293,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.24655E11,
+              "fmt": "324.65B"
+            }
+          },
+          {
+            "dataId": 23293,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.54103E11,
+              "fmt": "254.10B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentDeferredAssets"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalNonCurrentLiabilitiesNetMinorityInterest"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalNonCurrentLiabilitiesNetMinorityInterest": [
+          {
+            "dataId": 23260,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 9.79784E12,
+              "fmt": "9.80T"
+            }
+          },
+          {
+            "dataId": 23260,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.0465081E13,
+              "fmt": "10.47T"
+            }
+          },
+          {
+            "dataId": 23260,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.2009365E13,
+              "fmt": "12.01T"
+            }
+          },
+          {
+            "dataId": 23260,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.291794E13,
+              "fmt": "12.92T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherPayable"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherPayable": [
+          {
+            "dataId": 23382,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.514433E12,
+              "fmt": "1.51T"
+            }
+          },
+          {
+            "dataId": 23382,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.693048E12,
+              "fmt": "1.69T"
+            }
+          },
+          {
+            "dataId": 23382,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.630197E12,
+              "fmt": "1.63T"
+            }
+          },
+          {
+            "dataId": 23382,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.756833E12,
+              "fmt": "1.76T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAccountsPayable"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualAccountsPayable": [
+          {
+            "dataId": 23000,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.6855E11,
+              "fmt": "468.55B"
+            }
+          },
+          {
+            "dataId": 23000,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.92124E11,
+              "fmt": "492.12B"
+            }
+          },
+          {
+            "dataId": 23000,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.8081E11,
+              "fmt": "380.81B"
+            }
+          },
+          {
+            "dataId": 23000,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.99569E11,
+              "fmt": "599.57B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalLiabilitiesNetMinorityInterest"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalLiabilitiesNetMinorityInterest": [
+          {
+            "dataId": 23259,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.5418381E13,
+              "fmt": "15.42T"
+            }
+          },
+          {
+            "dataId": 23259,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.6544896E13,
+              "fmt": "16.54T"
+            }
+          },
+          {
+            "dataId": 23259,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.8249808E13,
+              "fmt": "18.25T"
+            }
+          },
+          {
+            "dataId": 23259,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.0733364E13,
+              "fmt": "20.73T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherCurrentAssets"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPayables"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualPayables": [
+          {
+            "dataId": 23165,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.128888E12,
+              "fmt": "2.13T"
+            }
+          },
+          {
+            "dataId": 23165,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.320398E12,
+              "fmt": "2.32T"
+            }
+          },
+          {
+            "dataId": 23165,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.157003E12,
+              "fmt": "2.16T"
+            }
+          },
+          {
+            "dataId": 23165,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.521808E12,
+              "fmt": "2.52T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentAccruedExpenses"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentPensionAndOtherPostretirementBenefitPlans"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNonCurrentPensionAndOtherPostretirementBenefitPlans": [
+          {
+            "dataId": 23344,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.94504E11,
+              "fmt": "394.50B"
+            }
+          },
+          {
+            "dataId": 23344,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.84232E11,
+              "fmt": "384.23B"
+            }
+          },
+          {
+            "dataId": 23344,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.24655E11,
+              "fmt": "324.65B"
+            }
+          },
+          {
+            "dataId": 23344,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.54103E11,
+              "fmt": "254.10B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualGrossAccountsReceivable"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualGrossAccountsReceivable": [
+          {
+            "dataId": 23262,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.061442E12,
+              "fmt": "1.06T"
+            }
+          },
+          {
+            "dataId": 23262,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.091242E12,
+              "fmt": "1.09T"
+            }
+          },
+          {
+            "dataId": 23262,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.028793E12,
+              "fmt": "1.03T"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualBuildingsAndImprovements"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualBuildingsAndImprovements": [
+          {
+            "dataId": 23275,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.55434E11,
+              "fmt": "655.43B"
+            }
+          },
+          {
+            "dataId": 23275,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.64157E11,
+              "fmt": "664.16B"
+            }
+          },
+          {
+            "dataId": 23275,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.59556E11,
+              "fmt": "659.56B"
+            }
+          },
+          {
+            "dataId": 23275,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.83249E11,
+              "fmt": "683.25B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualGoodwillAndOtherIntangibleAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualGoodwillAndOtherIntangibleAssets": [
+          {
+            "dataId": 23098,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.05766E12,
+              "fmt": "1.06T"
+            }
+          },
+          {
+            "dataId": 23098,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.686518E12,
+              "fmt": "1.69T"
+            }
+          },
+          {
+            "dataId": 23098,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.690198E12,
+              "fmt": "1.69T"
+            }
+          },
+          {
+            "dataId": 23098,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.823454E12,
+              "fmt": "1.82T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualFinishedGoods"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualFinishedGoods": [
+          {
+            "dataId": 23300,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.22461E11,
+              "fmt": "422.46B"
+            }
+          },
+          {
+            "dataId": 23300,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.07295E11,
+              "fmt": "407.30B"
+            }
+          },
+          {
+            "dataId": 23300,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.45231E11,
+              "fmt": "345.23B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherReceivables"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherReceivables": [
+          {
+            "dataId": 23342,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.90706E11,
+              "fmt": "190.71B"
+            }
+          },
+          {
+            "dataId": 23342,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.2362E11,
+              "fmt": "223.62B"
+            }
+          },
+          {
+            "dataId": 23342,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.88106E11,
+              "fmt": "188.11B"
+            }
+          },
+          {
+            "dataId": 23342,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.83499E11,
+              "fmt": "283.50B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLongTermEquityInvestment"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualLongTermEquityInvestment": [
+          {
+            "dataId": 23126,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.57389E11,
+              "fmt": "157.39B"
+            }
+          },
+          {
+            "dataId": 23126,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.63365E11,
+              "fmt": "163.37B"
+            }
+          },
+          {
+            "dataId": 23126,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.07922E11,
+              "fmt": "207.92B"
+            }
+          },
+          {
+            "dataId": 23126,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.26218E11,
+              "fmt": "226.22B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCommonStockEquity"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCommonStockEquity": [
+          {
+            "dataId": 23280,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.967366E12,
+              "fmt": "2.97T"
+            }
+          },
+          {
+            "dataId": 23280,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.746377E12,
+              "fmt": "3.75T"
+            }
+          },
+          {
+            "dataId": 23280,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.125306E12,
+              "fmt": "4.13T"
+            }
+          },
+          {
+            "dataId": 23280,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.575839E12,
+              "fmt": "5.58T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTreasurySharesNumber"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTreasurySharesNumber": [
+          {
+            "dataId": 23395,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1127101.0,
+              "fmt": "1.13M"
+            }
+          },
+          {
+            "dataId": 23395,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.0483474E7,
+              "fmt": "20.48M"
+            }
+          },
+          {
+            "dataId": 23395,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.0898841E7,
+              "fmt": "40.90M"
+            }
+          },
+          {
+            "dataId": 23395,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.1831206E7,
+              "fmt": "21.83M"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualGrossPPE"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualGrossPPE": [
+          {
+            "dataId": 23100,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.576809E12,
+              "fmt": "2.58T"
+            }
+          },
+          {
+            "dataId": 23100,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.372739E12,
+              "fmt": "2.37T"
+            }
+          },
+          {
+            "dataId": 23100,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.935759E12,
+              "fmt": "2.94T"
+            }
+          },
+          {
+            "dataId": 23100,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.989589E12,
+              "fmt": "2.99T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCashAndCashEquivalents"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCashAndCashEquivalents": [
+          {
+            "dataId": 23030,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.586329E12,
+              "fmt": "1.59T"
+            }
+          },
+          {
+            "dataId": 23030,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.470073E12,
+              "fmt": "1.47T"
+            }
+          },
+          {
+            "dataId": 23030,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.512357E12,
+              "fmt": "1.51T"
+            }
+          },
+          {
+            "dataId": 23030,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.786982E12,
+              "fmt": "1.79T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentDeferredTaxesAssets"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentDeferredRevenue"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCurrentDeferredRevenue": [
+          {
+            "dataId": 23061,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.159246E12,
+              "fmt": "2.16T"
+            }
+          },
+          {
+            "dataId": 23061,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.302314E12,
+              "fmt": "2.30T"
+            }
+          },
+          {
+            "dataId": 23061,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.440783E12,
+              "fmt": "2.44T"
+            }
+          },
+          {
+            "dataId": 23061,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.773885E12,
+              "fmt": "2.77T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentDeferredAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNonCurrentDeferredAssets": [
+          {
+            "dataId": 23253,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.83442E11,
+              "fmt": "683.44B"
+            }
+          },
+          {
+            "dataId": 23253,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.97751E11,
+              "fmt": "797.75B"
+            }
+          },
+          {
+            "dataId": 23253,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.11273E11,
+              "fmt": "811.27B"
+            }
+          },
+          {
+            "dataId": 23253,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.6489E11,
+              "fmt": "864.89B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestedCapital"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualInvestedCapital": [
+          {
+            "dataId": 23245,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.312432E12,
+              "fmt": "4.31T"
+            }
+          },
+          {
+            "dataId": 23245,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.105828E12,
+              "fmt": "5.11T"
+            }
+          },
+          {
+            "dataId": 23245,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.600255E12,
+              "fmt": "5.60T"
+            }
+          },
+          {
+            "dataId": 23245,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.6687E12,
+              "fmt": "7.67T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNetTangibleAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualNetTangibleAssets": [
+          {
+            "dataId": 23403,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.909706E12,
+              "fmt": "1.91T"
+            }
+          },
+          {
+            "dataId": 23403,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.059859E12,
+              "fmt": "2.06T"
+            }
+          },
+          {
+            "dataId": 23403,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 2.435108E12,
+              "fmt": "2.44T"
+            }
+          },
+          {
+            "dataId": 23403,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.752385E12,
+              "fmt": "3.75T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherInventories"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalEquityGrossMinorityInterest"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualTotalEquityGrossMinorityInterest": [
+          {
+            "dataId": 23261,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 3.647157E12,
+              "fmt": "3.65T"
+            }
+          },
+          {
+            "dataId": 23261,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.43669E12,
+              "fmt": "4.44T"
+            }
+          },
+          {
+            "dataId": 23261,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 4.789535E12,
+              "fmt": "4.79T"
+            }
+          },
+          {
+            "dataId": 23261,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.621476E12,
+              "fmt": "5.62T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentCapitalLeaseObligation"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCurrentCapitalLeaseObligation": [
+          null,
+          null,
+          {
+            "dataId": 23048,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 6.8942E10,
+              "fmt": "68.94B"
+            }
+          },
+          {
+            "dataId": 23048,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.3362E10,
+              "fmt": "73.36B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualMinimumPensionLiabilities"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualMinimumPensionLiabilities": [
+          {
+            "dataId": 23284,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -2.96444E11,
+              "fmt": "-296.44B"
+            }
+          },
+          {
+            "dataId": 23284,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -3.10457E11,
+              "fmt": "-310.46B"
+            }
+          },
+          {
+            "dataId": 23284,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": -2.3552E11,
+              "fmt": "-235.52B"
+            }
+          },
+          null
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestmentsAndAdvances"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualInvestmentsAndAdvances": [
+          {
+            "dataId": 23111,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.0756058E13,
+              "fmt": "10.76T"
+            }
+          },
+          {
+            "dataId": 23111,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.1724651E13,
+              "fmt": "11.72T"
+            }
+          },
+          {
+            "dataId": 23111,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.2734132E13,
+              "fmt": "12.73T"
+            }
+          },
+          {
+            "dataId": 23111,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.4263995E13,
+              "fmt": "14.26T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestmentinFinancialAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualInvestmentinFinancialAssets": [
+          {
+            "dataId": 23414,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.0598669E13,
+              "fmt": "10.60T"
+            }
+          },
+          {
+            "dataId": 23414,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.1561286E13,
+              "fmt": "11.56T"
+            }
+          },
+          {
+            "dataId": 23414,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.252621E13,
+              "fmt": "12.53T"
+            }
+          },
+          {
+            "dataId": 23414,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.4046196E13,
+              "fmt": "14.05T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentDebt"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualCurrentDebt": [
+          {
+            "dataId": 23045,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.21615E11,
+              "fmt": "721.62B"
+            }
+          },
+          {
+            "dataId": 23045,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 7.91079E11,
+              "fmt": "791.08B"
+            }
+          },
+          {
+            "dataId": 23045,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.39983E11,
+              "fmt": "839.98B"
+            }
+          },
+          {
+            "dataId": 23045,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.319567E12,
+              "fmt": "1.32T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPrepaidAssets"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualPrepaidAssets": [
+          {
+            "dataId": 23179,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.16744E11,
+              "fmt": "516.74B"
+            }
+          },
+          {
+            "dataId": 23179,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.09301E11,
+              "fmt": "509.30B"
+            }
+          },
+          {
+            "dataId": 23179,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.94021E11,
+              "fmt": "594.02B"
+            }
+          },
+          {
+            "dataId": 23179,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 5.3854E11,
+              "fmt": "538.54B"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherNonCurrentLiabilities"
+          ]
+        },
+        "timestamp": [
+          1522454400,
+          1553990400,
+          1585612800,
+          1617148800
+        ],
+        "annualOtherNonCurrentLiabilities": [
+          {
+            "dataId": 23379,
+            "asOfDate": "2018-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.320812E12,
+              "fmt": "8.32T"
+            }
+          },
+          {
+            "dataId": 23379,
+            "asOfDate": "2019-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 8.972255E12,
+              "fmt": "8.97T"
+            }
+          },
+          {
+            "dataId": 23379,
+            "asOfDate": "2020-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.0177603E13,
+              "fmt": "10.18T"
+            }
+          },
+          {
+            "dataId": 23379,
+            "asOfDate": "2021-03-31",
+            "periodType": "12M",
+            "currencyCode": "JPY",
+            "reportedValue": {
+              "raw": 1.1225344E13,
+              "fmt": "11.23T"
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCommercialPaper"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPreferredSharesNumber"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualOtherCapitalStock"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLoansReceivable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLineOfCredit"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualHedgingAssetsCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTaxesReceivable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLimitedPartnershipCapital"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualDerivativeProductLiabilities"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualDuetoRelatedPartiesNonCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPreferredStockEquity"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLiabilitiesHeldforSaleNonCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInterestPayable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCashEquivalents"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestmentsInOtherVenturesUnderEquityMethod"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualGeneralPartnershipCapital"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualDividendsPayable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualHeldToMaturitySecurities"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualDuefromRelatedPartiesCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualFixedAssetsRevaluationReserve"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualRestrictedCommonStock"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualDuetoRelatedPartiesCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualDefinedPensionBenefit"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLeases"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualFinancialAssets"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTradingSecurities"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInventoriesAdjustmentsAllowances"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentDeferredRevenue"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCashFinancial"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentNoteReceivables"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTotalPartnershipCapital"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAvailableForSaleSecurities"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAccruedInterestReceivable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualDuefromRelatedPartiesNonCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestmentsinSubsidiariesatCost"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentPrepaidAssets"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPreferredStock"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestmentsinJointVenturesatCost"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualInvestmentProperties"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualLongTermProvisions"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentDeferredTaxesLiabilities"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualRestrictedCash"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualFinancialAssetsDesignatedasFairValueThroughProfitorLossTotal"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualCurrentProvisions"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualPensionandOtherPostRetirementBenefitPlansCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualNonCurrentAccountsReceivable"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualTradeandOtherPayablesNonCurrent"
+          ]
+        }
+      },
+      {
+        "meta": {
+          "symbol": [
+            "SONY"
+          ],
+          "type": [
+            "annualAssetsHeldForSaleCurrent"
+          ]
+        }
+      }
+    ],
+    "error": null
+  }
+}

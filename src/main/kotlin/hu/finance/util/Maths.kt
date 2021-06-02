@@ -16,7 +16,7 @@ object Maths {
 
     fun seventyTwoRule(yield: Double) = SEVENTY_TWO.divide(`yield`.toBigDecimal(), 6, HALF_EVEN)
 
-    fun eps(numOfShare: Int, netProfit: BigDecimal) = netProfit / numOfShare.toBigDecimal()
+    fun eps(numOfShare: BigDecimal, netProfit: BigDecimal) = netProfit.divide(numOfShare, 6, HALF_EVEN)
 
     fun peRation(eps: Double, sharePrice: Double) = sharePrice / eps
 
@@ -27,4 +27,7 @@ object Maths {
 
     fun rotc(netIncome: BigDecimal, totalCapital: BigDecimal) =
         (netIncome.divide(totalCapital, 6, HALF_EVEN)).toPercent()
+
+    fun debtToEquity(totalLiab: BigDecimal, stockHolderEquity: BigDecimal) =
+        totalLiab.divide(stockHolderEquity, 6, HALF_EVEN)
 }

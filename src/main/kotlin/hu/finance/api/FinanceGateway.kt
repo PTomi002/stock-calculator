@@ -5,13 +5,18 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.google.common.util.concurrent.RateLimiter
 import hu.finance.api.dto.StockDto
+import hu.finance.api.dto.TimeSeriesDto
 import hu.finance.api.dto.toStock
+import hu.finance.api.dto.toTimeSeries
 import hu.finance.api.model.BalanceSheet
+import hu.finance.api.model.TimeSeries
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.time.Instant
 
 interface FinanceGateway {
-    fun balanceSheet(ticker: String, exchange: String? = null): BalanceSheet
+    fun balanceSheet(ticker: String, filters: List<String>): BalanceSheet
+    fun timeseries(ticker: String, filter: List<String>): TimeSeries
 }
 
 abstract class FinanceGatewayBase(
@@ -27,25 +32,45 @@ class YahooApi(
 ) : FinanceGatewayBase(limiter) {
 
     companion object Constants {
-        const val HOST = "https://query2.finance.yahoo.com/v10"
+        const val QUOTE_SUMMARY_HOST = "https://query2.finance.yahoo.com/v10"
+        const val TIMESERIES_HOST = "https://query1.finance.yahoo.com/ws"
     }
 
-    private val modules: List<String> by lazy {
-        om.readValue(javaClass.getResource("/api/yahoo_api_modules.json")!!)
-    }
     private val client = OkHttpClient.Builder().build()
 
-    override fun balanceSheet(ticker: String, exchange: String?): BalanceSheet {
+    override fun balanceSheet(ticker: String, filters: List<String>): BalanceSheet {
         val request = Request.Builder()
-            .url("$HOST/finance/quoteSummary/$ticker?modules=${modules.joinToString(separator = ",") { it }}")
+            .url(
+                "$QUOTE_SUMMARY_HOST/finance/quoteSummary/" +
+                    "$ticker?modules=${filters.joinToString(separator = ",") { it }}"
+            )
             .get()
             .build()
         limiter.acquire()
         return client.newCall(request).execute().use {
             requireNotNull(
-                it.apply { check(code == 200) { "API call failed with: $code!" } }.body
+                it.apply { check(code == 200) { "API call failed with: $code! and message: ${body?.string()}" } }.body
             ) { "API response body can not be empty!" }.string()
         }.let { om.readValue<StockDto>(it) }.toStock()
+    }
+
+    override fun timeseries(ticker: String, filters: List<String>): TimeSeries {
+        val request = Request.Builder()
+            .url(
+                "$TIMESERIES_HOST/fundamentals-timeseries/v1/finance/timeseries/" +
+                    "$ticker?type=${filters.joinToString(separator = ",") { it }}" +
+                    "&period1=${Instant.parse("2000-01-01T00:00:00Z").epochSecond}" +
+                    "&period2=${Instant.now().epochSecond}" +
+                    "&merge=false"
+            )
+            .get()
+            .build()
+        limiter.acquire()
+        return client.newCall(request).execute().use {
+            requireNotNull(
+                it.apply { check(code == 200) { "API call failed with: $code! and message: ${body?.string()}" } }.body
+            ) { "API response body can not be empty!" }.string()
+        }.let { om.readValue<TimeSeriesDto>(it) }.toTimeSeries()
     }
 
 }
