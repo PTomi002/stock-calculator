@@ -1,4 +1,4 @@
-package hu.finance.api.model
+package hu.finance.model
 
 import java.math.BigDecimal
 import java.time.Instant

@@ -17,11 +17,21 @@ fun main(args: Array<String>) {
         val cli = cliParser.parse(cliOptions, args)
         val balanceSheet = financeGateway.balanceSheet(
             ticker = requireNotNull(cli.getOptionValue("ticker")) { "Ticker can not be empty!" },
-            filters = listOf("balanceSheetHistory", "incomeStatementHistory", "summaryDetail", "price")
+            filters = listOf(
+                "balanceSheetHistory",
+                "incomeStatementHistory",
+                "summaryDetail",
+                "price",
+                "cashflowStatementHistory"
+            )
         )
         val timeSeries = financeGateway.timeseries(
             ticker = requireNotNull(cli.getOptionValue("ticker")) { "Ticker can not be empty!" },
-            filters = listOf("annualShareIssued", "annualLongTermDebt", "annualStockholdersEquity")
+            filters = listOf(
+                "annualShareIssued",
+                "annualLongTermDebt",
+                "annualStockholdersEquity"
+            )
         )
 
         println(CompanyFormatter().format(balanceSheet))

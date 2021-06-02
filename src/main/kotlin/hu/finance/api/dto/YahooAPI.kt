@@ -1,6 +1,6 @@
 package hu.finance.api.dto
 
-import hu.finance.api.model.*
+import hu.finance.model.*
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset

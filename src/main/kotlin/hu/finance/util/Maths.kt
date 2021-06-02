@@ -6,28 +6,33 @@ import java.math.RoundingMode.HALF_EVEN
 object Maths {
     private val HUNDRED = 100.0.toBigDecimal()
     private val SEVENTY_TWO = 72.0.toBigDecimal()
-    private fun BigDecimal.asPercent() = this / HUNDRED
-    private fun BigDecimal.toPercent() = this * HUNDRED
+    private fun BigDecimal.asPercent() = this.div(HUNDRED)
+    private fun BigDecimal.toPercent() = this.multiply(HUNDRED)
 
-    fun interest(capital: BigDecimal, interest: Double) = capital * interest.toBigDecimal().asPercent()
+    fun interest(capital: BigDecimal, interest: BigDecimal) = capital.multiply(interest.asPercent())
 
-    fun compoundInterest(capital: BigDecimal, interest: Double, years: Int) =
-        capital * (HUNDRED + interest.toBigDecimal()).asPercent().pow(years)
+    fun compoundInterest(capital: BigDecimal, interest: BigDecimal, years: Int) =
+        capital.multiply((HUNDRED.add(interest)).asPercent().pow(years))
 
-    fun seventyTwoRule(yield: Double) = SEVENTY_TWO.divide(`yield`.toBigDecimal(), 6, HALF_EVEN)
+    fun seventyTwoRule(yield: BigDecimal) = SEVENTY_TWO.div(`yield`)
 
-    fun eps(numOfShare: BigDecimal, netProfit: BigDecimal) = netProfit.divide(numOfShare, 6, HALF_EVEN)
+    fun earningPerShare(numOfShare: BigDecimal, netProfit: BigDecimal): BigDecimal = netProfit.div(numOfShare)
 
-    fun peRation(eps: Double, sharePrice: Double) = sharePrice / eps
+    fun peRation(eps: BigDecimal, sharePrice: BigDecimal) = sharePrice.div(eps)
 
-    fun equity(totalAsset: BigDecimal, totalLiability: BigDecimal) = totalAsset - totalLiability
+    fun equity(totalAsset: BigDecimal, totalLiability: BigDecimal): BigDecimal = totalAsset.subtract(totalLiability)
 
-    fun roe(netIncome: BigDecimal, shareholderEquity: BigDecimal) =
-        (netIncome.divide(shareholderEquity, 6, HALF_EVEN)).toPercent()
+    fun returnOnEquity(netIncome: BigDecimal, shareholderEquity: BigDecimal): BigDecimal =
+        netIncome.div(shareholderEquity).toPercent()
 
-    fun rotc(netIncome: BigDecimal, totalCapital: BigDecimal) =
-        (netIncome.divide(totalCapital, 6, HALF_EVEN)).toPercent()
+    fun returnOnTotalCapital(netIncome: BigDecimal, totalCapital: BigDecimal): BigDecimal =
+        netIncome.div(totalCapital).toPercent()
 
-    fun debtToEquity(totalLiab: BigDecimal, stockHolderEquity: BigDecimal) =
-        totalLiab.divide(stockHolderEquity, 6, HALF_EVEN)
+    fun debtToEquity(totalLiab: BigDecimal, stockHolderEquity: BigDecimal): BigDecimal =
+        totalLiab.div(stockHolderEquity)
+
+    fun freeCashFlow(cashFlowFromOperations: BigDecimal, capitalExpenditure: BigDecimal) =
+        cashFlowFromOperations.subtract(capitalExpenditure.abs())
+
+    private fun BigDecimal.div(other: BigDecimal) = divide(other, 6, HALF_EVEN)
 }

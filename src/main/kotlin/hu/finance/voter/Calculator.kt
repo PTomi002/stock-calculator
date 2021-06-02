@@ -1,7 +1,7 @@
 package hu.finance.voter
 
-import hu.finance.api.model.BalanceSheet
-import hu.finance.api.model.TimeSeries
+import hu.finance.model.BalanceSheet
+import hu.finance.model.TimeSeries
 import hu.finance.util.Maths
 import hu.finance.voter.DebtToEquityCalculator.DebtToEquity
 import hu.finance.voter.EarningPerShareCalculator.EarningPerShare
@@ -31,7 +31,7 @@ class ReturnOnEquityCalculator : Calculator<BalanceSheet, List<ReturnOnEquity>> 
             .map {
                 ReturnOnEquity(
                     date = it.first.date,
-                    roe = Maths.roe(
+                    roe = Maths.returnOnEquity(
                         netIncome = it.second.netIncome,
                         shareholderEquity = Maths.equity(
                             totalAsset = it.first.totalAssets,
@@ -54,7 +54,7 @@ class ReturnOnTotalCapitalCalculator : Calculator<BalanceSheet, List<ReturnOnTot
             .map {
                 ReturnOnTotalCapital(
                     date = it.first.date,
-                    rotc = Maths.rotc(
+                    rotc = Maths.returnOnTotalCapital(
                         netIncome = it.second.netIncome,
                         totalCapital = it.first.totalAssets + it.first.totalLiabilities
                     )
@@ -78,7 +78,7 @@ class EarningPerShareCalculator : Calculator<CompositSheets, List<EarningPerShar
             .map {
                 EarningPerShare(
                     date = it.first.date,
-                    eps = Maths.eps(
+                    eps = Maths.earningPerShare(
                         numOfShare = it.second.value,
                         netProfit = it.first.netIncome
                     )

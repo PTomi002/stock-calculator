@@ -8,8 +8,8 @@ import hu.finance.api.dto.StockDto
 import hu.finance.api.dto.TimeSeriesDto
 import hu.finance.api.dto.toStock
 import hu.finance.api.dto.toTimeSeries
-import hu.finance.api.model.BalanceSheet
-import hu.finance.api.model.TimeSeries
+import hu.finance.model.BalanceSheet
+import hu.finance.model.TimeSeries
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.time.Instant

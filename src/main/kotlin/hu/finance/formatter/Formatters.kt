@@ -1,6 +1,6 @@
 package hu.finance.formatter
 
-import hu.finance.api.model.BalanceSheet
+import hu.finance.model.BalanceSheet
 import hu.finance.voter.DebtToEquityCalculator.DebtToEquity
 import hu.finance.voter.EarningPerShareCalculator.EarningPerShare
 import hu.finance.voter.ReturnOnEquityCalculator.ReturnOnEquity
