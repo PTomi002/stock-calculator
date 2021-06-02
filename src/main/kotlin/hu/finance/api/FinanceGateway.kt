@@ -1,22 +1,24 @@
+@file:Suppress("UnstableApiUsage")
+
 package hu.finance.api
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.google.common.util.concurrent.RateLimiter
-import hu.finance.api.dto.StockDto
+import hu.finance.api.dto.QuoteDto
 import hu.finance.api.dto.TimeSeriesDto
 import hu.finance.api.dto.toStock
 import hu.finance.api.dto.toTimeSeries
-import hu.finance.model.BalanceSheet
+import hu.finance.model.Quote
 import hu.finance.model.TimeSeries
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.time.Instant
 
 interface FinanceGateway {
-    fun balanceSheet(ticker: String, filters: List<String>): BalanceSheet
-    fun timeseries(ticker: String, filter: List<String>): TimeSeries
+    fun quote(ticker: String, filters: List<String>): Quote
+    fun timeSeries(ticker: String, filters: List<String>): TimeSeries
 }
 
 abstract class FinanceGatewayBase(
@@ -38,7 +40,7 @@ class YahooApi(
 
     private val client = OkHttpClient.Builder().build()
 
-    override fun balanceSheet(ticker: String, filters: List<String>): BalanceSheet {
+    override fun quote(ticker: String, filters: List<String>): Quote {
         val request = Request.Builder()
             .url(
                 "$QUOTE_SUMMARY_HOST/finance/quoteSummary/" +
@@ -51,10 +53,10 @@ class YahooApi(
             requireNotNull(
                 it.apply { check(code == 200) { "API call failed with: $code! and message: ${body?.string()}" } }.body
             ) { "API response body can not be empty!" }.string()
-        }.let { om.readValue<StockDto>(it) }.toStock()
+        }.let { om.readValue<QuoteDto>(it) }.toStock()
     }
 
-    override fun timeseries(ticker: String, filters: List<String>): TimeSeries {
+    override fun timeSeries(ticker: String, filters: List<String>): TimeSeries {
         val request = Request.Builder()
             .url(
                 "$TIMESERIES_HOST/fundamentals-timeseries/v1/finance/timeseries/" +

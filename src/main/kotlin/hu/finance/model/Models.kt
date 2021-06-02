@@ -2,42 +2,43 @@ package hu.finance.model
 
 import java.math.BigDecimal
 import java.time.Instant
+import java.util.*
 
 data class TimeSeries(
-    val timeSeriesData: List<TimeSeriesData>
+    val annualShareIssued: List<TimeSeriesData>,
+    val annualLongTermDebt: List<TimeSeriesData>,
+    val annualStockholdersEquity: List<TimeSeriesData>,
+    val annualCapitalExpenditure: List<TimeSeriesData>,
+    val annualTotalCapitalization: List<TimeSeriesData>
 )
 
 data class TimeSeriesData(
-    val annualShareIssued: List<TimeSeriesDataContainer> = emptyList(),
-    val annualLongTermDebt: List<TimeSeriesDataContainer> = emptyList(),
-    val annualStockholdersEquity: List<TimeSeriesDataContainer> = emptyList()
-)
-
-data class TimeSeriesDataContainer(
     val date: Instant,
     val value: BigDecimal
 )
 
-data class BalanceSheet(
-    val share: Share,
-    val company: Company,
-    val balanceSheetHistory: BalanceSheetHistory,
-    val incomeStatementHistory: IncomeStatementHistory
+data class Quote(
+    val shareSummary: ShareSummary,
+    val quoteSummary: QuoteSummary,
+    val balanceSheetStatements: List<BalanceSheetStatement>,
+    val incomeStatements: List<IncomeStatement>,
+    val cashFlowStatements: List<CashFlowStatement>
 )
 
-data class Share(
-    val currency: String,
+data class CashFlowStatement(
+    val date: Instant,
+    val cashFromOperations: BigDecimal
+)
+
+data class ShareSummary(
+    val currency: Currency,
     val open: BigDecimal,
     val previousClose: BigDecimal
 )
 
-data class Company(
+data class QuoteSummary(
     val name: String,
     val exchange: String
-)
-
-data class BalanceSheetHistory(
-    val balanceSheetStatements: List<BalanceSheetStatement>
 )
 
 data class BalanceSheetStatement(
@@ -46,11 +47,8 @@ data class BalanceSheetStatement(
     val totalLiabilities: BigDecimal
 )
 
-data class IncomeStatementHistory(
-    val incomeStatements: List<IncomeStatement>
-)
-
 data class IncomeStatement(
     val date: Instant,
+    val ebit: BigDecimal,
     val netIncome: BigDecimal
 )

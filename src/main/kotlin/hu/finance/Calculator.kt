@@ -1,9 +1,11 @@
+@file:Suppress("UnstableApiUsage")
+
 package hu.finance
 
 import com.google.common.util.concurrent.RateLimiter
 import hu.finance.api.YahooApi
+import hu.finance.calculator.*
 import hu.finance.formatter.*
-import hu.finance.voter.*
 import org.apache.commons.cli.*
 
 private val cliParser: CommandLineParser = DefaultParser()
@@ -15,7 +17,7 @@ private val financeGateway = YahooApi(RateLimiter.create(4.0))
 fun main(args: Array<String>) {
     try {
         val cli = cliParser.parse(cliOptions, args)
-        val balanceSheet = financeGateway.balanceSheet(
+        val quote = financeGateway.quote(
             ticker = requireNotNull(cli.getOptionValue("ticker")) { "Ticker can not be empty!" },
             filters = listOf(
                 "balanceSheetHistory",
@@ -25,27 +27,32 @@ fun main(args: Array<String>) {
                 "cashflowStatementHistory"
             )
         )
-        val timeSeries = financeGateway.timeseries(
+        val timeSeries = financeGateway.timeSeries(
             ticker = requireNotNull(cli.getOptionValue("ticker")) { "Ticker can not be empty!" },
             filters = listOf(
+                "annualTotalCapitalization",
+                "annualCapitalExpenditure",
                 "annualShareIssued",
                 "annualLongTermDebt",
                 "annualStockholdersEquity"
             )
         )
 
-        println(CompanyFormatter().format(balanceSheet))
-        ReturnOnEquityCalculator().calculate(balanceSheet).run {
+        println(CompanyFormatter().format(quote))
+        ReturnOnEquityCalculator().calculate(quote).run {
             println(ReturnOnEquityFormatter().format(this))
         }
-        ReturnOnTotalCapitalCalculator().calculate(balanceSheet).run {
+        ReturnOnTotalCapitalCalculator().calculate(CompositeSheets(quote, timeSeries)).run {
             println(ReturnOnTotalCapitalFormatter().format(this))
         }
-        EarningPerShareCalculator().calculate(CompositSheets(balanceSheet, timeSeries)).run {
+        EarningPerShareCalculator().calculate(CompositeSheets(quote, timeSeries)).run {
             println(EarningPerShareFormatter().format(this))
         }
-        DebtToEquityCalculator().calculate(CompositSheets(balanceSheet, timeSeries)).run {
+        DebtToEquityCalculator().calculate(CompositeSheets(quote, timeSeries)).run {
             println(DebtToEquityFormatter().format(this))
+        }
+        FreeCashFlowCalculator().calculate(CompositeSheets(quote, timeSeries)).run {
+            println(FreeCashFlowFormatter().format(this))
         }
     } catch (ex: Exception) {
         ex.printStackTrace(System.err)
