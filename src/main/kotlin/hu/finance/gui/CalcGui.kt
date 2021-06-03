@@ -1,10 +1,10 @@
 package hu.finance.gui
 
+import hu.finance.calculator.CompositeSheets
+import hu.finance.calculator.EarningPerShareCalculator
 import hu.finance.formatter.CompanyFormatter
-import hu.finance.gui.component.BodyPanel
-import hu.finance.gui.component.HeaderToolBar
-import hu.finance.gui.component.MainPanel
-import hu.finance.gui.component.QuotePanel
+import hu.finance.formatter.EarningPerShareFormatter
+import hu.finance.gui.component.*
 import hu.finance.gui.util.AutoCloseableLock
 import hu.finance.gui.util.CalcWorker
 import hu.finance.model.Quote
@@ -14,7 +14,9 @@ import hu.finance.service.Finances
 import java.awt.Dimension
 import java.util.concurrent.locks.ReentrantLock
 import javax.annotation.concurrent.GuardedBy
-import javax.swing.*
+import javax.swing.JButton
+import javax.swing.JFrame
+import javax.swing.JOptionPane
 
 private const val DEFAULT_SIZE = 600
 
@@ -25,49 +27,74 @@ class CalcGui(
 
     private val lock = AutoCloseableLock(ReentrantLock())
 
-    @GuardedBy(value = "lock")
-    private lateinit var quote: Quote
+    @Volatile
+    private var isInitialized = false
 
     @GuardedBy(value = "lock")
-    private lateinit var timeSeries: TimeSeries
+    private var qCache: Quote? = null
 
-    private var mainPanel: JPanel
+    @GuardedBy(value = "lock")
+    private var tsCache: TimeSeries? = null
+
+    private var mainPanel: MainPanel
     private var bodyPanel: BodyPanel
     private var quotePanel: QuotePanel
-    private var headerToolBar: JToolBar
+    private var epsPanel: EarningPerSharePanel
+    private var headerToolBar: HeaderToolBar
     private val loadQuoteButton = JButton("Load Quote")
+    private val quoteButton = JButton("Quote")
+    private val epsButton = JButton("Earning Per Share")
 
     init {
+        // action buttons
+        quoteButton.addActionListener { showQuote() }
+        loadQuoteButton.addActionListener { loadQuote() }
+        epsButton.addActionListener { calculateEps() }
+
+        // changing panels
+        quotePanel = QuotePanel()
+        epsPanel = EarningPerSharePanel()
+
+        // header
+        headerToolBar = HeaderToolBar(loadQuoteButton, quoteButton, epsButton)
+
+        // main panels
+        bodyPanel = BodyPanel(quotePanel, epsPanel)
+        mainPanel = MainPanel(
+            headerToolBar = headerToolBar,
+            bodyPanel = bodyPanel
+        )
+
+        add(mainPanel)
+
+        pack()
         setLocationRelativeTo(null)
         defaultCloseOperation = EXIT_ON_CLOSE
         size = Dimension(DEFAULT_SIZE, DEFAULT_SIZE)
         isAutoRequestFocus = true
         isVisible = true
-
-        // action buttons
-        loadQuoteButton.apply {
-            addActionListener { loadCompanyAction() }
-        }
-
-        // header
-        headerToolBar = HeaderToolBar(
-            loadQuoteButton = loadQuoteButton
-        )
-
-        // main panels
-        quotePanel = QuotePanel()
-        bodyPanel = BodyPanel(
-            quotePanel = quotePanel
-        )
-        mainPanel = MainPanel(
-            headerToolBar = headerToolBar,
-            detailsPanel = bodyPanel
-        )
-
-        add(mainPanel)
     }
 
-    private fun loadCompanyAction() {
+    private fun showQuote() {
+        if (!isInitialized) return
+        bodyPanel.update(quotePanel)
+    }
+
+    private fun calculateEps() {
+        if (!isInitialized) return
+        epsPanel.update(
+            lock.withLock {
+                EarningPerShareFormatter().format(
+                    EarningPerShareCalculator().calculate(
+                        CompositeSheets(bs = qCache!!, ts = tsCache!!)
+                    )
+                )
+            }
+        )
+        bodyPanel.update(epsPanel)
+    }
+
+    private fun loadQuote() {
         JOptionPane.showInputDialog("Company ticker?")
             .takeIf { !it.isNullOrEmpty() }
             ?.also { ticker ->
@@ -79,10 +106,12 @@ class CalcGui(
                             it.error?.printStackTrace()
                         } else {
                             lock.withLock {
-                                quote = it.data!!.quote
-                                timeSeries = it.data.timeSeries
+                                qCache = it.data!!.quote
+                                tsCache = it.data.timeSeries
+                                isInitialized = true
+                                quotePanel.update(CompanyFormatter().format(qCache!!))
                             }
-                            quotePanel.update(CompanyFormatter().format(quote))
+                            bodyPanel.update(quotePanel)
                         }
                     }
                 ).execute()

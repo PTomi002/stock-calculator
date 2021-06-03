@@ -1,5 +1,6 @@
 package hu.finance.formatter
 
+import hu.finance.calculator.EarningPerShareCalculator.EarningPerShare
 import hu.finance.model.Quote
 import java.text.DecimalFormat
 
@@ -7,7 +8,7 @@ private val formatter = DecimalFormat("#,###.00");
 
 data class FormattedData(
     val hints: List<String> = emptyList(),
-    val data: Map<String, String> = emptyMap()
+    val data: Map<String, Any> = emptyMap()
 )
 
 interface Formatter<T> {
@@ -51,16 +52,20 @@ class CompanyFormatter : Formatter<Quote> {
 //        }.toString()
 //}
 //
-//class EarningPerShareFormatter : Formatter<List<EarningPerShare>> {
-//    override fun format(value: List<EarningPerShare>): String =
-//        StringBuilder().apply {
-//            appendLine("==== Earning Per Share (1 részvény éves nyeresége) ====")
-//            appendLine("Hint: Következetesen magas, nem ingadozó és növekvő tendenciát keresünk")
-//            appendLine("Hint: Fluktuált eps a rossz vezetőség jele.")
-//            appendLine()
-//            value.forEach { appendLine("Év: ${it.date} EPS: ${it.eps} ${it.currency}") }
-//        }.toString()
-//}
+class EarningPerShareFormatter : Formatter<List<EarningPerShare>> {
+    override fun format(value: List<EarningPerShare>): FormattedData =
+        FormattedData(
+            hints = listOf(
+                "Következetesen magas, nem ingadozó és növekvő tendenciát keresünk.",
+                "Fluktuált eps a rossz vezetőség jele."
+            ),
+            data = mapOf(
+                "Év" to value.map { "${it.date}" },
+                "EPS" to value.map { "${it.eps}" },
+                "Pénznem" to value.map { "${it.currency}" }
+            )
+        )
+}
 //
 //class DebtToEquityFormatter : Formatter<List<DebtToEquity>> {
 //    override fun format(value: List<DebtToEquity>): String =

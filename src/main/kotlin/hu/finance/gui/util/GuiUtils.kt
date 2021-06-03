@@ -6,10 +6,10 @@ import javax.swing.SwingWorker
 class AutoCloseableLock(
     private val lock: Lock
 ) : Lock by lock {
-    fun withLock(block: () -> Unit) {
+    fun <T> withLock(block: () -> T): T {
         lock.lock()
         try {
-            block.invoke()
+            return block.invoke()
         } finally {
             lock.unlock()
         }
