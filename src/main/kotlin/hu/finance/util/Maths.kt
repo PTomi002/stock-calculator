@@ -6,7 +6,7 @@ import java.math.RoundingMode.HALF_EVEN
 object Maths {
     private val HUNDRED = 100.0.toBigDecimal()
 
-//    private val SEVENTY_TWO = 72.0.toBigDecimal()
+    //    private val SEVENTY_TWO = 72.0.toBigDecimal()
 //    private fun BigDecimal.asPercent() = this.divWith(HUNDRED)
     private fun BigDecimal.toPercent() = this.multiply(HUNDRED)
 
