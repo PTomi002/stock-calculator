@@ -36,11 +36,11 @@ data class QuoteSummaryDto(
 )
 
 data class ResultDto(
-    val price: PriceDto,
-    val summaryDetail: SummaryDetailsDto,
-    val balanceSheetHistory: BalanceSheetHistoryDto,
-    val incomeStatementHistory: IncomeStatementHistoryDto,
-    val cashflowStatementHistory: CashFowStatementHistoryDto
+    val price: PriceDto? = null,
+    val summaryDetail: SummaryDetailsDto? = null,
+    val balanceSheetHistory: BalanceSheetHistoryDto? = null,
+    val incomeStatementHistory: IncomeStatementHistoryDto? = null,
+    val cashflowStatementHistory: CashFowStatementHistoryDto? = null
 )
 
 data class CashFowStatementHistoryDto(

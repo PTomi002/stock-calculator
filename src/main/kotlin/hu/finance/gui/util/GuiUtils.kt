@@ -16,10 +16,23 @@ class AutoCloseableLock(
     }
 }
 
+class CalcWorkerResponse<T>(
+    val result: Boolean,
+    val error: Exception? = null,
+    val data: T? = null
+)
+
 class CalcWorker<T, R>(
     private val loader: () -> T,
-    private val callback: (T) -> Unit
+    private val callback: (CalcWorkerResponse<T>) -> Unit
 ) : SwingWorker<T, R>() {
     override fun doInBackground(): T = loader.invoke()
-    override fun done() = callback.invoke(get())
+    override fun done() {
+        val resp = try {
+            CalcWorkerResponse(result = true, data = get())
+        } catch (ex: Exception) {
+            CalcWorkerResponse(result = false, error = ex)
+        }
+        callback.invoke(resp)
+    }
 }

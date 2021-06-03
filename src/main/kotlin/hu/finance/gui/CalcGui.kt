@@ -2,9 +2,9 @@ package hu.finance.gui
 
 import hu.finance.formatter.CompanyFormatter
 import hu.finance.gui.component.BodyPanel
-import hu.finance.gui.component.ExcerptPanel
 import hu.finance.gui.component.HeaderToolBar
 import hu.finance.gui.component.MainPanel
+import hu.finance.gui.component.QuotePanel
 import hu.finance.gui.util.AutoCloseableLock
 import hu.finance.gui.util.CalcWorker
 import hu.finance.model.Quote
@@ -33,7 +33,7 @@ class CalcGui(
 
     private var mainPanel: JPanel
     private var bodyPanel: BodyPanel
-    private var excerptPanel: ExcerptPanel
+    private var quotePanel: QuotePanel
     private var headerToolBar: JToolBar
     private val loadQuoteButton = JButton("Load Quote")
 
@@ -44,18 +44,21 @@ class CalcGui(
         isAutoRequestFocus = true
         isVisible = true
 
-        excerptPanel = ExcerptPanel()
-
-        bodyPanel = BodyPanel()
-
+        // action buttons
         loadQuoteButton.apply {
             addActionListener { loadCompanyAction() }
         }
 
+        // header
         headerToolBar = HeaderToolBar(
             loadQuoteButton = loadQuoteButton
         )
 
+        // main panels
+        quotePanel = QuotePanel()
+        bodyPanel = BodyPanel(
+            quotePanel = quotePanel
+        )
         mainPanel = MainPanel(
             headerToolBar = headerToolBar,
             detailsPanel = bodyPanel
@@ -71,12 +74,16 @@ class CalcGui(
                 CalcWorker<CompositeQuote, Unit>(
                     loader = { finances.loadQuote(ticker = ticker) },
                     callback = {
-                        lock.withLock {
-                            quote = it.quote
-                            timeSeries = it.timeSeries
+                        if (!it.result) {
+                            JOptionPane.showMessageDialog(null, "Error happened: ${it.error?.message}");
+                            it.error?.printStackTrace()
+                        } else {
+                            lock.withLock {
+                                quote = it.data!!.quote
+                                timeSeries = it.data.timeSeries
+                            }
+                            quotePanel.update(CompanyFormatter().format(quote))
                         }
-                        excerptPanel.update(CompanyFormatter().format(quote))
-                        bodyPanel.update(excerptPanel)
                     }
                 ).execute()
             }

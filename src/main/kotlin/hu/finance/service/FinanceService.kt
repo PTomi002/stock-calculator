@@ -78,17 +78,17 @@ private fun TimeSeriesDataDto.toTimeSeriesData() = TimeSeriesData(
 fun QuoteDto.toQuote() = quoteSummary.result.first().run {
     Quote(
         shareSummary = ShareSummary(
-            open = summaryDetail.open.raw.toBigDecimal(),
+            open = summaryDetail!!.open.raw.toBigDecimal(),
             previousClose = summaryDetail.previousClose.raw.toBigDecimal(),
-            currency = Currency.getInstance(price.currency)
+            currency = Currency.getInstance(price!!.currency)
         ),
         quoteSummary = QuoteSummary(
             name = price.longName,
             exchange = price.exchangeName
         ),
-        cashFlowStatements = cashflowStatementHistory.cashflowStatements.map { it.toCashFlowStatement() },
-        balanceSheetStatements = balanceSheetHistory.balanceSheetStatements.map { it.toBalanceSheetStatement() },
-        incomeStatements = incomeStatementHistory.incomeStatementHistory.map { it.toIncomeStatement() }
+        cashFlowStatements = cashflowStatementHistory!!.cashflowStatements.map { it.toCashFlowStatement() },
+        balanceSheetStatements = balanceSheetHistory!!.balanceSheetStatements.map { it.toBalanceSheetStatement() },
+        incomeStatements = incomeStatementHistory!!.incomeStatementHistory.map { it.toIncomeStatement() }
     )
 }
 

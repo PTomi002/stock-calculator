@@ -9,9 +9,10 @@ import hu.finance.service.FinanceService
 import java.util.concurrent.Executors
 
 private val financeGateway = YahooApi(RateLimiter.create(4.0))
+private val pool = Executors.newFixedThreadPool(5)
 private val finances = FinanceService(
     financeGateway = financeGateway,
-    pool = Executors.newFixedThreadPool(2)
+    pool = pool
 )
 
 fun main(args: Array<String>) {
