@@ -16,6 +16,9 @@ public class CalculatorGUI extends JFrame {
     private volatile CompositeQuote cqCache;
 
     private JPanel mainPanel;
+    private JPanel quotePanel;
+    private JPanel calculationsPanel;
+    private JLabel mainTitle;
     private JMenuBar menuBar;
     private JMenu quoteMenu;
     private JMenuItem loadQuote;
