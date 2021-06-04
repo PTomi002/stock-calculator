@@ -2,6 +2,7 @@ package hu.finance.gui;
 
 import hu.finance.gui.util.AutoCloseableLock;
 import hu.finance.gui.util.CalcWorker;
+import hu.finance.model.Quote;
 import hu.finance.service.CompositeQuote;
 import hu.finance.service.Finances;
 
@@ -19,6 +20,11 @@ public class CalculatorGUI extends JFrame {
     private JPanel quotePanel;
     private JPanel calculationsPanel;
     private JLabel mainTitle;
+    private JLabel quoteLabel;
+    private JLabel exchangeLabel;
+    private JLabel openPriceLabel;
+    private JLabel previousOpenPriceLabel;
+    private JLabel currencyLabel;
     private JMenuBar menuBar;
     private JMenu quoteMenu;
     private JMenuItem loadQuote;
@@ -39,9 +45,19 @@ public class CalculatorGUI extends JFrame {
         setJMenuBar(menuBar);
 
         setContentPane(mainPanel);
-        setPreferredSize(new Dimension(600, 800));
+        setPreferredSize(new Dimension(400, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
+    }
+
+    private void updateQuotePanel(Quote quote) {
+        Objects.requireNonNull(quote);
+
+        quoteLabel.setText(quote.getQuoteSummary().getName());
+        exchangeLabel.setText(quote.getQuoteSummary().getExchange());
+        openPriceLabel.setText(quote.getShareSummary().getOpen().toString());
+        previousOpenPriceLabel.setText(quote.getShareSummary().getPreviousClose().toString());
+        currencyLabel.setText(quote.getShareSummary().getCurrency().toString());
     }
 
     private void loadQuote() {
@@ -62,6 +78,7 @@ public class CalculatorGUI extends JFrame {
                             cqCache = Objects.requireNonNull(workerResult.getData());
                             return null;
                         });
+                        updateQuotePanel(cqCache.getQuote());
                     }
                     return null;
                 }
