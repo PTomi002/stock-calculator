@@ -1,3 +1,7 @@
 [
-  "annualShareIssued"
+  "annualTotalCapitalization",
+  "annualCapitalExpenditure",
+  "annualShareIssued",
+  "annualLongTermDebt",
+  "annualStockholdersEquity"
 ]

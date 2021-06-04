@@ -1,5 +1,7 @@
 package hu.finance.service
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import hu.finance.api.FinanceGateway
 import hu.finance.api.dto.*
 import hu.finance.model.*
@@ -24,20 +26,12 @@ class FinanceService(
     private val financeGateway: FinanceGateway
 ) : Finances {
 
-    private val quoteModules = listOf(
-        "balanceSheetHistory",
-        "incomeStatementHistory",
-        "summaryDetail",
-        "price",
-        "cashflowStatementHistory"
-    )
-    private val timeSeriesModules = listOf(
-        "annualTotalCapitalization",
-        "annualCapitalExpenditure",
-        "annualShareIssued",
-        "annualLongTermDebt",
-        "annualStockholdersEquity"
-    )
+    private val quoteModules by lazy {
+        jacksonObjectMapper().readValue<List<String>>(javaClass.getResource("/api/yahoo_api_modules.json")!!)
+    }
+    private val timeSeriesModules by lazy {
+        jacksonObjectMapper().readValue<List<String>>(javaClass.getResource("/api/yahoo_api_timeseries_modules.json")!!)
+    }
 
     override fun loadQuote(ticker: String): CompositeQuote {
         val qF = CompletableFuture.supplyAsync({ financeGateway.quote(ticker, quoteModules) }, pool)
