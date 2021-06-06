@@ -1,27 +1,19 @@
 package hu.finance.gui;
 
-import hu.finance.calculator.ReturnOnEquityCalculator;
-import hu.finance.calculator.ReturnOnEquityCalculator.ReturnOnEquity;
+import com.google.common.util.concurrent.RateLimiter;
+import hu.finance.api.YahooApi;
 import hu.finance.gui.util.AutoCloseableLock;
-import hu.finance.gui.util.CalcWorker;
-import hu.finance.model.Quote;
-import hu.finance.service.CompositeQuote;
-import hu.finance.service.Finances;
+import hu.finance.service.FinanceService;
+import hu.finance.service.GuiService;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.util.List;
-import java.util.Objects;
+import java.util.concurrent.Executors;
+import java.util.concurrent.locks.ReentrantLock;
 
+@SuppressWarnings("UnstableApiUsage")
 public class CalculatorGUI extends JFrame {
-    private final AutoCloseableLock lock;
-    private final Finances finances;
-
-    private volatile CompositeQuote cqCache;
+    private final GuiService guiService;
 
     private JPanel mainPanel;
     private JPanel quotePanel;
@@ -34,24 +26,36 @@ public class CalculatorGUI extends JFrame {
     private JLabel currencyLabel;
     private JTextPane roeInfo;
     private JTable roeTable;
-    private JTable roeTable2;
+    private JTable rotcTable;
+    private JTable epsTable;
     private JMenuBar menuBar;
-    private JMenu quoteMenu;
+    private JMenu menu;
     private JMenuItem loadQuote;
+    private JMenuItem help;
 
-    public CalculatorGUI(String title, AutoCloseableLock lock, Finances finances) {
+    public CalculatorGUI(String title) {
         super(title);
-        this.lock = lock;
-        this.finances = finances;
+        this.guiService = new GuiService(
+                this,
+                new FinanceService(
+                        Executors.newFixedThreadPool(4),
+                        new YahooApi(RateLimiter.create(4))
+                ),
+                new AutoCloseableLock(
+                        new ReentrantLock()
+                )
+        );
 
+        help = new JMenuItem("Help");
         loadQuote = new JMenuItem("Load Quote");
-        loadQuote.addActionListener(this::actionPerformed);
+        guiService.addLoadQuote(loadQuote);
 
-        quoteMenu = new JMenu("Quote Operations");
-        quoteMenu.add(loadQuote);
+        menu = new JMenu("Menu");
+        menu.add(loadQuote);
+        menu.add(help);
 
         menuBar = new JMenuBar();
-        menuBar.add(quoteMenu);
+        menuBar.add(menu);
         setJMenuBar(menuBar);
 
         setContentPane(mainPanel);
@@ -60,57 +64,63 @@ public class CalculatorGUI extends JFrame {
         pack();
     }
 
-    private void updateQuotePanel(Quote quote) {
-        Objects.requireNonNull(quote);
+    public JTable getEpsTable() { return epsTable; }
 
-        quoteLabel.setText(quote.getQuoteSummary().getName());
-        exchangeLabel.setText(quote.getQuoteSummary().getExchange());
-        openPriceLabel.setText(quote.getShareSummary().getOpen().toString());
-        previousOpenPriceLabel.setText(quote.getShareSummary().getPreviousClose().toString());
-        currencyLabel.setText(quote.getShareSummary().getCurrency().toString());
+    public JMenuItem getHelp() { return help; }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
     }
 
-    private void updateRoeTable(Quote quote) {
-        Objects.requireNonNull(quote);
-
-        List<ReturnOnEquity> roeList = new ReturnOnEquityCalculator().calculate(quote);
-        Object[][] table = new Object[roeList.size()][2];
-        for (int i = 0; i < roeList.size(); i++) {
-            table[i][0] = ZonedDateTime.ofInstant(roeList.get(i).getDate(), ZoneOffset.UTC).getYear();
-            table[i][1] = roeList.get(i).getRoe() + " %";
-        }
-//        DefaultTableModel jTable = new DefaultTableModel(table, new Object[]{"Év", "ROE"});
-//        roeTable.setModel(jTable);
-//        roeTable2.setModel(jTable);
+    public JPanel getQuotePanel() {
+        return quotePanel;
     }
 
-    private void loadQuote() {
-//        String ticker = JOptionPane.showInputDialog("Company ticker?");
-//        if (ticker == null || ticker.isEmpty()) return;
-//
-//        new CalcWorker<CompositeQuote, Void>(
-//                () -> finances.loadQuote(ticker),
-//                workerResult -> {
-//                    if (!workerResult.getResult()) {
-//                        JOptionPane.showMessageDialog(
-//                                null,
-//                                "Error happened: " + Objects.requireNonNull(workerResult.getError()).getMessage()
-//                        );
-//                        workerResult.getError().printStackTrace();
-//                    } else {
-//                        lock.withLock(() -> {
-//                            cqCache = Objects.requireNonNull(workerResult.getData());
-//                            return null;
-//                        });
-//                        updateQuotePanel(cqCache.getQuote());
-//                        updateRoeTable(cqCache.getQuote());
-//                    }
-//                    return null;
-//                }
-//        ).execute();
+    public JPanel getCalculationsPanel() {
+        return calculationsPanel;
     }
 
-    private void actionPerformed(ActionEvent action) {
-        loadQuote();
+    public JLabel getMainTitle() {
+        return mainTitle;
+    }
+
+    public JLabel getQuoteLabel() {
+        return quoteLabel;
+    }
+
+    public JLabel getExchangeLabel() {
+        return exchangeLabel;
+    }
+
+    public JLabel getOpenPriceLabel() {
+        return openPriceLabel;
+    }
+
+    public JLabel getPreviousOpenPriceLabel() {
+        return previousOpenPriceLabel;
+    }
+
+    public JLabel getCurrencyLabel() {
+        return currencyLabel;
+    }
+
+    public JTextPane getRoeInfo() {
+        return roeInfo;
+    }
+
+    public JTable getRoeTable() {
+        return roeTable;
+    }
+
+    public JTable getRotcTable() {
+        return rotcTable;
+    }
+
+    public JMenu getMenu() {
+        return menu;
+    }
+
+    public JMenuItem getLoadQuote() {
+        return loadQuote;
     }
 }
