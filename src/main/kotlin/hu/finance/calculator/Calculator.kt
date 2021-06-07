@@ -6,17 +6,11 @@ import hu.finance.calculator.FreeCashFlowCalculator.FreeCashFlow
 import hu.finance.calculator.ReturnOnEquityCalculator.ReturnOnEquity
 import hu.finance.calculator.ReturnOnTotalCapitalCalculator.ReturnOnTotalCapital
 import hu.finance.model.Quote
-import hu.finance.model.TimeSeries
-import hu.finance.util.Maths
-import hu.finance.util.Maths.divWith
+import hu.finance.service.CompositeQuote
+import hu.finance.util.FinanceCalculations
+import hu.finance.util.FinanceCalculations.divWith
 import java.math.BigDecimal
 import java.time.Instant
-import java.util.*
-
-data class CompositeSheets(
-    val bs: Quote,
-    val ts: TimeSeries
-)
 
 interface Calculator<T, R> {
     fun calculate(data: T): R
@@ -30,13 +24,14 @@ class ReturnOnEquityCalculator : Calculator<Quote, List<ReturnOnEquity>> {
 
     override fun calculate(data: Quote): List<ReturnOnEquity> =
         data.balanceSheetStatements
-            .map { bs -> bs to data.incomeStatements.find { it.date == bs.date }!! }
+            .map { quote -> quote to data.incomeStatements.find { it.date == quote.date } }
+            .filter { it.second != null }
             .map {
                 ReturnOnEquity(
                     date = it.first.date,
-                    roe = Maths.returnOnEquity(
-                        netIncome = it.second.netIncome,
-                        shareholderEquity = Maths.equity(
+                    roe = FinanceCalculations.roe(
+                        netIncome = it.second!!.netIncome,
+                        shareholderEquity = FinanceCalculations.equity(
                             totalAsset = it.first.totalAssets,
                             totalLiability = it.first.totalLiabilities
                         )
@@ -45,20 +40,20 @@ class ReturnOnEquityCalculator : Calculator<Quote, List<ReturnOnEquity>> {
             }
 }
 
-class ReturnOnTotalCapitalCalculator : Calculator<CompositeSheets, List<ReturnOnTotalCapital>> {
+class ReturnOnTotalCapitalCalculator : Calculator<CompositeQuote, List<ReturnOnTotalCapital>> {
     data class ReturnOnTotalCapital(
         val date: Instant,
         val rotc: BigDecimal
     )
 
-    override fun calculate(data: CompositeSheets): List<ReturnOnTotalCapital> =
-        data.bs.incomeStatements
-            .map { inStatement -> inStatement to data.ts.annualTotalCapitalization.find { it.date == inStatement.date } }
+    override fun calculate(data: CompositeQuote): List<ReturnOnTotalCapital> =
+        data.quote.incomeStatements
+            .map { inStatement -> inStatement to data.timeSeries.annualTotalCapitalization.find { it.date == inStatement.date } }
             .filter { it.second != null }
             .map {
                 ReturnOnTotalCapital(
                     date = it.first.date,
-                    rotc = Maths.returnOnTotalCapital(
+                    rotc = FinanceCalculations.rotc(
                         netIncome = it.first.ebit,
                         totalCapital = it.second!!.value
                     )
@@ -66,38 +61,36 @@ class ReturnOnTotalCapitalCalculator : Calculator<CompositeSheets, List<ReturnOn
             }
 }
 
-class EarningPerShareCalculator : Calculator<CompositeSheets, List<EarningPerShare>> {
+class EarningPerShareCalculator : Calculator<CompositeQuote, List<EarningPerShare>> {
     data class EarningPerShare(
         val date: Instant,
-        val eps: BigDecimal,
-        val currency: Currency
+        val eps: BigDecimal
     )
 
-    override fun calculate(data: CompositeSheets): List<EarningPerShare> =
-        data.bs.incomeStatements
-            .map { incomeStatement -> incomeStatement to data.ts.annualShareIssued.find { it.date == incomeStatement.date } }
+    override fun calculate(data: CompositeQuote): List<EarningPerShare> =
+        data.quote.incomeStatements
+            .map { incomeStatement -> incomeStatement to data.timeSeries.annualShareIssued.find { it.date == incomeStatement.date } }
             .filter { it.second != null }
             .map {
                 EarningPerShare(
                     date = it.first.date,
-                    eps = Maths.earningPerShare(
+                    eps = FinanceCalculations.eps(
                         numOfShare = it.second!!.value,
                         netProfit = it.first.netIncome
-                    ),
-                    currency = data.bs.shareSummary.currency
+                    )
                 )
             }
 }
 
-class DebtToEquityCalculator : Calculator<CompositeSheets, List<DebtToEquity>> {
+class DebtToEquityCalculator : Calculator<CompositeQuote, List<DebtToEquity>> {
     data class DebtToEquity(
         val date: Instant,
         val dte: BigDecimal
     )
 
-    override fun calculate(data: CompositeSheets): List<DebtToEquity> {
-        val totalLiabilities = data.bs.balanceSheetStatements
-        val stockHolderEquity = data.ts.annualStockholdersEquity
+    override fun calculate(data: CompositeQuote): List<DebtToEquity> {
+        val totalLiabilities = data.quote.balanceSheetStatements
+        val stockHolderEquity = data.timeSeries.annualStockholdersEquity
 
         return totalLiabilities
             .map { tl -> tl to stockHolderEquity.find { it.date == tl.date } }
@@ -105,7 +98,7 @@ class DebtToEquityCalculator : Calculator<CompositeSheets, List<DebtToEquity>> {
             .map {
                 DebtToEquity(
                     date = it.first.date,
-                    dte = Maths.debtToEquity(
+                    dte = FinanceCalculations.dte(
                         totalLiabilities = it.first.totalLiabilities,
                         stockHolderEquity = it.second!!.value
                     )
@@ -114,37 +107,35 @@ class DebtToEquityCalculator : Calculator<CompositeSheets, List<DebtToEquity>> {
     }
 }
 
-class FreeCashFlowCalculator : Calculator<CompositeSheets, List<FreeCashFlow>> {
+class FreeCashFlowCalculator : Calculator<CompositeQuote, List<FreeCashFlow>> {
     data class FreeCashFlow(
         val date: Instant,
         val freeCashFlow: BigDecimal,
-        val longTermDebt: BigDecimal,
-        val yearsToPaybackDebt: BigDecimal,
-        val currency: Currency
+        val longTermDebt: BigDecimal? = null,
+        val yearsToPaybackDebt: BigDecimal? = null,
     )
 
-    override fun calculate(data: CompositeSheets): List<FreeCashFlow> =
-        data.bs.cashFlowStatements
+    override fun calculate(data: CompositeQuote): List<FreeCashFlow> =
+        data.quote.cashFlowStatements
             .map { cashFlowStatement ->
                 Triple(
                     cashFlowStatement,
-                    data.ts.annualCapitalExpenditure.find { cashFlowStatement.date == it.date },
-                    data.ts.annualLongTermDebt.find { cashFlowStatement.date == it.date }
+                    data.timeSeries.annualCapitalExpenditure.find { cashFlowStatement.date == it.date },
+                    data.timeSeries.annualLongTermDebt.find { cashFlowStatement.date == it.date }
                 )
             }
-            .filter { it.second != null && it.third != null }
+            .filter { it.second != null }
             .map {
-                val longTermDebt = it.third!!.value
-                val freeCashFlow = Maths.freeCashFlow(
+                val longTermDebt = it.third?.value
+                val freeCashFlow = FinanceCalculations.fcf(
                     capitalExpenditure = it.second!!.value,
                     cashFlowFromOperations = it.first.cashFromOperations
                 )
                 FreeCashFlow(
                     date = it.first.date,
                     freeCashFlow = freeCashFlow,
-                    yearsToPaybackDebt = longTermDebt.divWith(freeCashFlow),
-                    longTermDebt = longTermDebt,
-                    currency = data.bs.shareSummary.currency
+                    yearsToPaybackDebt = longTermDebt?.divWith(freeCashFlow),
+                    longTermDebt = longTermDebt
                 )
             }
 }

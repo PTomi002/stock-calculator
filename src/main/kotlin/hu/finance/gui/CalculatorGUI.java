@@ -1,88 +1,109 @@
 package hu.finance.gui;
 
-import hu.finance.gui.util.AutoCloseableLock;
-import hu.finance.gui.util.CalcWorker;
-import hu.finance.model.Quote;
-import hu.finance.service.CompositeQuote;
-import hu.finance.service.Finances;
+import com.google.common.util.concurrent.RateLimiter;
+import hu.finance.api.YahooApi;
+import hu.finance.service.FinanceService;
+import hu.finance.service.GuiUpdaterService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
+import java.util.concurrent.Executors;
 
+@SuppressWarnings("UnstableApiUsage")
 public class CalculatorGUI extends JFrame {
-    private final AutoCloseableLock lock;
-    private final Finances finances;
-
-    private volatile CompositeQuote cqCache;
+    private final GuiUpdaterService guiUpdaterService;
 
     private JPanel mainPanel;
-    private JPanel quotePanel;
-    private JPanel calculationsPanel;
-    private JLabel mainTitle;
     private JLabel quoteLabel;
     private JLabel exchangeLabel;
     private JLabel openPriceLabel;
     private JLabel previousOpenPriceLabel;
     private JLabel currencyLabel;
+    private JTable roeTable;
+    private JTable rotcTable;
+    private JTable epsTable;
+    private JTable dteTable;
+    private JTable fcfTable;
+    private JLabel quoteShortLabel;
+    private JLabel quoteTypeLabel;
     private JMenuBar menuBar;
-    private JMenu quoteMenu;
+    private JMenu menu;
     private JMenuItem loadQuote;
+    private JMenuItem help;
 
-    public CalculatorGUI(String title, AutoCloseableLock lock, Finances finances) {
+    public CalculatorGUI(String title) {
         super(title);
-        this.lock = lock;
-        this.finances = finances;
+        guiUpdaterService = new GuiUpdaterService(
+                this,
+                new FinanceService(
+                        Executors.newFixedThreadPool(4),
+                        new YahooApi(RateLimiter.create(4))
+                )
+        );
 
+        help = new JMenuItem("Help");
         loadQuote = new JMenuItem("Load Quote");
-        loadQuote.addActionListener(action -> loadQuote());
+        guiUpdaterService.addLoadQuote(loadQuote);
 
-        quoteMenu = new JMenu("Quote Operations");
-        quoteMenu.add(loadQuote);
+        menu = new JMenu("Menu");
+        menu.add(loadQuote);
+        menu.add(help);
 
         menuBar = new JMenuBar();
-        menuBar.add(quoteMenu);
+        menuBar.add(menu);
         setJMenuBar(menuBar);
 
         setContentPane(mainPanel);
-        setPreferredSize(new Dimension(400, 600));
+        setPreferredSize(new Dimension(600, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
     }
 
-    private void updateQuotePanel(Quote quote) {
-        Objects.requireNonNull(quote);
-
-        quoteLabel.setText(quote.getQuoteSummary().getName());
-        exchangeLabel.setText(quote.getQuoteSummary().getExchange());
-        openPriceLabel.setText(quote.getShareSummary().getOpen().toString());
-        previousOpenPriceLabel.setText(quote.getShareSummary().getPreviousClose().toString());
-        currencyLabel.setText(quote.getShareSummary().getCurrency().toString());
+    public JLabel getQuoteTypeLabel() {
+        return quoteTypeLabel;
     }
 
-    private void loadQuote() {
-        String ticker = JOptionPane.showInputDialog("Company ticker?");
-        if (ticker == null || ticker.isEmpty()) return;
-
-        new CalcWorker<CompositeQuote, Void>(
-                () -> finances.loadQuote(ticker),
-                workerResult -> {
-                    if (!workerResult.getResult()) {
-                        JOptionPane.showMessageDialog(
-                                null,
-                                "Error happened: " + Objects.requireNonNull(workerResult.getError()).getMessage()
-                        );
-                        workerResult.getError().printStackTrace();
-                    } else {
-                        lock.withLock(() -> {
-                            cqCache = Objects.requireNonNull(workerResult.getData());
-                            return null;
-                        });
-                        updateQuotePanel(cqCache.getQuote());
-                    }
-                    return null;
-                }
-        ).execute();
+    public JLabel getQuoteShortLabel() {
+        return quoteShortLabel;
     }
 
+    public JTable getFcfTable() {
+        return fcfTable;
+    }
+
+    public JTable getDteTable() {
+        return dteTable;
+    }
+
+    public JTable getEpsTable() {
+        return epsTable;
+    }
+
+    public JLabel getQuoteLabel() {
+        return quoteLabel;
+    }
+
+    public JLabel getExchangeLabel() {
+        return exchangeLabel;
+    }
+
+    public JLabel getOpenPriceLabel() {
+        return openPriceLabel;
+    }
+
+    public JLabel getPreviousOpenPriceLabel() {
+        return previousOpenPriceLabel;
+    }
+
+    public JLabel getCurrencyLabel() {
+        return currencyLabel;
+    }
+
+    public JTable getRoeTable() {
+        return roeTable;
+    }
+
+    public JTable getRotcTable() {
+        return rotcTable;
+    }
 }
