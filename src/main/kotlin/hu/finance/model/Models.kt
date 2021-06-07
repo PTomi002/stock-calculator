@@ -5,11 +5,11 @@ import java.time.Instant
 import java.util.*
 
 data class TimeSeries(
-    val annualShareIssued: List<TimeSeriesData>,
-    val annualLongTermDebt: List<TimeSeriesData>,
-    val annualStockholdersEquity: List<TimeSeriesData>,
-    val annualCapitalExpenditure: List<TimeSeriesData>,
-    val annualTotalCapitalization: List<TimeSeriesData>
+    val annualShareIssued: List<TimeSeriesData> = emptyList(),
+    val annualLongTermDebt: List<TimeSeriesData> = emptyList(),
+    val annualStockholdersEquity: List<TimeSeriesData> = emptyList(),
+    val annualCapitalExpenditure: List<TimeSeriesData> = emptyList(),
+    val annualTotalCapitalization: List<TimeSeriesData> = emptyList()
 )
 
 data class TimeSeriesData(
@@ -20,9 +20,9 @@ data class TimeSeriesData(
 data class Quote(
     val shareSummary: ShareSummary,
     val quoteSummary: QuoteSummary,
-    val balanceSheetStatements: List<BalanceSheetStatement>,
-    val incomeStatements: List<IncomeStatement>,
-    val cashFlowStatements: List<CashFlowStatement>
+    val balanceSheetStatements: List<BalanceSheetStatement> = emptyList(),
+    val incomeStatements: List<IncomeStatement> = emptyList(),
+    val cashFlowStatements: List<CashFlowStatement> = emptyList()
 )
 
 data class CashFlowStatement(
@@ -37,7 +37,8 @@ data class ShareSummary(
 )
 
 data class QuoteSummary(
-    val name: String,
+    val shortName: String,
+    val longName: String,
     val exchange: String
 )
 

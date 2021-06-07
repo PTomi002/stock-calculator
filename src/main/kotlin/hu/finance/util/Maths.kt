@@ -35,5 +35,5 @@ object Maths {
     fun freeCashFlow(cashFlowFromOperations: BigDecimal, capitalExpenditure: BigDecimal): BigDecimal =
         cashFlowFromOperations.subtract(capitalExpenditure.abs())
 
-    fun BigDecimal.divWith(other: BigDecimal): BigDecimal = divide(other, 6, HALF_EVEN)
+    fun BigDecimal.divWith(other: BigDecimal): BigDecimal = divide(other, 3, HALF_EVEN)
 }

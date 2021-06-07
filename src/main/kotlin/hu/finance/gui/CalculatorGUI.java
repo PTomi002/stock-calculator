@@ -4,7 +4,7 @@ import com.google.common.util.concurrent.RateLimiter;
 import hu.finance.api.YahooApi;
 import hu.finance.gui.util.AutoCloseableLock;
 import hu.finance.service.FinanceService;
-import hu.finance.service.GuiService;
+import hu.finance.service.GuiUpdaterService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 @SuppressWarnings("UnstableApiUsage")
 public class CalculatorGUI extends JFrame {
-    private final GuiService guiService;
+    private final GuiUpdaterService guiUpdaterService;
 
     private JPanel mainPanel;
     private JPanel quotePanel;
@@ -28,6 +28,9 @@ public class CalculatorGUI extends JFrame {
     private JTable roeTable;
     private JTable rotcTable;
     private JTable epsTable;
+    private JTable dteTable;
+    private JTable fcfTable;
+    private JLabel quoteShortLabel;
     private JMenuBar menuBar;
     private JMenu menu;
     private JMenuItem loadQuote;
@@ -35,7 +38,7 @@ public class CalculatorGUI extends JFrame {
 
     public CalculatorGUI(String title) {
         super(title);
-        this.guiService = new GuiService(
+        this.guiUpdaterService = new GuiUpdaterService(
                 this,
                 new FinanceService(
                         Executors.newFixedThreadPool(4),
@@ -48,7 +51,7 @@ public class CalculatorGUI extends JFrame {
 
         help = new JMenuItem("Help");
         loadQuote = new JMenuItem("Load Quote");
-        guiService.addLoadQuote(loadQuote);
+        guiUpdaterService.addLoadQuote(loadQuote);
 
         menu = new JMenu("Menu");
         menu.add(loadQuote);
@@ -64,9 +67,25 @@ public class CalculatorGUI extends JFrame {
         pack();
     }
 
-    public JTable getEpsTable() { return epsTable; }
+    public JLabel getQuoteShortLabel() {
+        return quoteShortLabel;
+    }
 
-    public JMenuItem getHelp() { return help; }
+    public JTable getFcfTable() {
+        return fcfTable;
+    }
+
+    public JTable getDteTable() {
+        return dteTable;
+    }
+
+    public JTable getEpsTable() {
+        return epsTable;
+    }
+
+    public JMenuItem getHelp() {
+        return help;
+    }
 
     public JPanel getMainPanel() {
         return mainPanel;

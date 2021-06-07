@@ -44,61 +44,66 @@ class FinanceService(
     }
 }
 
-fun TimeSeriesDto.toTimeSeries() = timeseries.result.run {
-    TimeSeries(
-        annualShareIssued = flatMap { tsData ->
-            tsData.annualShareIssued?.map { it.toTimeSeriesData() } ?: emptyList()
-        },
-        annualLongTermDebt = flatMap { tsData ->
-            tsData.annualLongTermDebt?.map { it.toTimeSeriesData() } ?: emptyList()
-        },
-        annualStockholdersEquity = flatMap { tsData ->
-            tsData.annualStockholdersEquity?.map { it.toTimeSeriesData() } ?: emptyList()
-        },
-        annualCapitalExpenditure = flatMap { tsData ->
-            tsData.annualCapitalExpenditure?.map { it.toTimeSeriesData() } ?: emptyList()
-        },
-        annualTotalCapitalization = flatMap { tsData ->
-            tsData.annualTotalCapitalization?.map { it.toTimeSeriesData() } ?: emptyList()
-        }
-    )
-}
+fun TimeSeriesDto.toTimeSeries() = timeseries?.result
+    ?.run {
+        TimeSeries(
+            annualShareIssued = flatMap { tsData ->
+                tsData.annualShareIssued?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualLongTermDebt = flatMap { tsData ->
+                tsData.annualLongTermDebt?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualStockholdersEquity = flatMap { tsData ->
+                tsData.annualStockholdersEquity?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualCapitalExpenditure = flatMap { tsData ->
+                tsData.annualCapitalExpenditure?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualTotalCapitalization = flatMap { tsData ->
+                tsData.annualTotalCapitalization?.map { it.toTimeSeriesData() } ?: emptyList()
+            }
+        )
+    } ?: TimeSeries()
 
 private fun TimeSeriesDataDto.toTimeSeriesData() = TimeSeriesData(
-    date = LocalDate.parse(asOfDate).atStartOfDay().toInstant(ZoneOffset.UTC),
-    value = reportedValue.raw.toBigDecimal()
+    date = LocalDate.parse(asOfDate!!).atStartOfDay().toInstant(ZoneOffset.UTC),
+    value = reportedValue!!.raw.toBigDecimal()
 )
 
-fun QuoteDto.toQuote() = quoteSummary.result.first().run {
+fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
     Quote(
         shareSummary = ShareSummary(
-            open = summaryDetail!!.open.raw.toBigDecimal(),
-            previousClose = summaryDetail.previousClose.raw.toBigDecimal(),
+            open = summaryDetail!!.open!!.raw.toBigDecimal(),
+            previousClose = summaryDetail.previousClose!!.raw.toBigDecimal(),
             currency = Currency.getInstance(price!!.currency)
         ),
         quoteSummary = QuoteSummary(
-            name = price.longName,
-            exchange = price.exchangeName
+            longName = price.longName ?: "",
+            shortName = price.shortName!!,
+            exchange = price.exchangeName!!
         ),
-        cashFlowStatements = cashflowStatementHistory!!.cashflowStatements.map { it.toCashFlowStatement() },
-        balanceSheetStatements = balanceSheetHistory!!.balanceSheetStatements.map { it.toBalanceSheetStatement() },
-        incomeStatements = incomeStatementHistory!!.incomeStatementHistory.map { it.toIncomeStatement() }
+        cashFlowStatements = cashflowStatementHistory?.cashflowStatements?.map { it.toCashFlowStatement() }
+            ?: emptyList(),
+        balanceSheetStatements = balanceSheetHistory?.balanceSheetStatements?.map { it.toBalanceSheetStatement() }
+            ?: emptyList(),
+        incomeStatements = incomeStatementHistory?.incomeStatementHistory?.map { it.toIncomeStatement() }
+            ?: emptyList()
     )
 }
 
 private fun CashFlowStatementDto.toCashFlowStatement() = CashFlowStatement(
-    date = Instant.ofEpochSecond(endDate.raw.toLong()),
-    cashFromOperations = totalCashFromOperatingActivities.raw.toBigDecimal()
+    date = Instant.ofEpochSecond(endDate!!.raw.toLong()),
+    cashFromOperations = totalCashFromOperatingActivities!!.raw.toBigDecimal()
 )
 
 private fun BalanceSheetStatementDto.toBalanceSheetStatement() = BalanceSheetStatement(
-    date = Instant.ofEpochSecond(endDate.raw.toLong()),
-    totalAssets = totalAssets.raw.toBigDecimal(),
-    totalLiabilities = totalLiab.raw.toBigDecimal()
+    date = Instant.ofEpochSecond(endDate!!.raw.toLong()),
+    totalAssets = totalAssets!!.raw.toBigDecimal(),
+    totalLiabilities = totalLiab!!.raw.toBigDecimal()
 )
 
 private fun IncomeStatementDto.toIncomeStatement() = IncomeStatement(
-    date = Instant.ofEpochSecond(endDate.raw.toLong()),
-    netIncome = netIncome.raw.toBigDecimal(),
-    ebit = ebit.raw.toBigDecimal()
+    date = Instant.ofEpochSecond(endDate!!.raw.toLong()),
+    netIncome = netIncome!!.raw.toBigDecimal(),
+    ebit = ebit!!.raw.toBigDecimal()
 )

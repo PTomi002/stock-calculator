@@ -1,12 +1,11 @@
 package hu.finance.service
 
-import hu.finance.calculator.EarningPerShareCalculator
-import hu.finance.calculator.ReturnOnEquityCalculator
-import hu.finance.calculator.ReturnOnTotalCapitalCalculator
+import hu.finance.calculator.*
 import hu.finance.gui.CalculatorGUI
 import hu.finance.gui.util.AutoCloseableLock
 import hu.finance.gui.util.CalcWorker
 import hu.finance.model.Quote
+import java.text.DecimalFormat
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
 import javax.swing.JMenuItem
@@ -18,7 +17,7 @@ import javax.swing.table.DefaultTableModel
  * </br>
  * So refactored every GUI update logic to this class.
  */
-class GuiService(
+class GuiUpdaterService(
     private val gui: CalculatorGUI,
     private val finances: Finances,
     private val lock: AutoCloseableLock
@@ -26,9 +25,12 @@ class GuiService(
     @Volatile
     private var cqCache: CompositeQuote? = null
 
+    private val formatter = DecimalFormat("#,###.00");
     private val roeCalculator = ReturnOnEquityCalculator()
     private val rotcCalculator = ReturnOnTotalCapitalCalculator()
     private val epsCalculator = EarningPerShareCalculator()
+    private val dteCalculator = DebtToEquityCalculator()
+    private val flowCalculator = FreeCashFlowCalculator()
 
     fun addLoadQuote(loadQuote: JMenuItem) = loadQuote.addActionListener { loadQuote() }
 
@@ -52,6 +54,8 @@ class GuiService(
                                 updateRoeTable(quote)
                                 updateRotcTable(this)
                                 updateEpsTable(this)
+                                updateDetTable(this)
+                                updateFcfTable(this)
                             }
                         }
                     }).execute()
@@ -59,7 +63,8 @@ class GuiService(
     }
 
     private fun updateQuotePanel(quote: Quote) = gui.run {
-        quoteLabel.text = quote.quoteSummary.name
+        quoteLabel.text = quote.quoteSummary.longName
+        quoteShortLabel.text = quote.quoteSummary.shortName
         exchangeLabel.text = quote.quoteSummary.exchange
         openPriceLabel.text = "${quote.shareSummary.open}"
         previousOpenPriceLabel.text = "${quote.shareSummary.previousClose}"
@@ -85,4 +90,23 @@ class GuiService(
                 ).toTypedArray()
             }
             .run { gui.epsTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "EPS")) }
+
+    private fun updateDetTable(quote: CompositeQuote) =
+        dteCalculator.calculate(quote)
+            .map { listOf(ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year, "${it.dte} ratio").toTypedArray() }
+            .run { gui.dteTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "DTE")) }
+
+    private fun updateFcfTable(quote: CompositeQuote) =
+        flowCalculator.calculate(quote)
+            .map {
+                listOf(
+                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
+                    formatter.format(it.freeCashFlow),
+                    formatter.format(it.longTermDebt),
+                    it.yearsToPaybackDebt
+                ).toTypedArray()
+            }
+            .run {
+                gui.fcfTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "FCF", "LTD", "Years to pay back"))
+            }
 }

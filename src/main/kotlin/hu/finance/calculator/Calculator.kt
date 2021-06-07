@@ -1,11 +1,14 @@
 package hu.finance.calculator
 
+import hu.finance.calculator.DebtToEquityCalculator.DebtToEquity
 import hu.finance.calculator.EarningPerShareCalculator.EarningPerShare
+import hu.finance.calculator.FreeCashFlowCalculator.FreeCashFlow
 import hu.finance.calculator.ReturnOnEquityCalculator.ReturnOnEquity
 import hu.finance.calculator.ReturnOnTotalCapitalCalculator.ReturnOnTotalCapital
 import hu.finance.model.Quote
 import hu.finance.service.CompositeQuote
 import hu.finance.util.Maths
+import hu.finance.util.Maths.divWith
 import java.math.BigDecimal
 import java.time.Instant
 
@@ -78,63 +81,61 @@ class EarningPerShareCalculator : Calculator<CompositeQuote, List<EarningPerShar
                 )
             }
 }
-//
-//class DebtToEquityCalculator : Calculator<CompositeQuote, List<DebtToEquity>> {
-//    data class DebtToEquity(
-//        val date: Instant,
-//        val dte: BigDecimal
-//    )
-//
-//    override fun calculate(data: CompositeQuote): List<DebtToEquity> {
-//        val totalLiabilities = data.quote.balanceSheetStatements
-//        val stockHolderEquity = data.timeSeries.annualStockholdersEquity
-//
-//        return totalLiabilities
-//            .map { tl -> tl to stockHolderEquity.find { it.date == tl.date } }
-//            .filter { it.second != null }
-//            .map {
-//                DebtToEquity(
-//                    date = it.first.date,
-//                    dte = Maths.debtToEquity(
-//                        totalLiabilities = it.first.totalLiabilities,
-//                        stockHolderEquity = it.second!!.value
-//                    )
-//                )
-//            }
-//    }
-//}
-//
-//class FreeCashFlowCalculator : Calculator<CompositeQuote, List<FreeCashFlow>> {
-//    data class FreeCashFlow(
-//        val date: Instant,
-//        val freeCashFlow: BigDecimal,
-//        val longTermDebt: BigDecimal,
-//        val yearsToPaybackDebt: BigDecimal,
-//        val currency: Currency
-//    )
-//
-//    override fun calculate(data: CompositeQuote): List<FreeCashFlow> =
-//        data.quote.cashFlowStatements
-//            .map { cashFlowStatement ->
-//                Triple(
-//                    cashFlowStatement,
-//                    data.timeSeries.annualCapitalExpenditure.find { cashFlowStatement.date == it.date },
-//                    data.timeSeries.annualLongTermDebt.find { cashFlowStatement.date == it.date }
-//                )
-//            }
-//            .filter { it.second != null && it.third != null }
-//            .map {
-//                val longTermDebt = it.third!!.value
-//                val freeCashFlow = Maths.freeCashFlow(
-//                    capitalExpenditure = it.second!!.value,
-//                    cashFlowFromOperations = it.first.cashFromOperations
-//                )
-//                FreeCashFlow(
-//                    date = it.first.date,
-//                    freeCashFlow = freeCashFlow,
-//                    yearsToPaybackDebt = longTermDebt.divWith(freeCashFlow),
-//                    longTermDebt = longTermDebt,
-//                    currency = data.quote.shareSummary.currency
-//                )
-//            }
-//}
+
+class DebtToEquityCalculator : Calculator<CompositeQuote, List<DebtToEquity>> {
+    data class DebtToEquity(
+        val date: Instant,
+        val dte: BigDecimal
+    )
+
+    override fun calculate(data: CompositeQuote): List<DebtToEquity> {
+        val totalLiabilities = data.quote.balanceSheetStatements
+        val stockHolderEquity = data.timeSeries.annualStockholdersEquity
+
+        return totalLiabilities
+            .map { tl -> tl to stockHolderEquity.find { it.date == tl.date } }
+            .filter { it.second != null }
+            .map {
+                DebtToEquity(
+                    date = it.first.date,
+                    dte = Maths.debtToEquity(
+                        totalLiabilities = it.first.totalLiabilities,
+                        stockHolderEquity = it.second!!.value
+                    )
+                )
+            }
+    }
+}
+
+class FreeCashFlowCalculator : Calculator<CompositeQuote, List<FreeCashFlow>> {
+    data class FreeCashFlow(
+        val date: Instant,
+        val freeCashFlow: BigDecimal,
+        val longTermDebt: BigDecimal,
+        val yearsToPaybackDebt: BigDecimal,
+    )
+
+    override fun calculate(data: CompositeQuote): List<FreeCashFlow> =
+        data.quote.cashFlowStatements
+            .map { cashFlowStatement ->
+                Triple(
+                    cashFlowStatement,
+                    data.timeSeries.annualCapitalExpenditure.find { cashFlowStatement.date == it.date },
+                    data.timeSeries.annualLongTermDebt.find { cashFlowStatement.date == it.date }
+                )
+            }
+            .filter { it.second != null && it.third != null }
+            .map {
+                val longTermDebt = it.third!!.value
+                val freeCashFlow = Maths.freeCashFlow(
+                    capitalExpenditure = it.second!!.value,
+                    cashFlowFromOperations = it.first.cashFromOperations
+                )
+                FreeCashFlow(
+                    date = it.first.date,
+                    freeCashFlow = freeCashFlow,
+                    yearsToPaybackDebt = longTermDebt.divWith(freeCashFlow),
+                    longTermDebt = longTermDebt
+                )
+            }
+}

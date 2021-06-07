@@ -1,15 +1,15 @@
 package hu.finance.api.dto
 
 data class TimeSeriesDto(
-    val timeseries: TimeSeriesResultDto
+    val timeseries: TimeSeriesResultDto? = null
 )
 
 data class TimeSeriesResultDto(
-    val result: List<TimeSeriesDataContainerDto>
+    val result: List<TimeSeriesDataContainerDto>? = null
 )
 
 data class TimeSeriesDataContainerDto(
-    val meta: TimeSeriesMetadataDto,
+    val meta: TimeSeriesMetadataDto? = null,
     val annualShareIssued: List<TimeSeriesDataDto>? = null,
     val annualLongTermDebt: List<TimeSeriesDataDto>? = null,
     val annualStockholdersEquity: List<TimeSeriesDataDto>? = null,
@@ -18,21 +18,21 @@ data class TimeSeriesDataContainerDto(
 )
 
 data class TimeSeriesDataDto(
-    val asOfDate: String,
-    val reportedValue: DataDto
+    val asOfDate: String? = null,
+    val reportedValue: DataDto? = null
 )
 
 data class TimeSeriesMetadataDto(
-    val symbol: List<String>,
-    val type: List<String>
+    val symbol: List<String>? = null,
+    val type: List<String>? = null
 )
 
 data class QuoteDto(
-    val quoteSummary: QuoteSummaryDto
+    val quoteSummary: QuoteSummaryDto? = null
 )
 
 data class QuoteSummaryDto(
-    val result: List<ResultDto>
+    val result: List<ResultDto>? = null
 )
 
 data class ResultDto(
@@ -44,43 +44,44 @@ data class ResultDto(
 )
 
 data class CashFowStatementHistoryDto(
-    val cashflowStatements: List<CashFlowStatementDto>
+    val cashflowStatements: List<CashFlowStatementDto>? = null
 )
 
 data class CashFlowStatementDto(
-    val endDate: DataDto,
-    val totalCashFromOperatingActivities: DataDto
+    val endDate: DataDto? = null,
+    val totalCashFromOperatingActivities: DataDto? = null
 )
 
 data class IncomeStatementHistoryDto(
-    val incomeStatementHistory: List<IncomeStatementDto>
+    val incomeStatementHistory: List<IncomeStatementDto>? = null
 )
 
 data class IncomeStatementDto(
-    val endDate: DataDto,
-    val ebit: DataDto,
-    val netIncome: DataDto
+    val endDate: DataDto? = null,
+    val ebit: DataDto? = null,
+    val netIncome: DataDto? = null
 )
 
 data class BalanceSheetHistoryDto(
-    val balanceSheetStatements: List<BalanceSheetStatementDto>
+    val balanceSheetStatements: List<BalanceSheetStatementDto>? = null
 )
 
 data class BalanceSheetStatementDto(
-    val endDate: DataDto,
-    val totalAssets: DataDto,
-    val totalLiab: DataDto
+    val endDate: DataDto? = null,
+    val totalAssets: DataDto? = null,
+    val totalLiab: DataDto? = null
 )
 
 data class PriceDto(
-    val longName: String,
-    val currency: String,
-    val exchangeName: String
+    val longName: String? = null,
+    val shortName: String? = null,
+    val currency: String? = null,
+    val exchangeName: String? = null
 )
 
 data class SummaryDetailsDto(
-    val open: DataDto,
-    val previousClose: DataDto
+    val open: DataDto? = null,
+    val previousClose: DataDto? = null
 )
 
 data class DataDto(
