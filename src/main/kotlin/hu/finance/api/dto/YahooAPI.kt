@@ -14,7 +14,8 @@ data class TimeSeriesDataContainerDto(
     val annualLongTermDebt: List<TimeSeriesDataDto>? = null,
     val annualStockholdersEquity: List<TimeSeriesDataDto>? = null,
     val annualCapitalExpenditure: List<TimeSeriesDataDto>? = null,
-    val annualTotalCapitalization: List<TimeSeriesDataDto>? = null
+    val annualTotalCapitalization: List<TimeSeriesDataDto>? = null,
+    val annualCashFlowFromContinuingOperatingActivities: List<TimeSeriesDataDto>? = null
 )
 
 data class TimeSeriesDataDto(
@@ -73,6 +74,7 @@ data class BalanceSheetStatementDto(
 )
 
 data class PriceDto(
+    val quoteType: String? = null,
     val longName: String? = null,
     val shortName: String? = null,
     val currency: String? = null,

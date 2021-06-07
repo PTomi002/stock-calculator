@@ -7,8 +7,8 @@ import hu.finance.calculator.ReturnOnEquityCalculator.ReturnOnEquity
 import hu.finance.calculator.ReturnOnTotalCapitalCalculator.ReturnOnTotalCapital
 import hu.finance.model.Quote
 import hu.finance.service.CompositeQuote
-import hu.finance.util.Maths
-import hu.finance.util.Maths.divWith
+import hu.finance.util.FinanceCalculations
+import hu.finance.util.FinanceCalculations.divWith
 import java.math.BigDecimal
 import java.time.Instant
 
@@ -29,9 +29,9 @@ class ReturnOnEquityCalculator : Calculator<Quote, List<ReturnOnEquity>> {
             .map {
                 ReturnOnEquity(
                     date = it.first.date,
-                    roe = Maths.returnOnEquity(
+                    roe = FinanceCalculations.roe(
                         netIncome = it.second!!.netIncome,
-                        shareholderEquity = Maths.equity(
+                        shareholderEquity = FinanceCalculations.equity(
                             totalAsset = it.first.totalAssets,
                             totalLiability = it.first.totalLiabilities
                         )
@@ -53,7 +53,7 @@ class ReturnOnTotalCapitalCalculator : Calculator<CompositeQuote, List<ReturnOnT
             .map {
                 ReturnOnTotalCapital(
                     date = it.first.date,
-                    rotc = Maths.returnOnTotalCapital(
+                    rotc = FinanceCalculations.rotc(
                         netIncome = it.first.ebit,
                         totalCapital = it.second!!.value
                     )
@@ -74,7 +74,7 @@ class EarningPerShareCalculator : Calculator<CompositeQuote, List<EarningPerShar
             .map {
                 EarningPerShare(
                     date = it.first.date,
-                    eps = Maths.earningPerShare(
+                    eps = FinanceCalculations.eps(
                         numOfShare = it.second!!.value,
                         netProfit = it.first.netIncome
                     )
@@ -98,7 +98,7 @@ class DebtToEquityCalculator : Calculator<CompositeQuote, List<DebtToEquity>> {
             .map {
                 DebtToEquity(
                     date = it.first.date,
-                    dte = Maths.debtToEquity(
+                    dte = FinanceCalculations.dte(
                         totalLiabilities = it.first.totalLiabilities,
                         stockHolderEquity = it.second!!.value
                     )
@@ -111,8 +111,8 @@ class FreeCashFlowCalculator : Calculator<CompositeQuote, List<FreeCashFlow>> {
     data class FreeCashFlow(
         val date: Instant,
         val freeCashFlow: BigDecimal,
-        val longTermDebt: BigDecimal,
-        val yearsToPaybackDebt: BigDecimal,
+        val longTermDebt: BigDecimal? = null,
+        val yearsToPaybackDebt: BigDecimal? = null,
     )
 
     override fun calculate(data: CompositeQuote): List<FreeCashFlow> =
@@ -124,17 +124,17 @@ class FreeCashFlowCalculator : Calculator<CompositeQuote, List<FreeCashFlow>> {
                     data.timeSeries.annualLongTermDebt.find { cashFlowStatement.date == it.date }
                 )
             }
-            .filter { it.second != null && it.third != null }
+            .filter { it.second != null }
             .map {
-                val longTermDebt = it.third!!.value
-                val freeCashFlow = Maths.freeCashFlow(
+                val longTermDebt = it.third?.value
+                val freeCashFlow = FinanceCalculations.fcf(
                     capitalExpenditure = it.second!!.value,
                     cashFlowFromOperations = it.first.cashFromOperations
                 )
                 FreeCashFlow(
                     date = it.first.date,
                     freeCashFlow = freeCashFlow,
-                    yearsToPaybackDebt = longTermDebt.divWith(freeCashFlow),
+                    yearsToPaybackDebt = longTermDebt?.divWith(freeCashFlow),
                     longTermDebt = longTermDebt
                 )
             }

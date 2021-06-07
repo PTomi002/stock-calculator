@@ -8,6 +8,7 @@ import hu.finance.model.Quote
 import java.text.DecimalFormat
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
+import java.util.concurrent.locks.ReentrantLock
 import javax.swing.JMenuItem
 import javax.swing.JOptionPane
 import javax.swing.table.DefaultTableModel
@@ -19,13 +20,14 @@ import javax.swing.table.DefaultTableModel
  */
 class GuiUpdaterService(
     private val gui: CalculatorGUI,
-    private val finances: Finances,
-    private val lock: AutoCloseableLock
+    private val finances: Finances
 ) {
     @Volatile
     private var cqCache: CompositeQuote? = null
 
+    private val lock = AutoCloseableLock(ReentrantLock())
     private val formatter = DecimalFormat("#,###.00");
+
     private val roeCalculator = ReturnOnEquityCalculator()
     private val rotcCalculator = ReturnOnTotalCapitalCalculator()
     private val epsCalculator = EarningPerShareCalculator()
@@ -34,7 +36,7 @@ class GuiUpdaterService(
 
     fun addLoadQuote(loadQuote: JMenuItem) = loadQuote.addActionListener { loadQuote() }
 
-    fun loadQuote() {
+    private fun loadQuote() {
         JOptionPane.showInputDialog("Company ticker?")
             .takeIf { !it.isNullOrEmpty() }
             ?.run {
@@ -65,6 +67,7 @@ class GuiUpdaterService(
     private fun updateQuotePanel(quote: Quote) = gui.run {
         quoteLabel.text = quote.quoteSummary.longName
         quoteShortLabel.text = quote.quoteSummary.shortName
+        quoteTypeLabel.text = quote.quoteSummary.type
         exchangeLabel.text = quote.quoteSummary.exchange
         openPriceLabel.text = "${quote.shareSummary.open}"
         previousOpenPriceLabel.text = "${quote.shareSummary.previousClose}"
@@ -73,12 +76,22 @@ class GuiUpdaterService(
 
     private fun updateRoeTable(quote: Quote) =
         roeCalculator.calculate(quote)
-            .map { listOf(ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year, "${it.roe} %").toTypedArray() }
+            .map {
+                listOf(
+                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
+                    "${it.roe} %"
+                ).toTypedArray()
+            }
             .run { gui.roeTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "ROE")) }
 
     private fun updateRotcTable(quote: CompositeQuote) =
         rotcCalculator.calculate(quote)
-            .map { listOf(ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year, "${it.rotc} %").toTypedArray() }
+            .map {
+                listOf(
+                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
+                    "${it.rotc} %"
+                ).toTypedArray()
+            }
             .run { gui.rotcTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "ROTC")) }
 
     private fun updateEpsTable(quote: CompositeQuote) =
@@ -93,17 +106,22 @@ class GuiUpdaterService(
 
     private fun updateDetTable(quote: CompositeQuote) =
         dteCalculator.calculate(quote)
-            .map { listOf(ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year, "${it.dte} ratio").toTypedArray() }
+            .map {
+                listOf(
+                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
+                    "${it.dte} ratio"
+                ).toTypedArray()
+            }
             .run { gui.dteTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "DTE")) }
 
     private fun updateFcfTable(quote: CompositeQuote) =
         flowCalculator.calculate(quote)
-            .map {
+            .map { fcf ->
                 listOf(
-                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
-                    formatter.format(it.freeCashFlow),
-                    formatter.format(it.longTermDebt),
-                    it.yearsToPaybackDebt
+                    ZonedDateTime.ofInstant(fcf.date, ZoneOffset.UTC).year,
+                    formatter.format(fcf.freeCashFlow),
+                    fcf.longTermDebt?.let { formatter.format(it) } ?: "",
+                    fcf.yearsToPaybackDebt ?: ""
                 ).toTypedArray()
             }
             .run {

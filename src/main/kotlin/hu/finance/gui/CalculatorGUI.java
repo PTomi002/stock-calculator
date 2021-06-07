@@ -2,35 +2,30 @@ package hu.finance.gui;
 
 import com.google.common.util.concurrent.RateLimiter;
 import hu.finance.api.YahooApi;
-import hu.finance.gui.util.AutoCloseableLock;
 import hu.finance.service.FinanceService;
 import hu.finance.service.GuiUpdaterService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.Executors;
-import java.util.concurrent.locks.ReentrantLock;
 
 @SuppressWarnings("UnstableApiUsage")
 public class CalculatorGUI extends JFrame {
     private final GuiUpdaterService guiUpdaterService;
 
     private JPanel mainPanel;
-    private JPanel quotePanel;
-    private JPanel calculationsPanel;
-    private JLabel mainTitle;
     private JLabel quoteLabel;
     private JLabel exchangeLabel;
     private JLabel openPriceLabel;
     private JLabel previousOpenPriceLabel;
     private JLabel currencyLabel;
-    private JTextPane roeInfo;
     private JTable roeTable;
     private JTable rotcTable;
     private JTable epsTable;
     private JTable dteTable;
     private JTable fcfTable;
     private JLabel quoteShortLabel;
+    private JLabel quoteTypeLabel;
     private JMenuBar menuBar;
     private JMenu menu;
     private JMenuItem loadQuote;
@@ -38,14 +33,11 @@ public class CalculatorGUI extends JFrame {
 
     public CalculatorGUI(String title) {
         super(title);
-        this.guiUpdaterService = new GuiUpdaterService(
+        guiUpdaterService = new GuiUpdaterService(
                 this,
                 new FinanceService(
                         Executors.newFixedThreadPool(4),
                         new YahooApi(RateLimiter.create(4))
-                ),
-                new AutoCloseableLock(
-                        new ReentrantLock()
                 )
         );
 
@@ -67,6 +59,10 @@ public class CalculatorGUI extends JFrame {
         pack();
     }
 
+    public JLabel getQuoteTypeLabel() {
+        return quoteTypeLabel;
+    }
+
     public JLabel getQuoteShortLabel() {
         return quoteShortLabel;
     }
@@ -81,26 +77,6 @@ public class CalculatorGUI extends JFrame {
 
     public JTable getEpsTable() {
         return epsTable;
-    }
-
-    public JMenuItem getHelp() {
-        return help;
-    }
-
-    public JPanel getMainPanel() {
-        return mainPanel;
-    }
-
-    public JPanel getQuotePanel() {
-        return quotePanel;
-    }
-
-    public JPanel getCalculationsPanel() {
-        return calculationsPanel;
-    }
-
-    public JLabel getMainTitle() {
-        return mainTitle;
     }
 
     public JLabel getQuoteLabel() {
@@ -123,23 +99,11 @@ public class CalculatorGUI extends JFrame {
         return currencyLabel;
     }
 
-    public JTextPane getRoeInfo() {
-        return roeInfo;
-    }
-
     public JTable getRoeTable() {
         return roeTable;
     }
 
     public JTable getRotcTable() {
         return rotcTable;
-    }
-
-    public JMenu getMenu() {
-        return menu;
-    }
-
-    public JMenuItem getLoadQuote() {
-        return loadQuote;
     }
 }

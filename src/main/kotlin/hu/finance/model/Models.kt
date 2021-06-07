@@ -9,7 +9,8 @@ data class TimeSeries(
     val annualLongTermDebt: List<TimeSeriesData> = emptyList(),
     val annualStockholdersEquity: List<TimeSeriesData> = emptyList(),
     val annualCapitalExpenditure: List<TimeSeriesData> = emptyList(),
-    val annualTotalCapitalization: List<TimeSeriesData> = emptyList()
+    val annualTotalCapitalization: List<TimeSeriesData> = emptyList(),
+    val annualCashFlowFromContinuingOperatingActivities: List<TimeSeriesData> = emptyList()
 )
 
 data class TimeSeriesData(
@@ -37,6 +38,7 @@ data class ShareSummary(
 )
 
 data class QuoteSummary(
+    val type: String,
     val shortName: String,
     val longName: String,
     val exchange: String

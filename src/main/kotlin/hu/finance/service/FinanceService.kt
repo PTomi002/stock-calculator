@@ -61,6 +61,9 @@ fun TimeSeriesDto.toTimeSeries() = timeseries?.result
             },
             annualTotalCapitalization = flatMap { tsData ->
                 tsData.annualTotalCapitalization?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualCashFlowFromContinuingOperatingActivities = flatMap { tsData ->
+                tsData.annualCashFlowFromContinuingOperatingActivities?.map { it.toTimeSeriesData() } ?: emptyList()
             }
         )
     } ?: TimeSeries()
@@ -80,7 +83,8 @@ fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
         quoteSummary = QuoteSummary(
             longName = price.longName ?: "",
             shortName = price.shortName!!,
-            exchange = price.exchangeName!!
+            exchange = price.exchangeName!!,
+            type = price.quoteType!!
         ),
         cashFlowStatements = cashflowStatementHistory?.cashflowStatements?.map { it.toCashFlowStatement() }
             ?: emptyList(),

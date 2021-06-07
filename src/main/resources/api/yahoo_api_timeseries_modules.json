@@ -3,5 +3,6 @@
   "annualCapitalExpenditure",
   "annualShareIssued",
   "annualLongTermDebt",
-  "annualStockholdersEquity"
+  "annualStockholdersEquity",
+  "annualCashFlowFromContinuingOperatingActivities"
 ]
