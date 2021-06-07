@@ -1,18 +1,10 @@
 package hu.finance.gui;
 
-import com.google.common.util.concurrent.RateLimiter;
-import hu.finance.api.YahooApi;
-import hu.finance.service.FinanceService;
-import hu.finance.service.GuiUpdaterService;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.concurrent.Executors;
 
 @SuppressWarnings("UnstableApiUsage")
 public class CalculatorGUI extends JFrame {
-    private final GuiUpdaterService guiUpdaterService;
-
     private JPanel mainPanel;
     private JLabel quoteLabel;
     private JLabel exchangeLabel;
@@ -33,17 +25,19 @@ public class CalculatorGUI extends JFrame {
 
     public CalculatorGUI(String title) {
         super(title);
-        guiUpdaterService = new GuiUpdaterService(
-                this,
-                new FinanceService(
-                        Executors.newFixedThreadPool(4),
-                        new YahooApi(RateLimiter.create(4))
-                )
-        );
 
+        buildGUI();
+
+        setContentPane(mainPanel);
+        setPreferredSize(new Dimension(600, 600));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        pack();
+    }
+
+    private void buildGUI() {
         help = new JMenuItem("Help");
-        loadQuote = new JMenuItem("Load Quote");
-        guiUpdaterService.addLoadQuote(loadQuote);
+        loadQuote = new JMenuItem("Load");
 
         menu = new JMenu("Menu");
         menu.add(loadQuote);
@@ -52,11 +46,10 @@ public class CalculatorGUI extends JFrame {
         menuBar = new JMenuBar();
         menuBar.add(menu);
         setJMenuBar(menuBar);
+    }
 
-        setContentPane(mainPanel);
-        setPreferredSize(new Dimension(600, 600));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
+    public JMenuItem getLoadQuote() {
+        return loadQuote;
     }
 
     public JLabel getQuoteTypeLabel() {
