@@ -67,11 +67,23 @@ private fun ChartDto.toChart() =
 private fun TimeSeriesDto.toTimeSeries() = timeseries?.result
     ?.run {
         TimeSeries(
+            annualTotalAssets = flatMap { tsData ->
+                tsData.annualTotalAssets?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualTotalLiabilitiesNetMinorityInterest = flatMap { tsData ->
+                tsData.annualTotalLiabilitiesNetMinorityInterest?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualNetIncomeCommonStockholders = flatMap { tsData ->
+                tsData.annualNetIncomeCommonStockholders?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualEBIT = flatMap { tsData ->
+                tsData.annualEBIT?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
+            annualTotalCapitalization = flatMap { tsData ->
+                tsData.annualTotalCapitalization?.map { it.toTimeSeriesData() } ?: emptyList()
+            },
             annualShareIssued = flatMap { tsData ->
                 tsData.annualShareIssued?.map { it.toTimeSeriesData() } ?: emptyList()
-            },
-            annualLongTermDebt = flatMap { tsData ->
-                tsData.annualLongTermDebt?.map { it.toTimeSeriesData() } ?: emptyList()
             },
             annualStockholdersEquity = flatMap { tsData ->
                 tsData.annualStockholdersEquity?.map { it.toTimeSeriesData() } ?: emptyList()
@@ -79,8 +91,8 @@ private fun TimeSeriesDto.toTimeSeries() = timeseries?.result
             annualCapitalExpenditure = flatMap { tsData ->
                 tsData.annualCapitalExpenditure?.map { it.toTimeSeriesData() } ?: emptyList()
             },
-            annualTotalCapitalization = flatMap { tsData ->
-                tsData.annualTotalCapitalization?.map { it.toTimeSeriesData() } ?: emptyList()
+            annualLongTermDebt = flatMap { tsData ->
+                tsData.annualLongTermDebt?.map { it.toTimeSeriesData() } ?: emptyList()
             },
             annualCashFlowFromContinuingOperatingActivities = flatMap { tsData ->
                 tsData.annualCashFlowFromContinuingOperatingActivities?.map { it.toTimeSeriesData() } ?: emptyList()
@@ -105,29 +117,6 @@ private fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
             shortName = price.shortName!!,
             exchange = price.exchangeName!!,
             type = price.quoteType!!
-        ),
-        cashFlowStatements = cashflowStatementHistory?.cashflowStatements?.map { it.toCashFlowStatement() }
-            ?: emptyList(),
-        balanceSheetStatements = balanceSheetHistory?.balanceSheetStatements?.map { it.toBalanceSheetStatement() }
-            ?: emptyList(),
-        incomeStatements = incomeStatementHistory?.incomeStatementHistory?.map { it.toIncomeStatement() }
-            ?: emptyList()
+        )
     )
 }
-
-private fun CashFlowStatementDto.toCashFlowStatement() = CashFlowStatement(
-    date = Instant.ofEpochSecond(endDate!!.raw.toLong()),
-    cashFromOperations = totalCashFromOperatingActivities!!.raw.toBigDecimal()
-)
-
-private fun BalanceSheetStatementDto.toBalanceSheetStatement() = BalanceSheetStatement(
-    date = Instant.ofEpochSecond(endDate!!.raw.toLong()),
-    totalAssets = totalAssets!!.raw.toBigDecimal(),
-    totalLiabilities = totalLiab!!.raw.toBigDecimal()
-)
-
-private fun IncomeStatementDto.toIncomeStatement() = IncomeStatement(
-    date = Instant.ofEpochSecond(endDate!!.raw.toLong()),
-    netIncome = netIncome!!.raw.toBigDecimal(),
-    ebit = ebit!!.raw.toBigDecimal()
-)

@@ -1,8 +1,12 @@
 [
+  "annualTotalAssets",
+  "annualTotalLiabilitiesNetMinorityInterest",
+  "annualNetIncomeCommonStockholders",
+  "annualEBIT",
   "annualTotalCapitalization",
-  "annualCapitalExpenditure",
   "annualShareIssued",
-  "annualLongTermDebt",
   "annualStockholdersEquity",
+  "annualCapitalExpenditure",
+  "annualLongTermDebt",
   "annualCashFlowFromContinuingOperatingActivities"
 ]

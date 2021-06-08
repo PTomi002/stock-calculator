@@ -6,14 +6,10 @@ import hu.finance.gui.ChartsGUI
 import hu.finance.gui.util.AutoCloseableLock
 import hu.finance.gui.util.CalcWorker
 import hu.finance.model.Quote
-import org.jfree.chart.ChartFactory
-import org.jfree.chart.ChartPanel
-import org.jfree.chart.axis.CategoryLabelPositions
-import org.jfree.chart.plot.PlotOrientation
-import java.awt.BorderLayout
+import hu.finance.model.TimeSeries
 import java.text.DecimalFormat
-import java.time.ZoneOffset
-import java.time.ZonedDateTime
+import java.time.ZoneOffset.UTC
+import java.time.ZonedDateTime.ofInstant
 import java.util.concurrent.locks.ReentrantLock
 import javax.annotation.concurrent.GuardedBy
 import javax.swing.JMenuItem
@@ -62,39 +58,15 @@ class GuiUpdaterService {
                             lock.withLock { cqCache = workerResult.data!! }
                             cqCache!!.run {
                                 updateQuotePanel(quote)
-                                updateRoeTable(quote)
-                                updateRotcTable(this)
+                                updateRoeTable(timeSeries)
+                                updateRotcTable(timeSeries)
                                 updateEpsTable(this)
-                                updateDetTable(this)
-                                updateFcfTable(this)
-                                updateCharts(chartsGui, this)
+                                updateDetTable(timeSeries)
+                                updateFcfTable(timeSeries)
                             }
                         }
                     }).execute()
             }
-    }
-
-    private fun updateCharts(chartsGUI: ChartsGUI, compositeQuote: CompositeQuote) = chartsGUI.apply {
-//        val lineChart = ChartFactory.createLineChart(
-//            "teszt",
-//            "Years", "Number of Schools",
-//            createDataset(),
-//            PlotOrientation.VERTICAL,
-//            true, true, false
-//        ).apply {
-//            categoryPlot.domainAxis.apply {
-//                categoryLabelPositions = CategoryLabelPositions.DOWN_90
-//            }
-//        }
-//        pricePanel.removeAll()
-//         Intellij grid layout manager is useless here, as we manually add the component to the form and does not know the grid constants.
-//        pricePanel.add(ChartPanel(lineChart).apply {
-//            popupMenu = null
-//            isDomainZoomable = false
-//            isRangeZoomable = false
-//        }, BorderLayout.CENTER)
-//        pricePanel.revalidate()
-//        pricePanel.repaint()
     }
 
     private fun updateQuotePanel(quote: Quote) = calcGui.run {
@@ -107,58 +79,48 @@ class GuiUpdaterService {
         currencyLabel.text = "${quote.shareSummary.currency}"
     }
 
-    private fun updateRoeTable(quote: Quote) =
-        roeCalculator.calculate(quote)
-            .map {
-                listOf(
-                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
-                    "${it.roe} %"
-                ).toTypedArray()
-            }
+    private fun updateRoeTable(timeSeries: TimeSeries) =
+        roeCalculator.calculate(timeSeries)
+            .sortedByDescending { it.date }
+            .map { listOf(ofInstant(it.date, UTC).year, "${it.roe} %").toTypedArray() }
             .run { calcGui.roeTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "ROE")) }
 
-    private fun updateRotcTable(quote: CompositeQuote) =
-        rotcCalculator.calculate(quote)
-            .map {
-                listOf(
-                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
-                    "${it.rotc} %"
-                ).toTypedArray()
-            }
+    private fun updateRotcTable(timeSeries: TimeSeries) =
+        rotcCalculator.calculate(timeSeries)
+            .sortedByDescending { it.date }
+            .map { listOf(ofInstant(it.date, UTC).year, "${it.rotc} %").toTypedArray() }
             .run { calcGui.rotcTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "ROTC")) }
 
-    private fun updateEpsTable(quote: CompositeQuote) =
-        epsCalculator.calculate(quote)
+    private fun updateEpsTable(composite: CompositeQuote) =
+        epsCalculator.calculate(composite.timeSeries)
+            .sortedByDescending { it.date }
             .map {
                 listOf(
-                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
-                    "${it.eps} ${quote.quote.shareSummary.currency}"
+                    ofInstant(it.date, UTC).year,
+                    "${it.eps} ${composite.quote.shareSummary.currency}"
                 ).toTypedArray()
             }
             .run { calcGui.epsTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "EPS")) }
 
-    private fun updateDetTable(quote: CompositeQuote) =
-        dteCalculator.calculate(quote)
-            .map {
-                listOf(
-                    ZonedDateTime.ofInstant(it.date, ZoneOffset.UTC).year,
-                    "${it.dte} ratio"
-                ).toTypedArray()
-            }
+    private fun updateDetTable(timeSeries: TimeSeries) =
+        dteCalculator.calculate(timeSeries)
+            .sortedByDescending { it.date }
+            .map { listOf(ofInstant(it.date, UTC).year, "${it.dte} ratio").toTypedArray() }
             .run { calcGui.dteTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "DTE")) }
 
-    private fun updateFcfTable(quote: CompositeQuote) =
-        flowCalculator.calculate(quote)
+    private fun updateFcfTable(timeSeries: TimeSeries) =
+        flowCalculator.calculate(timeSeries)
+            .sortedByDescending { it.date }
             .map { fcf ->
                 listOf(
-                    ZonedDateTime.ofInstant(fcf.date, ZoneOffset.UTC).year,
-                    formatter.format(fcf.freeCashFlow),
-                    fcf.longTermDebt?.let { formatter.format(it) } ?: "",
-                    fcf.yearsToPaybackDebt ?: ""
+                    ofInstant(fcf.date, UTC).year, formatter.format(fcf.freeCashFlow),
+                    formatter.format(fcf.longTermDebt), fcf.yearsToPaybackDebt
                 ).toTypedArray()
             }
             .run {
-                calcGui.fcfTable.model =
-                    DefaultTableModel(toTypedArray(), arrayOf("Év", "FCF", "LTD", "Years to pay back"))
+                calcGui.fcfTable.model = DefaultTableModel(
+                    toTypedArray(),
+                    arrayOf("Év", "FCF", "LTD", "Years to pay back")
+                )
             }
 }

@@ -9,15 +9,16 @@ object FinanceCalculations {
 
     private fun BigDecimal.toPercent() = multiply(HUNDRED)
 
-    fun eps(numOfShare: BigDecimal, netProfit: BigDecimal): BigDecimal = netProfit.divWith(numOfShare)
+    fun eps(numOfShare: BigDecimal, netIncome: BigDecimal): BigDecimal = netIncome.divWith(numOfShare)
 
-    fun equity(totalAsset: BigDecimal, totalLiability: BigDecimal): BigDecimal = totalAsset.subtract(totalLiability)
+    fun shareHolderEquity(totalAsset: BigDecimal, totalLiabilities: BigDecimal): BigDecimal =
+        totalAsset.subtract(totalLiabilities)
 
     fun roe(netIncome: BigDecimal, shareholderEquity: BigDecimal): BigDecimal =
         netIncome.divWith(shareholderEquity).toPercent()
 
-    fun rotc(netIncome: BigDecimal, totalCapital: BigDecimal): BigDecimal =
-        netIncome.divWith(totalCapital).toPercent()
+    fun rotc(ebit: BigDecimal, totalCapital: BigDecimal): BigDecimal =
+        ebit.divWith(totalCapital).toPercent()
 
     fun dte(totalLiabilities: BigDecimal, stockHolderEquity: BigDecimal): BigDecimal =
         totalLiabilities.divWith(stockHolderEquity)

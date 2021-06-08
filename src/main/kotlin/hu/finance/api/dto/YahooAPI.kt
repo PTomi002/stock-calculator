@@ -13,11 +13,15 @@ data class TimeSeriesResultDto(
 
 data class TimeSeriesDataContainerDto(
     val meta: TimeSeriesMetadataDto? = null,
+    val annualTotalAssets: List<TimeSeriesDataDto>? = null,
+    val annualTotalLiabilitiesNetMinorityInterest: List<TimeSeriesDataDto>? = null,
+    val annualNetIncomeCommonStockholders: List<TimeSeriesDataDto>? = null,
+    val annualEBIT: List<TimeSeriesDataDto>? = null,
+    val annualTotalCapitalization: List<TimeSeriesDataDto>? = null,
     val annualShareIssued: List<TimeSeriesDataDto>? = null,
-    val annualLongTermDebt: List<TimeSeriesDataDto>? = null,
     val annualStockholdersEquity: List<TimeSeriesDataDto>? = null,
     val annualCapitalExpenditure: List<TimeSeriesDataDto>? = null,
-    val annualTotalCapitalization: List<TimeSeriesDataDto>? = null,
+    val annualLongTermDebt: List<TimeSeriesDataDto>? = null,
     val annualCashFlowFromContinuingOperatingActivities: List<TimeSeriesDataDto>? = null
 )
 
@@ -41,39 +45,7 @@ data class QuoteSummaryDto(
 
 data class ResultDto(
     val price: PriceDto? = null,
-    val summaryDetail: SummaryDetailsDto? = null,
-    val balanceSheetHistory: BalanceSheetHistoryDto? = null,
-    val incomeStatementHistory: IncomeStatementHistoryDto? = null,
-    val cashflowStatementHistory: CashFowStatementHistoryDto? = null
-)
-
-data class CashFowStatementHistoryDto(
-    val cashflowStatements: List<CashFlowStatementDto>? = null
-)
-
-data class CashFlowStatementDto(
-    val endDate: DataDto? = null,
-    val totalCashFromOperatingActivities: DataDto? = null
-)
-
-data class IncomeStatementHistoryDto(
-    val incomeStatementHistory: List<IncomeStatementDto>? = null
-)
-
-data class IncomeStatementDto(
-    val endDate: DataDto? = null,
-    val ebit: DataDto? = null,
-    val netIncome: DataDto? = null
-)
-
-data class BalanceSheetHistoryDto(
-    val balanceSheetStatements: List<BalanceSheetStatementDto>? = null
-)
-
-data class BalanceSheetStatementDto(
-    val endDate: DataDto? = null,
-    val totalAssets: DataDto? = null,
-    val totalLiab: DataDto? = null
+    val summaryDetail: SummaryDetailsDto? = null
 )
 
 data class PriceDto(
