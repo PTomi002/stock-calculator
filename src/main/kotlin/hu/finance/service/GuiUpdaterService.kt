@@ -5,6 +5,7 @@ import hu.finance.gui.CalculatorGUI
 import hu.finance.gui.ChartsGUI
 import hu.finance.gui.util.AutoCloseableLock
 import hu.finance.gui.util.CalcWorker
+import hu.finance.model.Chart
 import hu.finance.model.Quote
 import hu.finance.model.TimeSeries
 import java.text.DecimalFormat
@@ -63,10 +64,17 @@ class GuiUpdaterService {
                                 updateEpsTable(this)
                                 updateDetTable(timeSeries)
                                 updateFcfTable(timeSeries)
+                                updateChart(chart)
                             }
                         }
                     }).execute()
             }
+    }
+
+    private fun updateChart(chart: Chart) {
+        chartsGui.apply {
+
+        }
     }
 
     private fun updateQuotePanel(quote: Quote) = calcGui.run {

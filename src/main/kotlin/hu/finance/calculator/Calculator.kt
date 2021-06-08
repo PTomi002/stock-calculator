@@ -135,7 +135,7 @@ class FreeCashFlowCalculator : Calculator<TimeSeries, List<FreeCashFlow>> {
                 FreeCashFlow(
                     date = it.first.date,
                     freeCashFlow = freeCashFlow,
-                    yearsToPaybackDebt = it.third!!.value.divWith(freeCashFlow),
+                    yearsToPaybackDebt = it.third!!.value.divWith(freeCashFlow).abs(),
                     longTermDebt = it.third!!.value
                 )
             }

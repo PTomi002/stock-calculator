@@ -1,7 +1,4 @@
 [
-  "balanceSheetHistory",
-  "incomeStatementHistory",
   "summaryDetail",
-  "price",
-  "cashflowStatementHistory"
+  "price"
 ]
