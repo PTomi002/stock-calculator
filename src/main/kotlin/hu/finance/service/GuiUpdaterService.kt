@@ -8,6 +8,12 @@ import hu.finance.gui.util.CalcWorker
 import hu.finance.model.Chart
 import hu.finance.model.Quote
 import hu.finance.model.TimeSeries
+import org.jfree.chart.ChartFactory
+import org.jfree.chart.ChartPanel
+import org.jfree.chart.axis.CategoryLabelPositions.DOWN_90
+import org.jfree.chart.plot.PlotOrientation.VERTICAL
+import org.jfree.data.category.DefaultCategoryDataset
+import java.awt.BorderLayout
 import java.text.DecimalFormat
 import java.time.ZoneOffset.UTC
 import java.time.ZonedDateTime.ofInstant
@@ -64,16 +70,39 @@ class GuiUpdaterService {
                                 updateEpsTable(this)
                                 updateDetTable(timeSeries)
                                 updateFcfTable(timeSeries)
-                                updateChart(chart)
+                                updateChart(this)
                             }
                         }
                     }).execute()
             }
     }
 
-    private fun updateChart(chart: Chart) {
-        chartsGui.apply {
+    private fun updateChart(composite: CompositeQuote) {
+        ChartFactory
+            .createLineChart(
+                null, "Évek", "${composite.quote.shareSummary.currency}",
+                composite.chart.toDataSet(), VERTICAL, false, false, false
+            )
+            .apply { categoryPlot.domainAxis.apply { categoryLabelPositions = DOWN_90 } }
+            .let {
+                chartsGui.pricePanel.removeAll()
+                // Intellij grid layout manager is useless here, as we manually add the component to the form and does not know the grid constants.
+                chartsGui.pricePanel.add(
+                    ChartPanel(it)
+                        .apply {
+                            popupMenu = null
+                            isDomainZoomable = false
+                            isRangeZoomable = false
+                        }, BorderLayout.CENTER
+                )
+                chartsGui.pricePanel.revalidate()
+                chartsGui.pricePanel.repaint()
+            }
+    }
 
+    private fun Chart.toDataSet() = DefaultCategoryDataset().apply {
+        quoteOpens.forEach {
+            addValue(it.value.toDouble(), "Részvény ára", ofInstant(it.date, UTC).year)
         }
     }
 
@@ -119,10 +148,10 @@ class GuiUpdaterService {
     private fun updateFcfTable(timeSeries: TimeSeries) =
         flowCalculator.calculate(timeSeries)
             .sortedByDescending { it.date }
-            .map { fcf ->
+            .map {
                 listOf(
-                    ofInstant(fcf.date, UTC).year, formatter.format(fcf.freeCashFlow),
-                    formatter.format(fcf.longTermDebt), fcf.yearsToPaybackDebt
+                    ofInstant(it.date, UTC).year, formatter.format(it.freeCashFlow),
+                    formatter.format(it.longTermDebt), it.yearsToPaybackDebt
                 ).toTypedArray()
             }
             .run {

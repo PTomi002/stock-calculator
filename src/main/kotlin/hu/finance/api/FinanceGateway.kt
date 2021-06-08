@@ -48,7 +48,6 @@ class YahooApi(
         const val CHARTS_HOST = "https://query1.finance.yahoo.com/v8"
     }
 
-    private val periodStart = Instant.parse("2000-01-01T00:00:00Z").epochSecond
     private val client = OkHttpClient.Builder().build()
 
     override fun quote(ticker: String, filters: List<String>): QuoteDto {
@@ -71,7 +70,7 @@ class YahooApi(
             .url(
                 "$TIMESERIES_HOST/fundamentals-timeseries/v1/finance/timeseries/" +
                     "$ticker?type=${filters.joinToString(separator = ",") { it }}" +
-                    "&period1=${periodStart}" +
+                    "&period1=${Instant.parse("2000-01-01T00:00:00Z").epochSecond}" +
                     "&period2=${Instant.now().epochSecond}" +
                     "&merge=false"
             )
@@ -91,7 +90,7 @@ class YahooApi(
                     "?formatted=true" +
                     "&includeAdjustedClose=false" +
                     "&interval=1mo" +
-                    "&period1=${periodStart}" +
+                    "&period1=${Instant.parse("1970-01-01T00:00:00Z").epochSecond}" +
                     "&period2=${Instant.now().epochSecond}" +
                     "&events=div|split"
             )
