@@ -18,6 +18,7 @@ public class CalculatorGUI extends JFrame {
     private JTable fcfTable;
     private JLabel quoteShortLabel;
     private JLabel quoteTypeLabel;
+    private JLabel peLabel;
     private JMenuBar menuBar;
     private JMenu menu;
     private JMenuItem loadQuote;
@@ -46,6 +47,10 @@ public class CalculatorGUI extends JFrame {
         menuBar = new JMenuBar();
         menuBar.add(menu);
         setJMenuBar(menuBar);
+    }
+
+    public JLabel getPeLabel() {
+        return peLabel;
     }
 
     public JMenuItem getLoadQuote() {

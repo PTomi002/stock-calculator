@@ -121,15 +121,20 @@ private fun <T> ReadContext.readWith(path: String) =
     }
 
 private fun List<Pair<*, *>>.toChartDataDto() =
-    map {
-        ChartDataDto(
-            date = Instant.ofEpochSecond((it.first as Int).toLong()),
-            value = when (it.second) {
-                is Double -> (it.second as Double).toBigDecimal()
-                is BigDecimal -> it.second as BigDecimal
-                else -> throw IllegalArgumentException("Can not convert chart data!")
-            }
-        )
+    mapNotNull {
+        try {
+            ChartDataDto(
+                date = Instant.ofEpochSecond((it.first as Int).toLong()),
+                value = when (it.second) {
+                    is Double -> (it.second as Double).toBigDecimal()
+                    is BigDecimal -> it.second as BigDecimal
+                    else -> throw IllegalArgumentException("Can not convert chart data: ${it.second}!")
+                }
+            )
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+            null
+        }
     }
 
 private fun Map<String, Map<String, Any>>.toSplitEvent() =
