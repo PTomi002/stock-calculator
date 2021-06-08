@@ -1,5 +1,8 @@
 package hu.finance.api.dto
 
+import java.math.BigDecimal
+import java.time.Instant
+
 data class TimeSeriesDto(
     val timeseries: TimeSeriesResultDto? = null
 )
@@ -88,4 +91,20 @@ data class SummaryDetailsDto(
 
 data class DataDto(
     var raw: String
+)
+
+data class ChartDto(
+    val quoteOpens: List<ChartDataDto>? = null,
+    val splitEvents: List<SplitEventDto>? = null
+)
+
+data class ChartDataDto(
+    val date: Instant? = null,
+    val value: BigDecimal? = null
+)
+
+data class SplitEventDto(
+    val date: Instant? = null,
+    val numerator: Int? = null,
+    val denominator: Int? = null
 )

@@ -18,7 +18,8 @@ interface Finances {
 
 data class CompositeQuote(
     val quote: Quote,
-    val timeSeries: TimeSeries
+    val timeSeries: TimeSeries,
+    val chart: Chart
 )
 
 class FinanceService(
@@ -36,15 +37,34 @@ class FinanceService(
     override fun loadQuote(ticker: String): CompositeQuote {
         val qF = CompletableFuture.supplyAsync({ financeGateway.quote(ticker, quoteModules) }, pool)
         val tsF = CompletableFuture.supplyAsync({ financeGateway.timeSeries(ticker, timeSeriesModules) }, pool)
-        CompletableFuture.allOf(qF, tsF).get()
+        val chF = CompletableFuture.supplyAsync({ financeGateway.chart(ticker) }, pool)
+        CompletableFuture.allOf(qF, tsF, chF).get()
         return CompositeQuote(
             quote = qF.get().toQuote(),
-            timeSeries = tsF.get().toTimeSeries()
+            timeSeries = tsF.get().toTimeSeries(),
+            chart = chF.get().toChart()
         )
     }
 }
 
-fun TimeSeriesDto.toTimeSeries() = timeseries?.result
+private fun ChartDto.toChart() =
+    Chart(
+        splitEvents = splitEvents?.map {
+            SplitEvent(
+                date = it.date!!,
+                numerator = it.numerator!!,
+                denominator = it.denominator!!
+            )
+        } ?: emptyList(),
+        quoteOpens = quoteOpens?.map {
+            ChartData(
+                date = it.date!!,
+                value = it.value!!
+            )
+        } ?: emptyList()
+    )
+
+private fun TimeSeriesDto.toTimeSeries() = timeseries?.result
     ?.run {
         TimeSeries(
             annualShareIssued = flatMap { tsData ->
@@ -73,7 +93,7 @@ private fun TimeSeriesDataDto.toTimeSeriesData() = TimeSeriesData(
     value = reportedValue!!.raw.toBigDecimal()
 )
 
-fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
+private fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
     Quote(
         shareSummary = ShareSummary(
             open = summaryDetail!!.open!!.raw.toBigDecimal(),

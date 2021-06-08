@@ -10,12 +10,10 @@ import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartPanel
 import org.jfree.chart.axis.CategoryLabelPositions
 import org.jfree.chart.plot.PlotOrientation
-import org.jfree.data.category.DefaultCategoryDataset
 import java.awt.BorderLayout
 import java.text.DecimalFormat
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
-import java.util.concurrent.ThreadLocalRandom
 import java.util.concurrent.locks.ReentrantLock
 import javax.annotation.concurrent.GuardedBy
 import javax.swing.JMenuItem
@@ -57,9 +55,9 @@ class GuiUpdaterService {
                         if (!workerResult.result) {
                             JOptionPane.showMessageDialog(
                                 null,
-                                "Error happened: ${workerResult.error!!.message}"
+                                "Hiba történt!"
                             )
-                            workerResult.error.printStackTrace()
+                            workerResult.error!!.printStackTrace()
                         } else {
                             lock.withLock { cqCache = workerResult.data!! }
                             cqCache!!.run {
@@ -76,36 +74,27 @@ class GuiUpdaterService {
             }
     }
 
-    private fun updateCharts(chartsGUI: ChartsGUI, compositeQuote: CompositeQuote) {
-        val lineChart = ChartFactory.createLineChart(
-            "teszt",
-            "Years", "Number of Schools",
-            createDataset(),
-            PlotOrientation.VERTICAL,
-            true, true, false
-        ).apply {
-            categoryPlot.domainAxis.apply {
-                categoryLabelPositions = CategoryLabelPositions.DOWN_90
-            }
-        }
-        chartsGUI.pricePanel.removeAll()
-        // Intellij grid layout manager is useless here, as we manually add the component to the form and does not know the grid constants.
-        chartsGUI.pricePanel.add(ChartPanel(lineChart).apply {
-            popupMenu = null
-            isDomainZoomable = false
-            isRangeZoomable = false
-        }, BorderLayout.CENTER)
-        chartsGUI.pricePanel.revalidate()
-        chartsGUI.pricePanel.repaint()
-
-    }
-
-    private fun createDataset(): DefaultCategoryDataset? {
-        val dataset = DefaultCategoryDataset()
-        repeat(60) {
-            dataset.addValue(ThreadLocalRandom.current().nextInt(), "schools", "$it")
-        }
-        return dataset
+    private fun updateCharts(chartsGUI: ChartsGUI, compositeQuote: CompositeQuote) = chartsGUI.apply {
+//        val lineChart = ChartFactory.createLineChart(
+//            "teszt",
+//            "Years", "Number of Schools",
+//            createDataset(),
+//            PlotOrientation.VERTICAL,
+//            true, true, false
+//        ).apply {
+//            categoryPlot.domainAxis.apply {
+//                categoryLabelPositions = CategoryLabelPositions.DOWN_90
+//            }
+//        }
+//        pricePanel.removeAll()
+//         Intellij grid layout manager is useless here, as we manually add the component to the form and does not know the grid constants.
+//        pricePanel.add(ChartPanel(lineChart).apply {
+//            popupMenu = null
+//            isDomainZoomable = false
+//            isRangeZoomable = false
+//        }, BorderLayout.CENTER)
+//        pricePanel.revalidate()
+//        pricePanel.repaint()
     }
 
     private fun updateQuotePanel(quote: Quote) = calcGui.run {

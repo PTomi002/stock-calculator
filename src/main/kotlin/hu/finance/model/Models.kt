@@ -55,3 +55,20 @@ data class IncomeStatement(
     val ebit: BigDecimal,
     val netIncome: BigDecimal
 )
+
+data class Chart(
+    val quoteOpens: List<ChartData>,
+    val splitEvents: List<SplitEvent>
+)
+
+data class ChartData(
+    val date: Instant,
+    val value: BigDecimal
+)
+
+data class SplitEvent(
+    val date: Instant,
+    val numerator: Int,
+    val denominator: Int
+)
+
