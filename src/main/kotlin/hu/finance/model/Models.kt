@@ -30,7 +30,8 @@ data class Quote(
 data class ShareSummary(
     val currency: Currency,
     val open: BigDecimal,
-    val previousClose: BigDecimal
+    val previousClose: BigDecimal,
+    val price: BigDecimal
 )
 
 data class QuoteSummary(

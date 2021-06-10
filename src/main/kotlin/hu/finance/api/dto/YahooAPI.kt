@@ -45,7 +45,12 @@ data class QuoteSummaryDto(
 
 data class ResultDto(
     val price: PriceDto? = null,
-    val summaryDetail: SummaryDetailsDto? = null
+    val summaryDetail: SummaryDetailsDto? = null,
+    val financialData: FinancialDataDto? = null
+)
+
+data class FinancialDataDto(
+    val currentPrice: DataDto? = null
 )
 
 data class PriceDto(
@@ -53,7 +58,8 @@ data class PriceDto(
     val longName: String? = null,
     val shortName: String? = null,
     val currency: String? = null,
-    val exchangeName: String? = null
+    val exchangeName: String? = null,
+    val regularMarketPrice: DataDto? = null
 )
 
 data class SummaryDetailsDto(

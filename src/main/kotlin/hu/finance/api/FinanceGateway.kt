@@ -22,8 +22,8 @@ typealias NestedMap = Map<String, Map<String, Any>>
 
 interface FinanceGateway {
     fun quote(ticker: String, filters: List<String>): QuoteDto
-    fun timeSeries(ticker: String, filters: List<String>): TimeSeriesDto
-    fun chart(ticker: String): ChartDto
+    fun timeSeries(ticker: String, filters: List<String>, periodStart: Instant): TimeSeriesDto
+    fun chart(ticker: String, periodStart: Instant): ChartDto
 }
 
 abstract class FinanceGatewayBase(
@@ -65,12 +65,12 @@ class YahooApi(
             .let { om.readValue(it) }
     }
 
-    override fun timeSeries(ticker: String, filters: List<String>): TimeSeriesDto {
+    override fun timeSeries(ticker: String, filters: List<String>, periodStart: Instant): TimeSeriesDto {
         val request = Request.Builder()
             .url(
                 "$TIMESERIES_HOST/fundamentals-timeseries/v1/finance/timeseries/" +
                     "$ticker?type=${filters.joinToString(separator = ",") { it }}" +
-                    "&period1=${Instant.parse("2000-01-01T00:00:00Z").epochSecond}" +
+                    "&period1=${periodStart.epochSecond}" +
                     "&period2=${Instant.now().epochSecond}" +
                     "&merge=false"
             )
@@ -83,14 +83,14 @@ class YahooApi(
             .let { om.readValue(it) }
     }
 
-    override fun chart(ticker: String): ChartDto {
+    override fun chart(ticker: String, periodStart: Instant): ChartDto {
         val request = Request.Builder()
             .url(
                 "$CHARTS_HOST/finance/chart/$ticker" +
                     "?formatted=true" +
                     "&includeAdjustedClose=false" +
                     "&interval=1mo" +
-                    "&period1=${Instant.parse("1970-01-01T00:00:00Z").epochSecond}" +
+                    "&period1=${periodStart.epochSecond}" +
                     "&period2=${Instant.now().epochSecond}" +
                     "&events=div|split"
             )

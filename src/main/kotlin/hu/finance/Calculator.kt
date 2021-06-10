@@ -8,13 +8,14 @@ import hu.finance.gui.CalculatorGUI
 import hu.finance.gui.ChartsGUI
 import hu.finance.service.FinanceService
 import hu.finance.service.GuiUpdaterService
+import hu.finance.service.StockWatchDog
 import java.util.concurrent.Executors
 
-fun main() {
+fun main(args: Array<String>) {
     val guiUpdater = GuiUpdaterService()
     val finances = FinanceService(
         financeGateway = YahooApi(RateLimiter.create(3.0)),
-        pool = Executors.newFixedThreadPool(3)
+        pool = Executors.newFixedThreadPool(9)
     )
     val cGui = CalculatorGUI("Calculator")
     val chGui = ChartsGUI("Charts")
@@ -24,4 +25,10 @@ fun main() {
     guiUpdater.finances = finances
 
     guiUpdater.attachLoadQuote(cGui.loadQuote)
+
+    if (args.contains("start-watcher")) {
+        StockWatchDog(
+            finances = finances
+        ).start()
+    }
 }

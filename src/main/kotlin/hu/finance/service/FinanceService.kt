@@ -3,7 +3,10 @@ package hu.finance.service
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import hu.finance.api.FinanceGateway
-import hu.finance.api.dto.*
+import hu.finance.api.dto.ChartDto
+import hu.finance.api.dto.QuoteDto
+import hu.finance.api.dto.TimeSeriesDataDto
+import hu.finance.api.dto.TimeSeriesDto
 import hu.finance.model.*
 import java.time.Instant
 import java.time.LocalDate
@@ -13,7 +16,11 @@ import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ExecutorService
 
 interface Finances {
-    fun loadQuote(ticker: String): CompositeQuote
+    fun loadQuote(
+        ticker: String,
+        tsStart: Instant = Instant.parse("2000-01-01T00:00:00Z"),
+        chStart: Instant = Instant.parse("1970-01-01T00:00:00Z")
+    ): CompositeQuote
 }
 
 data class CompositeQuote(
@@ -34,10 +41,10 @@ class FinanceService(
         jacksonObjectMapper().readValue<List<String>>(javaClass.getResource("/api/yahoo_api_timeseries_modules.json")!!)
     }
 
-    override fun loadQuote(ticker: String): CompositeQuote {
+    override fun loadQuote(ticker: String, tsStart: Instant, chStart: Instant): CompositeQuote {
         val qF = CompletableFuture.supplyAsync({ financeGateway.quote(ticker, quoteModules) }, pool)
-        val tsF = CompletableFuture.supplyAsync({ financeGateway.timeSeries(ticker, timeSeriesModules) }, pool)
-        val chF = CompletableFuture.supplyAsync({ financeGateway.chart(ticker) }, pool)
+        val tsF = CompletableFuture.supplyAsync({ financeGateway.timeSeries(ticker, timeSeriesModules, tsStart) }, pool)
+        val chF = CompletableFuture.supplyAsync({ financeGateway.chart(ticker, chStart) }, pool)
         CompletableFuture.allOf(qF, tsF, chF).get()
         return CompositeQuote(
             quote = qF.get().toQuote(),
@@ -110,7 +117,8 @@ private fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
         shareSummary = ShareSummary(
             open = summaryDetail!!.open!!.raw.toBigDecimal(),
             previousClose = summaryDetail.previousClose!!.raw.toBigDecimal(),
-            currency = Currency.getInstance(price!!.currency)
+            currency = Currency.getInstance(price!!.currency),
+            price = financialData?.currentPrice?.raw?.toBigDecimal() ?: price.regularMarketPrice!!.raw.toBigDecimal()
         ),
         quoteSummary = QuoteSummary(
             longName = price.longName ?: "",
