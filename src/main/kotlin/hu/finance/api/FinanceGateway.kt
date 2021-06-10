@@ -11,10 +11,7 @@ import com.jayway.jsonpath.PathNotFoundException
 import com.jayway.jsonpath.ReadContext
 import hu.finance.api.dto.*
 import net.minidev.json.JSONArray
-import okhttp3.CacheControl
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import okhttp3.*
 import java.math.BigDecimal
 import java.time.Instant
 
@@ -48,7 +45,17 @@ class YahooApi(
         const val CHARTS_HOST = "https://query1.finance.yahoo.com/v8"
     }
 
-    private val client = OkHttpClient.Builder().build()
+    private val client = OkHttpClient
+        .Builder()
+        .connectionSpecs(
+            listOf(
+                ConnectionSpec
+                    .Builder(ConnectionSpec.MODERN_TLS)
+                    .tlsVersions(TlsVersion.TLS_1_2)
+                    .build()
+            )
+        )
+        .build()
 
     override fun quote(ticker: String, filters: List<String>): QuoteDto {
         val request = Request.Builder()
