@@ -17,6 +17,9 @@ object FinanceCalculations {
     fun roe(netIncome: BigDecimal, shareholderEquity: BigDecimal): BigDecimal =
         netIncome.divWith(shareholderEquity).toPercent()
 
+    fun roa(netIncome: BigDecimal, totalAssets: BigDecimal): BigDecimal =
+        netIncome.divWith(totalAssets).toPercent()
+
     fun rotc(ebit: BigDecimal, totalCapital: BigDecimal): BigDecimal =
         ebit.divWith(totalCapital).toPercent()
 

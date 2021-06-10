@@ -31,7 +31,8 @@ data class ShareSummary(
     val currency: Currency,
     val open: BigDecimal,
     val previousClose: BigDecimal,
-    val price: BigDecimal
+    val price: BigDecimal,
+    val ttmPE: Double
 )
 
 data class QuoteSummary(

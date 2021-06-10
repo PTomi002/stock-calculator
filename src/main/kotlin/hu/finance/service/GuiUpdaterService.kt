@@ -45,6 +45,7 @@ class GuiUpdaterService {
     private val epsCalculator = EarningPerShareCalculator()
     private val dteCalculator = DebtToEquityCalculator()
     private val flowCalculator = FreeCashFlowCalculator()
+    private val roaCalculator = ReturnOnAssetsCalculator()
 
     fun attachLoadQuote(jMenuItem: JMenuItem) = jMenuItem.addActionListener { loadQuote() }
 
@@ -67,6 +68,7 @@ class GuiUpdaterService {
                                 updateQuotePanel(quote)
                                 updateRoeTable(timeSeries)
                                 updateRotcTable(timeSeries)
+                                updateRoaTable(timeSeries)
                                 updateEpsTable(this)
                                 updateDetTable(timeSeries)
                                 updateFcfTable(timeSeries)
@@ -75,6 +77,13 @@ class GuiUpdaterService {
                         }
                     }).execute()
             }
+    }
+
+    private fun updateRoaTable(timeSeries: TimeSeries) {
+        roaCalculator.calculate(timeSeries)
+            .sortedByDescending { it.date }
+            .map { listOf(ofInstant(it.date, UTC).year, "${it.roa} %").toTypedArray() }
+            .run { calcGui.roaTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "ROA")) }
     }
 
     private fun updateChart(composite: CompositeQuote) {
@@ -109,7 +118,12 @@ class GuiUpdaterService {
     private fun updateQuotePanel(quote: Quote) = calcGui.run {
         quoteLabel.text = quote.quoteSummary.longName
         quoteShortLabel.text = quote.quoteSummary.shortName
-        quoteTypeLabel.text = quote.quoteSummary.type
+        peLabel.text = "${quote.shareSummary.ttmPE} (15 az átlagos)"
+        quoteTypeLabel.text = when (quote.quoteSummary.type) {
+            "EQUITY" -> "részvény"
+            "CURRENCY" -> "valuta"
+            else -> "index"
+        }
         exchangeLabel.text = quote.quoteSummary.exchange
         openPriceLabel.text = "${quote.shareSummary.open}"
         previousOpenPriceLabel.text = "${quote.shareSummary.previousClose}"

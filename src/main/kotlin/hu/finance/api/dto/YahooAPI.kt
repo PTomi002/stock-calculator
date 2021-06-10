@@ -64,6 +64,7 @@ data class PriceDto(
 
 data class SummaryDetailsDto(
     val open: DataDto? = null,
+    val trailingPE: DataDto? = null,
     val previousClose: DataDto? = null
 )
 

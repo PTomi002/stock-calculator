@@ -3,6 +3,7 @@ package hu.finance.calculator
 import hu.finance.calculator.DebtToEquityCalculator.DebtToEquity
 import hu.finance.calculator.EarningPerShareCalculator.EarningPerShare
 import hu.finance.calculator.FreeCashFlowCalculator.FreeCashFlow
+import hu.finance.calculator.ReturnOnAssetsCalculator.ReturnOnAssets
 import hu.finance.calculator.ReturnOnEquityCalculator.ReturnOnEquity
 import hu.finance.calculator.ReturnOnTotalCapitalCalculator.ReturnOnTotalCapital
 import hu.finance.model.TimeSeries
@@ -140,6 +141,28 @@ class FreeCashFlowCalculator : Calculator<TimeSeries, List<FreeCashFlow>> {
                 )
             }
 }
+
+class ReturnOnAssetsCalculator : Calculator<TimeSeries, List<ReturnOnAssets>> {
+    data class ReturnOnAssets(
+        val date: Instant,
+        val roa: BigDecimal
+    )
+
+    override fun calculate(data: TimeSeries): List<ReturnOnAssets> =
+        data.annualNetIncomeCommonStockholders
+            .map { it to data.annualTotalAssets.matchDate(it) }
+            .filter { it.isNotEmpty() }
+            .map {
+                ReturnOnAssets(
+                    date = it.first.date,
+                    roa = FinanceCalculations.roa(
+                        netIncome = it.first.value,
+                        totalAssets = it.second!!.value
+                    )
+                )
+            }
+}
+
 
 private fun <A, B> Pair<A, B>.isNotEmpty() = !isEmpty()
 private fun <A, B> Pair<A, B>.isEmpty() = first == null || second == null

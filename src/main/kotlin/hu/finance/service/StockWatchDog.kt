@@ -37,9 +37,10 @@ class StockWatchDog(
             )
             val nowPrice = quote.quote.shareSummary.price.toDouble()
             val avgOpenPrice = quote.chart.quoteOpens.map { it.value.toDouble() }.average()
+            val ttmPE = quote.quote.shareSummary.ttmPE
 
             println("Stock company: $company, avg price: $avgOpenPrice, now price: $nowPrice")
-            if (nowPrice < (avgOpenPrice * threshold)) {
+            if (nowPrice < (avgOpenPrice * threshold) && ttmPE < 20.0) {
                 buildNotificationPopUp(company, avgOpenPrice, nowPrice)
             }
         } catch (ex: Exception) {

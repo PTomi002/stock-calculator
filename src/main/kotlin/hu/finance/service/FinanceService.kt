@@ -118,7 +118,8 @@ private fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
             open = summaryDetail!!.open!!.raw.toBigDecimal(),
             previousClose = summaryDetail.previousClose!!.raw.toBigDecimal(),
             currency = Currency.getInstance(price!!.currency),
-            price = financialData?.currentPrice?.raw?.toBigDecimal() ?: price.regularMarketPrice!!.raw.toBigDecimal()
+            price = financialData?.currentPrice?.raw?.toBigDecimal() ?: price.regularMarketPrice!!.raw.toBigDecimal(),
+            ttmPE = summaryDetail.trailingPE?.raw?.toDouble() ?: Double.NaN
         ),
         quoteSummary = QuoteSummary(
             longName = price.longName ?: "",
