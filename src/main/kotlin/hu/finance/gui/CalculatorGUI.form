@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="20">
     <margin top="20" left="20" bottom="20" right="20"/>
     <constraints>
-      <xy x="20" y="20" width="825" height="1805"/>
+      <xy x="20" y="20" width="810" height="2176"/>
     </constraints>
     <properties>
       <background color="-1"/>
@@ -239,7 +239,7 @@
           <color color="-4473925"/>
         </border>
         <children>
-          <grid id="a810d" layout-manager="GridLayoutManager" row-count="16" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="a810d" layout-manager="GridLayoutManager" row-count="23" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints/>
             <properties>
@@ -271,7 +271,7 @@
                 <properties>
                   <font name="JetBrains Mono" size="14"/>
                   <foreground color="-16777216"/>
-                  <text value="Return On Equity = sajáttőke-megtérülés"/>
+                  <text value="Return On Equity"/>
                 </properties>
               </component>
               <scrollpane id="c63c5">
@@ -325,7 +325,7 @@
                 <properties>
                   <font name="JetBrains Mono" size="14"/>
                   <foreground color="-16777216"/>
-                  <text value="Return On Total Capital = teljestőke-megtérülés"/>
+                  <text value="Return On Total Capital"/>
                 </properties>
               </component>
               <component id="6045b" class="javax.swing.JTextPane">
@@ -347,7 +347,7 @@
                 <properties>
                   <font name="JetBrains Mono" size="14"/>
                   <foreground color="-16777216"/>
-                  <text value="Earning Per Share = egy részvényre eső nyereség"/>
+                  <text value="Earning Per Share"/>
                 </properties>
               </component>
               <component id="9ae99" class="javax.swing.JTextPane">
@@ -359,7 +359,7 @@
                   <font name="JetBrains Mono" size="12"/>
                   <foreground color="-16777216"/>
                   <opaque value="false"/>
-                  <text value="A nyereség az elmúlt években fokozatosan nőtt?&#10;Hosszú távú versenyelőnnyel rendelkező cég EPS értéke&#10;   fokozatosan nő az évek során."/>
+                  <text value="Az egy részvényre eső nyereség az elmúlt években fokozatosan nőtt?&#10;Hosszú távú versenyelőnnyel rendelkező cég EPS értéke&#10;   fokozatosan nő az évek során."/>
                 </properties>
               </component>
               <scrollpane id="55efa">
@@ -386,7 +386,7 @@
                 <properties>
                   <font name="JetBrains Mono" size="14"/>
                   <foreground color="-16777216"/>
-                  <text value="Debt To Equity = tőkére vetített adósság aránya"/>
+                  <text value="Debt To Equity"/>
                 </properties>
               </component>
               <component id="4fa5d" class="javax.swing.JTextPane">
@@ -398,7 +398,7 @@
                   <font name="JetBrains Mono" size="12"/>
                   <foreground color="-16777216"/>
                   <opaque value="false"/>
-                  <text value="Nem irányadó, de 0.5 alatti vagy körüli értéket keresünk nem banki cégek esetén.&#10;Egy cég a hiteleit a Free Cash Flow mutatóból képes kifizetni."/>
+                  <text value="A tökére vetített adósság nem irányadó, de 0.5 alatti vagy&#10;   körüli értéket keresünk nem banki cégek esetén.&#10;Egy cég a hiteleit a Free Cash Flow mutatóból képes kifizetni."/>
                 </properties>
               </component>
               <scrollpane id="ce86b">
@@ -425,7 +425,7 @@
                 <properties>
                   <font name="JetBrains Mono" size="14"/>
                   <foreground color="-16777216"/>
-                  <text value="Free Cash Flow = pénztermelő képesség"/>
+                  <text value="Free Cash Flow"/>
                 </properties>
               </component>
               <component id="6d1b4" class="javax.swing.JTextPane">
@@ -474,6 +474,246 @@
                   </component>
                 </children>
               </scrollpane>
+              <component id="dbace" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="JetBrains Mono" size="14"/>
+                  <foreground color="-16777216"/>
+                  <text value="A megfelelő termék vagy szolgáltatás"/>
+                </properties>
+              </component>
+              <component id="4c462" class="javax.swing.JTextPane">
+                <constraints>
+                  <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <font name="JetBrains Mono" size="12"/>
+                  <foreground color="-16777216"/>
+                  <opaque value="false"/>
+                  <text value="1) Az üzleteknek szükségük van-e arra, hogy ezt a terméket forgalmazzák?&#10;2) Ha nem forgalmazza egy üzlet az adott terméket, akkor az árbevétel kiesést okoz?"/>
+                </properties>
+              </component>
+              <component id="49647" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="JetBrains Mono" size="14"/>
+                  <foreground color="-16777216"/>
+                  <text value="Van-e szakszervezet a cégnél, ha igen, akkor milyen erős?"/>
+                </properties>
+              </component>
+              <component id="57999" class="javax.swing.JTextPane">
+                <constraints>
+                  <grid row="19" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <font name="JetBrains Mono" size="12"/>
+                  <foreground color="-16777216"/>
+                  <opaque value="false"/>
+                  <text value="Erős szakszervezettel rendelkező cégeknek ritkán van tartós, hosszú távú&#10;   versenyelőnye. Az erős szakszervezetek a cég nyereségét a tevékenységükkel&#10;   jelentősen megvághatják mivel a bérek növekedésében érdekeltek."/>
+                </properties>
+              </component>
+              <component id="d1b51" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="JetBrains Mono" size="14"/>
+                  <foreground color="-16777216"/>
+                  <text value="Képes-e a vállalat árakat emelni az infláció mértékével?"/>
+                </properties>
+              </component>
+              <grid id="21ae7" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="22" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <opaque value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="c95d9" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="Év:"/>
+                    </properties>
+                  </component>
+                  <hspacer id="c2d04">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <hspacer id="fc358">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <component id="90a3d" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="Termék ár:"/>
+                    </properties>
+                  </component>
+                  <component id="d7aa7" class="javax.swing.JTextField" binding="startYear">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-6559745"/>
+                      <foreground color="-16777216"/>
+                      <text value="2000"/>
+                    </properties>
+                  </component>
+                  <component id="1e530" class="javax.swing.JTextField" binding="endYear">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-6559745"/>
+                      <foreground color="-16777216"/>
+                      <selectedTextColor color="-16777216"/>
+                      <text value="2010"/>
+                    </properties>
+                  </component>
+                  <component id="6e946" class="javax.swing.JButton" binding="calculateInflation">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <actionCommand value="calculateInflation"/>
+                      <borderPainted value="true"/>
+                      <text value="Számol"/>
+                    </properties>
+                  </component>
+                  <component id="57d25" class="javax.swing.JTextField" binding="startPrice">
+                    <constraints>
+                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-6559745"/>
+                      <foreground color="-16777216"/>
+                      <text value="0.80"/>
+                    </properties>
+                  </component>
+                  <component id="f6ac9" class="javax.swing.JTextField" binding="endPrice">
+                    <constraints>
+                      <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-6559745"/>
+                      <foreground color="-16777216"/>
+                      <text value="2.50"/>
+                    </properties>
+                  </component>
+                  <hspacer id="872ce">
+                    <constraints>
+                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <component id="cb4ff" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="Ár növekedés:"/>
+                    </properties>
+                  </component>
+                  <component id="6ed45" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="Évek száma:"/>
+                    </properties>
+                  </component>
+                  <component id="b94bd" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="Éves szinten az átlagos növekedés:"/>
+                    </properties>
+                  </component>
+                  <component id="bf74c" class="javax.swing.JLabel" binding="priceGrowth">
+                    <constraints>
+                      <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="ár növekedés"/>
+                    </properties>
+                  </component>
+                  <component id="7b19c" class="javax.swing.JLabel" binding="years">
+                    <constraints>
+                      <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="évek száma"/>
+                    </properties>
+                  </component>
+                  <component id="7d1cb" class="javax.swing.JLabel" binding="avgPriceGrowth">
+                    <constraints>
+                      <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="JetBrains Mono" size="14"/>
+                      <foreground color="-16777216"/>
+                      <text value="éves növekedés"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <component id="9cd52" class="javax.swing.JTextPane">
+                <constraints>
+                  <grid row="21" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <font name="JetBrains Mono" size="12"/>
+                  <foreground color="-16777216"/>
+                  <opaque value="false"/>
+                  <text value="Érdemes összehasonlítani az éves infláció %-os mértékével."/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

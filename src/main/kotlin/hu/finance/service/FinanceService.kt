@@ -9,11 +9,17 @@ import hu.finance.api.dto.TimeSeriesDataDto
 import hu.finance.api.dto.TimeSeriesDto
 import hu.finance.model.*
 import java.time.Instant
-import java.time.LocalDate
 import java.time.ZoneOffset
+import java.time.format.DateTimeFormatterBuilder
+import java.time.temporal.ChronoField
 import java.util.*
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ExecutorService
+
+private val formatter = DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd")
+    .parseDefaulting(ChronoField.NANO_OF_DAY, 0)
+    .toFormatter()
+    .withZone(ZoneOffset.UTC)
 
 interface Finances {
     fun loadQuote(
@@ -108,7 +114,7 @@ private fun TimeSeriesDto.toTimeSeries() = timeseries?.result
     } ?: TimeSeries()
 
 private fun TimeSeriesDataDto.toTimeSeriesData() = TimeSeriesData(
-    date = LocalDate.parse(asOfDate!!).atStartOfDay().toInstant(ZoneOffset.UTC),
+    date = formatter.parse(asOfDate!!, Instant::from),
     value = reportedValue!!.raw.toBigDecimal()
 )
 

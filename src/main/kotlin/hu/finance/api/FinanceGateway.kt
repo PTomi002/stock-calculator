@@ -45,6 +45,9 @@ class YahooApi(
         const val CHARTS_HOST = "https://query1.finance.yahoo.com/v8"
     }
 
+    private val tsPath = JsonPath.compile("\$.chart.result[0].timestamp")
+    private val openQuotesPath = JsonPath.compile("\$.chart.result[0].indicators.quote[0].open")
+    private val splitEventsPath = JsonPath.compile("\$.chart.result[0].events.splits")
     private val client = OkHttpClient
         .Builder()
         .connectionSpecs(
@@ -109,10 +112,10 @@ class YahooApi(
             .use { requireNotNull(it.allowStatus(200).body) { "API response body can not be empty!" }.string() }
             .let { JsonPath.parse(it) }
             .let {
-                val timestamps = it.readWith<JSONArray>("\$.chart.result[0].timestamp")
-                val openQuotes = it.readWith<JSONArray>("\$.chart.result[0].indicators.quote[0].open")
+                val timestamps = it.readWith<JSONArray>(tsPath)
+                val openQuotes = it.readWith<JSONArray>(openQuotesPath)
                 ChartDto(
-                    splitEvents = it.readWith<NestedMap>("\$.chart.result[0].events.splits")?.toSplitEvent(),
+                    splitEvents = it.readWith<NestedMap>(splitEventsPath)?.toSplitEvent(),
                     quoteOpens = timestamps?.zip(openQuotes ?: emptyList())?.toChartDataDto()
                 )
             }
@@ -120,7 +123,7 @@ class YahooApi(
 
 }
 
-private fun <T> ReadContext.readWith(path: String) =
+private fun <T> ReadContext.readWith(path: JsonPath) =
     try {
         read<T>(path)
     } catch (ex: PathNotFoundException) {

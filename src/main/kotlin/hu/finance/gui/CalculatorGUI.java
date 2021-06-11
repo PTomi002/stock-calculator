@@ -20,6 +20,14 @@ public class CalculatorGUI extends JFrame {
     private JLabel quoteTypeLabel;
     private JLabel peLabel;
     private JTable roaTable;
+    private JTextField startYear;
+    private JTextField endYear;
+    private JButton calculateInflation;
+    private JLabel priceGrowth;
+    private JTextField startPrice;
+    private JTextField endPrice;
+    private JLabel years;
+    private JLabel avgPriceGrowth;
     private JMenuBar menuBar;
     private JMenu menu;
     private JMenuItem loadQuote;
@@ -48,6 +56,38 @@ public class CalculatorGUI extends JFrame {
         menuBar = new JMenuBar();
         menuBar.add(menu);
         setJMenuBar(menuBar);
+    }
+
+    public JTextField getStartYear() {
+        return startYear;
+    }
+
+    public JTextField getEndYear() {
+        return endYear;
+    }
+
+    public JLabel getPriceGrowth() {
+        return priceGrowth;
+    }
+
+    public JTextField getStartPrice() {
+        return startPrice;
+    }
+
+    public JTextField getEndPrice() {
+        return endPrice;
+    }
+
+    public JLabel getYears() {
+        return years;
+    }
+
+    public JLabel getAvgPriceGrowth() {
+        return avgPriceGrowth;
+    }
+
+    public JButton getCalculateInflation() {
+        return calculateInflation;
     }
 
     public JLabel getPeLabel() {

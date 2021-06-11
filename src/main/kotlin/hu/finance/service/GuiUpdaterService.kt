@@ -19,9 +19,11 @@ import java.time.ZoneOffset.UTC
 import java.time.ZonedDateTime.ofInstant
 import java.util.concurrent.locks.ReentrantLock
 import javax.annotation.concurrent.GuardedBy
+import javax.swing.JButton
 import javax.swing.JMenuItem
 import javax.swing.JOptionPane
 import javax.swing.table.DefaultTableModel
+import kotlin.math.pow
 import kotlin.properties.Delegates.notNull
 
 /**
@@ -49,6 +51,26 @@ class GuiUpdaterService {
 
     fun attachLoadQuote(jMenuItem: JMenuItem) = jMenuItem.addActionListener { loadQuote() }
 
+    fun attachCalculateInflation(jButton: JButton) = jButton.addActionListener { calculateInflation() }
+
+    private fun calculateInflation() = calcGui.apply {
+        try {
+            val yearsNumber = endYear.text.toInt() - startYear.text.toInt()
+            val pGrowth = endPrice.text.toDouble() / startPrice.text.toDouble()
+
+            years.text = "$yearsNumber"
+            priceGrowth.text = "$pGrowth"
+            avgPriceGrowth.text = "${(pGrowth.pow((1.0 / yearsNumber)) -1) * 100} % növekedés"
+        } catch (ex: NumberFormatException) {
+            ex.printStackTrace()
+            JOptionPane.showMessageDialog(
+                null,
+                "Hiba történt: valós számokat adj meg: ${ex.message}"
+            )
+        }
+    }
+
+
     private fun loadQuote() {
         JOptionPane.showInputDialog("Company ticker?")
             .takeIf { !it.isNullOrEmpty() }
@@ -57,11 +79,11 @@ class GuiUpdaterService {
                     loader = { finances.loadQuote(this) },
                     callback = { workerResult ->
                         if (!workerResult.result) {
+                            workerResult.error!!.printStackTrace()
                             JOptionPane.showMessageDialog(
                                 null,
                                 "Hiba történt!"
                             )
-                            workerResult.error!!.printStackTrace()
                         } else {
                             lock.withLock { cqCache = workerResult.data!! }
                             cqCache!!.run {

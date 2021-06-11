@@ -24,6 +24,7 @@ fun main(args: Array<String>) {
     guiUpdater.chartsGui = chGui
     guiUpdater.finances = finances
 
+    guiUpdater.attachCalculateInflation(cGui.calculateInflation)
     guiUpdater.attachLoadQuote(cGui.loadQuote)
 
     if (args.contains("start-watcher")) {
