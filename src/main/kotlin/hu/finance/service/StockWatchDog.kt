@@ -3,6 +3,9 @@ package hu.finance.service
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import hu.finance.gui.NotificationGUI
+import java.awt.SystemTray
+import java.awt.Toolkit
+import java.awt.TrayIcon
 import java.time.Duration
 import java.time.ZoneOffset.UTC
 import java.time.ZonedDateTime.now
@@ -10,7 +13,7 @@ import kotlin.concurrent.timer
 
 class StockWatchDog(
     private val finances: Finances,
-    private val threshold: Double = 0.7
+    private val threshold: Double = 0.8
 ) {
 
     init {
@@ -33,7 +36,7 @@ class StockWatchDog(
         try {
             val quote = finances.loadQuote(
                 ticker = company,
-                chStart = now(UTC).minusYears(7).toInstant()
+                chStart = now(UTC).minusYears(1).toInstant()
             )
             val nowPrice = quote.quote.shareSummary.price.toDouble()
             val avgOpenPrice = quote.chart.quoteOpens.map { it.value.toDouble() }.average()
@@ -49,6 +52,20 @@ class StockWatchDog(
     }
 
     private fun buildNotificationPopUp(company: String, avgOpenPrice: Double, nowPrice: Double) {
-        NotificationGUI("Notification", company, avgOpenPrice, nowPrice)
+        if (SystemTray.isSupported()) {
+            val tray = SystemTray.getSystemTray()
+            val image = Toolkit.getDefaultToolkit().createImage("icon.png")
+            val trayIcon = TrayIcon(image, "Calculator Notification").apply {
+                isImageAutoSize = true
+                toolTip = "Calculator Notification"
+            }
+
+            tray.add(trayIcon)
+            trayIcon.displayMessage(
+                "Stock Price ALert",
+                String.format(NotificationGUI.MESSAGE, company, avgOpenPrice, nowPrice),
+                TrayIcon.MessageType.INFO
+            )
+        } else NotificationGUI("Notification", company, avgOpenPrice, nowPrice)
     }
 }

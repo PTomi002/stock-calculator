@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NotificationGUI extends JFrame {
-    private static final String MESSAGE = "Részvény vétel lehetőség: %s, átlagos ár: %s, jelenlegi ár: %s";
+    public static final String MESSAGE = "Részvény vétel lehetőség: %s, átlagos ár: %s, jelenlegi ár: %s";
 
     private JPanel mainPanel;
     private JPanel notificationPanel;
