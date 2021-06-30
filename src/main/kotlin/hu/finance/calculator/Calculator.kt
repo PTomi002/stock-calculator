@@ -1,5 +1,6 @@
 package hu.finance.calculator
 
+import hu.finance.calculator.BookValueCalculator.BookValue
 import hu.finance.calculator.DebtToEquityCalculator.DebtToEquity
 import hu.finance.calculator.EarningPerShareCalculator.EarningPerShare
 import hu.finance.calculator.FreeCashFlowCalculator.FreeCashFlow
@@ -163,6 +164,26 @@ class ReturnOnAssetsCalculator : Calculator<TimeSeries, List<ReturnOnAssets>> {
             }
 }
 
+class BookValueCalculator : Calculator<TimeSeries, List<BookValue>> {
+    data class BookValue(
+        val date: Instant,
+        val bv: BigDecimal
+    )
+
+    override fun calculate(data: TimeSeries): List<BookValue> =
+        data.annualStockholdersEquity
+            .map { it to data.annualShareIssued.matchDate(it) }
+            .filter { it.isNotEmpty() }
+            .map {
+                BookValue(
+                    date = it.first.date,
+                    bv = FinanceCalculations.bv(
+                        stockHolderEquity = it.first.value,
+                        numOfShare = it.second!!.value
+                    )
+                )
+            }
+}
 
 private fun <A, B> Pair<A, B>.isNotEmpty() = !isEmpty()
 private fun <A, B> Pair<A, B>.isEmpty() = first == null || second == null

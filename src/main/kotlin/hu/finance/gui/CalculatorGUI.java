@@ -28,6 +28,7 @@ public class CalculatorGUI extends JFrame {
     private JTextField endPrice;
     private JLabel years;
     private JLabel avgPriceGrowth;
+    private JTable bookValueTable;
     private JMenuBar menuBar;
     private JMenu menu;
     private JMenuItem loadQuote;
@@ -56,6 +57,10 @@ public class CalculatorGUI extends JFrame {
         menuBar = new JMenuBar();
         menuBar.add(menu);
         setJMenuBar(menuBar);
+    }
+
+    public JTable getBookValueTable() {
+        return bookValueTable;
     }
 
     public JTextField getStartYear() {

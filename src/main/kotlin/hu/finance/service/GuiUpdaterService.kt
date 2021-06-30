@@ -48,6 +48,7 @@ class GuiUpdaterService {
     private val dteCalculator = DebtToEquityCalculator()
     private val flowCalculator = FreeCashFlowCalculator()
     private val roaCalculator = ReturnOnAssetsCalculator()
+    private val bvCalculator = BookValueCalculator()
 
     fun attachLoadQuote(jMenuItem: JMenuItem) = jMenuItem.addActionListener { loadQuote() }
 
@@ -55,12 +56,12 @@ class GuiUpdaterService {
 
     private fun calculateInflation() = calcGui.apply {
         try {
-            val yearsNumber = endYear.text.toInt() - startYear.text.toInt()
-            val pGrowth = endPrice.text.toDouble() / startPrice.text.toDouble()
+            val yearsNumber = endYear.text.trim().toInt() - startYear.text.trim().toInt()
+            val pGrowth = endPrice.text.trim().toDouble() / startPrice.text.trim().toDouble()
 
             years.text = "$yearsNumber"
-            priceGrowth.text = "$pGrowth"
-            avgPriceGrowth.text = "${(pGrowth.pow((1.0 / yearsNumber)) -1) * 100} % növekedés"
+            priceGrowth.text = formatter.format(pGrowth)
+            avgPriceGrowth.text = "${formatter.format((pGrowth.pow((1.0 / yearsNumber)) -1) * 100)} % növekedés"
         } catch (ex: NumberFormatException) {
             ex.printStackTrace()
             JOptionPane.showMessageDialog(
@@ -69,7 +70,6 @@ class GuiUpdaterService {
             )
         }
     }
-
 
     private fun loadQuote() {
         JOptionPane.showInputDialog("Company ticker?")
@@ -92,6 +92,7 @@ class GuiUpdaterService {
                                 updateRotcTable(timeSeries)
                                 updateRoaTable(timeSeries)
                                 updateEpsTable(this)
+                                updateBookValueTable(this)
                                 updateDetTable(timeSeries)
                                 updateFcfTable(timeSeries)
                                 updateChart(this)
@@ -99,6 +100,18 @@ class GuiUpdaterService {
                         }
                     }).execute()
             }
+    }
+
+    private fun updateBookValueTable(composite: CompositeQuote) {
+        bvCalculator.calculate(composite.timeSeries)
+            .sortedByDescending { it.date }
+            .map {
+                listOf(
+                    ofInstant(it.date, UTC).year,
+                    "${formatter.format(it.bv)} ${composite.quote.shareSummary.currency}"
+                ).toTypedArray()
+            }
+            .run { calcGui.bookValueTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "Book Value")) }
     }
 
     private fun updateRoaTable(timeSeries: TimeSeries) {

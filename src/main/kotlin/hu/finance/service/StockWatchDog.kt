@@ -12,15 +12,8 @@ import java.time.ZonedDateTime.now
 import kotlin.concurrent.timer
 
 class StockWatchDog(
-    private val finances: Finances,
-    private val threshold: Double = 0.8
+    private val finances: Finances
 ) {
-
-    init {
-        val range = 0.0..1.0
-        check(threshold in range) { "Threshold must be within range: $range" }
-    }
-
     private val companies by lazy {
         jacksonObjectMapper().readValue<List<String>>(javaClass.getResource("/daemon/companies.json")!!)
     }
@@ -28,7 +21,7 @@ class StockWatchDog(
     fun start() = timer(
         name = "stock-watchdog",
         daemon = true,
-        initialDelay = Duration.ofSeconds(10).toMillis(),
+        initialDelay = Duration.ofSeconds(0).toMillis(),
         period = Duration.ofHours(1).toMillis()
     ) { companies.forEach { watch(it) } }
 
@@ -43,7 +36,7 @@ class StockWatchDog(
             val ttmPE = quote.quote.shareSummary.ttmPE
 
             println("Stock company: $company, avg price: $avgOpenPrice, now price: $nowPrice")
-            if (nowPrice < (avgOpenPrice * threshold) && ttmPE < 20.0) {
+            if (nowPrice < avgOpenPrice && ttmPE < 25.0) {
                 buildNotificationPopUp(company, avgOpenPrice, nowPrice)
             }
         } catch (ex: Exception) {

@@ -5,7 +5,7 @@ import java.math.RoundingMode.HALF_EVEN
 
 object FinanceCalculations {
     private const val SCALE = 3
-    private val HUNDRED = 100.0.toBigDecimal()
+    val HUNDRED = 100.0.toBigDecimal()
 
     private fun BigDecimal.toPercent() = multiply(HUNDRED)
 
@@ -28,6 +28,9 @@ object FinanceCalculations {
 
     fun fcf(cashFlowFromOperations: BigDecimal, capitalExpenditure: BigDecimal): BigDecimal =
         cashFlowFromOperations.subtract(capitalExpenditure.abs())
+
+    fun bv(stockHolderEquity: BigDecimal, numOfShare: BigDecimal): BigDecimal =
+        stockHolderEquity.divWith(numOfShare)
 
     fun BigDecimal.divWith(other: BigDecimal): BigDecimal = divide(other, SCALE, HALF_EVEN)
 }
