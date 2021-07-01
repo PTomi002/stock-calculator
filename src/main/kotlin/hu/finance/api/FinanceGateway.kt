@@ -142,7 +142,6 @@ private fun List<Pair<*, *>>.toChartDataDto() =
                 }
             )
         } catch (ex: Exception) {
-            ex.printStackTrace()
             null
         }
     }

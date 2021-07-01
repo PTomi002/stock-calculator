@@ -3,7 +3,6 @@ package hu.finance.gui;
 import javax.swing.*;
 import java.awt.*;
 
-@SuppressWarnings("UnstableApiUsage")
 public class CalculatorGUI extends JFrame {
     private JPanel mainPanel;
     private JLabel quoteLabel;
@@ -29,6 +28,7 @@ public class CalculatorGUI extends JFrame {
     private JLabel years;
     private JLabel avgPriceGrowth;
     private JTable bookValueTable;
+    private JTable sharesTable;
     private JMenuBar menuBar;
     private JMenu menu;
     private JMenuItem loadQuote;
@@ -57,6 +57,10 @@ public class CalculatorGUI extends JFrame {
         menuBar = new JMenuBar();
         menuBar.add(menu);
         setJMenuBar(menuBar);
+    }
+
+    public JTable getSharesTable() {
+        return sharesTable;
     }
 
     public JTable getBookValueTable() {

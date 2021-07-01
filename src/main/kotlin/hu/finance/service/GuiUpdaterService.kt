@@ -1,6 +1,7 @@
 package hu.finance.service
 
 import hu.finance.calculator.*
+import hu.finance.gui.CalculationsGUI
 import hu.finance.gui.CalculatorGUI
 import hu.finance.gui.ChartsGUI
 import hu.finance.gui.util.AutoCloseableLock
@@ -34,6 +35,7 @@ import kotlin.properties.Delegates.notNull
 class GuiUpdaterService {
     var calcGui: CalculatorGUI by notNull()
     var chartsGui: ChartsGUI by notNull()
+    var calculationsGUI: CalculationsGUI by notNull()
     var finances: Finances by notNull()
     private val lock = AutoCloseableLock(ReentrantLock())
     private val formatter = DecimalFormat("#,###.00");
@@ -63,7 +65,6 @@ class GuiUpdaterService {
             priceGrowth.text = formatter.format(pGrowth)
             avgPriceGrowth.text = "${formatter.format((pGrowth.pow((1.0 / yearsNumber)) -1) * 100)} % növekedés"
         } catch (ex: NumberFormatException) {
-            ex.printStackTrace()
             JOptionPane.showMessageDialog(
                 null,
                 "Hiba történt: valós számokat adj meg: ${ex.message}"
@@ -79,10 +80,9 @@ class GuiUpdaterService {
                     loader = { finances.loadQuote(this) },
                     callback = { workerResult ->
                         if (!workerResult.result) {
-                            workerResult.error!!.printStackTrace()
                             JOptionPane.showMessageDialog(
                                 null,
-                                "Hiba történt!"
+                                "Hiba történt: [${workerResult.error!!.message!!}]!"
                             )
                         } else {
                             lock.withLock { cqCache = workerResult.data!! }
@@ -96,10 +96,18 @@ class GuiUpdaterService {
                                 updateDetTable(timeSeries)
                                 updateFcfTable(timeSeries)
                                 updateChart(this)
+                                updateSharesTable(timeSeries)
                             }
                         }
                     }).execute()
             }
+    }
+
+    private fun updateSharesTable(timeSeries: TimeSeries) {
+        timeSeries.annualShareIssued
+            .sortedByDescending { it.date }
+            .map { listOf(ofInstant(it.date, UTC).year, "${formatter.format(it.value)} piece").toTypedArray() }
+            .run { calcGui.sharesTable.model = DefaultTableModel(toTypedArray(), arrayOf("Év", "Share Issued")) }
     }
 
     private fun updateBookValueTable(composite: CompositeQuote) {

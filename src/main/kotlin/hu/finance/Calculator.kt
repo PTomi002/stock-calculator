@@ -9,6 +9,7 @@ import hu.finance.gui.ChartsGUI
 import hu.finance.service.FinanceService
 import hu.finance.service.GuiUpdaterService
 import hu.finance.service.StockWatchDog
+import hu.finance.service.StockWatchDogConfig
 import java.util.concurrent.Executors
 
 fun main(args: Array<String>) {
@@ -29,7 +30,8 @@ fun main(args: Array<String>) {
 
     if (args.contains("start-watcher")) {
         StockWatchDog(
-            finances = finances
+            finances = finances,
+            config = StockWatchDogConfig()
         ).start()
     }
 }
