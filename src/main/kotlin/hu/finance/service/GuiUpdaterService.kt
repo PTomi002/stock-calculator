@@ -14,6 +14,7 @@ import org.jfree.chart.ChartPanel
 import org.jfree.chart.axis.CategoryLabelPositions.DOWN_90
 import org.jfree.chart.plot.PlotOrientation.VERTICAL
 import org.jfree.data.category.DefaultCategoryDataset
+import org.slf4j.LoggerFactory
 import java.awt.BorderLayout
 import java.text.DecimalFormat
 import java.time.ZoneOffset.UTC
@@ -37,8 +38,10 @@ class GuiUpdaterService {
     var chartsGui: ChartsGUI by notNull()
     var calculationsGUI: CalculationsGUI by notNull()
     var finances: Finances by notNull()
+
     private val lock = AutoCloseableLock(ReentrantLock())
     private val formatter = DecimalFormat("#,###.00");
+    private val logger = LoggerFactory.getLogger(javaClass)
 
     @Volatile
     @GuardedBy(value = "lock")
@@ -80,9 +83,10 @@ class GuiUpdaterService {
                     loader = { finances.loadQuote(this) },
                     callback = { workerResult ->
                         if (!workerResult.result) {
+                            logger.error("Can not load quote!", workerResult.error!!)
                             JOptionPane.showMessageDialog(
                                 null,
-                                "Hiba történt: [${workerResult.error!!.message!!}]!"
+                                "Hiba történt: [${workerResult.error.message!!}]!"
                             )
                         } else {
                             lock.withLock { cqCache = workerResult.data!! }

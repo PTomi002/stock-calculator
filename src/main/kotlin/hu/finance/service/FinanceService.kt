@@ -129,7 +129,7 @@ private fun QuoteDto.toQuote() = quoteSummary!!.result!!.first().run {
         ),
         quoteSummary = QuoteSummary(
             longName = price.longName ?: "",
-            shortName = price.shortName!!,
+            shortName = price.shortName ?: "",
             exchange = price.exchangeName!!,
             type = price.quoteType!!
         )
